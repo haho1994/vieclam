@@ -54,6 +54,7 @@ class AdminQuanlyCompanies extends Controller {
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['user_id'] = auth()->user()->id;
+        dd($dulieu);
         Company::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');

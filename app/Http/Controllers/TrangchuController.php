@@ -118,33 +118,52 @@ class TrangchuController extends Controller {
         $email = request()->get('email');
         $password = request()->get('password');
         //'is_admin' =1;
-        if (\Auth::attempt(['email' => $email, 'password' => $password, 'is_admin' => 1])) {
+        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Nếu đăng nhập đúng
+            return redirect()->route('admin.quanly_companies');
+        }
+        //Nếu đăng nhập sai
+        return redirect()->route('dangky');
+    }
+    
+    public function doiMatKhau(){
+        return view('taikhoan.doipass');
+    }
+    public function xuLyDoiMatKhau(){
+        $email = request()->get('email');
+        $password = request()->get('password');
+        //'is_admin' =1;
+        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
             // Nếu đăng nhập đúng
             return redirect()->route('dangnhap');
         }
         //Nếu đăng nhập sai
         return redirect()->route('dangky');
-    }
+        
+        $dulieu = request()->all();
+        $quyluat = [
+            'password_news' => 'required',
+            'password_confirmation' => 'required|same:password_news',
+        ];
 
-//     public function xuLyDangNhap(login $request){
-//         $login = array(
-//             'email' => $request -> email,
-//             'password' => $request -> password    
-//         );
-//         if($this -> auth -> attempt($login))
-//         {
-//             echo "hello";
-//         }
-//         else
-//         {
-//            return redirect() -> back(); 
-//         }
-//     }
-    
-    public function admin() {
-        return view('admin.headerfooter');
-    }
+        $thongbao = [
+            
+            'password_news.required' => 'Mật khẩu bắt buộc phải nhập',
+            'password_confirmation.required' => 'Nhập lại mật khẩu bắt buộc phải nhập',
+            'password_confirmation.same' => 'Nhập lại mật khẩu phải trùng ở trên',
+            
+        ];
 
+        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
+        if ($xuly->fails()) {
+            return redirect()->route('dangky')->withErrors($xuly);
+        }
+
+        $user = new \App\User;
+        $user->password = \Hash::make($dulieu['password']);
+        $user->save();
+        return redirect()->route('dangky');
+    }
     
 
 }

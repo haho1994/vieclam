@@ -243,7 +243,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
     margin-right: auto;
     margin-left: auto;
 }
-
+//dangki, dangnhap
 body {
   background:#FFFFFF no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -348,6 +348,7 @@ body {
   font-size: 12px;
 }
 
+//timkiem
 .search_form{
     margin-top:50px;
     margin-left: 50px;
@@ -392,9 +393,6 @@ body {
 }
 #scroll_box p{
     margin-left: 50px;
-}
-.has-error p {
-    color: red;
 }
 
 

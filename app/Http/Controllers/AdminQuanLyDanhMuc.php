@@ -6,6 +6,24 @@ use App\Http\Controllers\Controller;
 use \App\Category;
 
 class AdminQuanLyDanhMuc extends Controller {
+    
+    //login
+    public function login() {
+        return view('admin.dangnhap_admin.login');
+    }
+
+    public function xuLyLogin() {
+        $email = request()->get('email');
+        $password = request()->get('password');
+        if (\Auth::attempt(['email' => $email, 'password' => $password, 'is_admin' => 1])) {
+            // Nếu đăng nhập đúng
+            return redirect()->route('admin_login');
+           // echo 'dang nhap hanh cong';
+        }
+        //Nếu đăng nhập sai
+        return redirect()->route('admin_login');
+    }
+    
 
     //danh sach
     public function index() {

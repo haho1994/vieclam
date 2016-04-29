@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model {
+class User extends Authenticatable {
     
    protected $table = 'users';
    
@@ -20,6 +20,12 @@ class User extends Model {
        'address',
        
    ];
-  
+    //protected $table = 'users';
+    public $timestamps = false;
+    protected $guarded = array();
+     
+    public function user(){
+        return $this->belongsTo('Locaton','id_location');
+    }
    
 }
