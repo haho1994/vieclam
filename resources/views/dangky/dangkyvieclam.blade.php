@@ -21,42 +21,66 @@
                 ?>
             </p>
         </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}"> 
         <input name='password' type="password" placeholder="Mật Khẩu" class="form-control" />
+        <p>
         <?php
         if ($errors->has('password')) {
             echo $errors->first('password');
         }
         ?>
+        </p>
+        </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
         <input name='password_confirmation' type="password" placeholder="Nhập Lại Mật Khẩu" class="form-control"/>
+        <p>
         <?php
         if ($errors->has('password_confirmation')) {
             echo $errors->first('password_confirmation');
         }
         ?>
+        </p>
+        </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
         <input type="text"  name='brithday' type="text" placeholder="Ngày Sinh" path="dob" class="form-control"/>
+        <p>
         <?php
         if ($errors->has('brithday')) {
             echo $errors->first('brithday');
         }
         ?>
+        </p>
+        </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
         <input type="text" name="email" placeholder="Email" type="text" path="email" class="form-control"/>
+        <p>
         <?php
         if ($errors->has('email')) {
             echo $errors->first('email');
         }
         ?>
+        </p>
+        </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
         <input type="text" name="phone" placeholder="Số Điện Thoại" type="text" path="phone" class="form-control"/> 
+        <p>
         <?php
         if ($errors->has('phone')) {
             echo $errors->first('phone');
         }
         ?>
+        </p>
+        </div>
+        <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
         <input type = "text" name = 'address' placeholder = "Địa Chỉ" type = "text" class="form-control"/>
+        <p>
         <?php
         if ($errors->has('address')) {
             echo $errors->first('address');
         }
         ?>
+        <p>
+        </div>
         <input type="submit" name="dangky" class="login login-submit" value="Đăng Kí"/>               
     </form>           
 </div>

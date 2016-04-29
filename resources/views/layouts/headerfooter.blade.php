@@ -45,6 +45,8 @@
                 @yield('dn')
                 @yield('timkiem')
                 @yield('them')
+                @yield('login')
+                @yield('doimatkhau')
             </div>
             <div id="footer">
                 Copyright &copy; Địa Chỉ: 02 Thanh Sơn | <a href="">Trợ Giúp</a> | <a href="">Liên Hệ</a> | <a href="">Quy Định Bảo Mật</a>

@@ -42,26 +42,40 @@ Route::post('dangky-vieclam', [
 //    'uses' => 'TrangchuController@xuLyXoa'
 //]);
 
+
 //admin
 Route::get('admin', [
     'as' => 'admin',
     'uses' => 'TrangchuController@admin'
 ]);
 
+
 Route::get('dangnhap', [
     'as' => 'dangnhap',
     'uses' => 'TrangchuController@dangNhapTaiKhoan'
 ]);
-Route::post('dangnhap',[
+Route::post('dangnhap', [
     'as' => 'xuly.dangnhap',
     'uses' => 'TrangchuController@xuLyDangNhap'
 ]);
 
-Route::get('timkiem_vieclam',function()
-{
+
+       
+Route::get('timkiem-vieclam', function() {
     return view('timkiem.timkiemvieclam');
 });
-        
+
+Route::get('admin/login', [
+    'as' => 'admin_login',
+    'uses' => 'AdminQuanlyDanhMuc@login'
+]);
+Route::post('admin/login', [
+    'as' => 'admin.login',
+    'uses' => 'AdminQuanlyDanhMuc@xuLyLogin'
+]);
+
+//danh muc
+
 Route::get('admin/quanly-danhmuc', [
     'as' => 'admin.quanly_danhmuc',
     'uses' => 'AdminQuanlyDanhMuc@index'
@@ -189,3 +203,58 @@ Route::get('admin/kynang/xoa/{id}', [
     'as' => 'admin.quanly-kynang.xoa',
     'uses' => 'AdminQuanLyKyNang@destroy'
 ]);
+
+
+
+
+//capnhaptaikhoan
+
+Route::get('taikhoan/doimatkhau', [
+    'as' => 'doimatkhau',
+    'uses' => 'TrangchuController@doiMatKhau'
+]);
+Route::post('taikhoan/doimatkhau', [
+    'as' => 'xuly.doimatkhau',
+    'uses' => 'TrangchuController@xuLyDoiMatKhau'
+]);
+
+Route::get('/test', function() {
+    dd(App\User::class);
+});
+
+Route::get('admin/logout', function() {
+    Auth::logout();
+    return redirect()->route('admin_login');
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    //company
+    Route::get('admin/quanly-companies', [
+        'as' => 'admin.quanly_companies',
+        'uses' => 'AdminQuanlyCompanies@index'
+    ]);
+    Route::get('admin/quanly-companies/them', [
+        'as' => 'admin.quanly_companies.them',
+        'uses' => 'AdminQuanlyCompanies@create'
+    ]);
+
+    Route::post('admin/quanly-companies/them', [
+        'as' => 'admin.quanly_companies.xuly',
+        'uses' => 'AdminQuanlyCompanies@store'
+    ]);
+
+    Route::get('admin/quanly-companies/sua/{id}', [
+        'as' => 'admin.quanly_companies.sua',
+        'uses' => 'AdminQuanlyCompanies@edit'
+    ]);
+
+    Route::post('admin/quanly-companies/luu/{id}', [
+        'as' => 'admin.quanly_companies.luu',
+        'uses' => 'AdminQuanlyCompanies@update'
+    ]);
+
+    Route::get('admin/quanly-companies/xoa/{id}', [
+        'as' => 'admin.quanly_companies.xoa',
+        'uses' => 'AdminQuanlyCompanies@destroy'
+    ]);
+});
