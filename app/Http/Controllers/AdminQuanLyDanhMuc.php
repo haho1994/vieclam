@@ -17,7 +17,7 @@ class AdminQuanLyDanhMuc extends Controller {
         $password = request()->get('password');
         if (\Auth::attempt(['email' => $email, 'password' => $password, 'is_admin' => 1])) {
             // Nếu đăng nhập đúng
-            return redirect()->route('admin_login');
+            return redirect()->route('admin.quanly_danhmuc');
            // echo 'dang nhap hanh cong';
         }
         //Nếu đăng nhập sai
@@ -62,7 +62,8 @@ class AdminQuanLyDanhMuc extends Controller {
         if ($xuly->fails()) {
             return redirect()->route('admin.quanly_danhmuc.them')->withErrors($xuly);
         }
-
+        $dulieu['user_id'] = auth()->user()->id;
+       // dd($dulieu);
         Category::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');

@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Company;
-class AdminQuanlyCompanies extends Controller {
+use App\Curriculumvita;
+class AdminQuanlyCurriculumvitaes extends Controller {
     
     //danh sach
     public function index() {
-        $company = Company::all();
-        return view('admin.congty.index')->with([
-                    'congty' => $company
+        $curriculumvitaes = Curriculumvita::all();
+        return view('admin.hoso.index')->with([
+                    'hoso' => $curriculumvitaes
         ]);
     }
 
     //create
     public function create() {
-        return view('admin.congty.create');
+        return view('admin.hoso.create');
     }
 
     public function store() {
@@ -24,6 +24,7 @@ class AdminQuanlyCompanies extends Controller {
         $quyluat = [
             'name' => 'required',
             'address' => 'required',
+            'id_location'=> 'integer|min:1',
             'email' => 'required|email|unique:companies',
             'phone'=> 'required|between:10,12',
         ];
@@ -31,6 +32,8 @@ class AdminQuanlyCompanies extends Controller {
         $thongbao = [
             'name.required' => 'Tên không được để trống',
             'address.required' => 'Địa chỉ không được để trống',
+            'id_location.integer' => 'Thuộc công ty không đúng định dạng',
+            'id_location.min' => 'Thuộc công ty không đúng định dạng',
             'email.email' => 'Email không đúng định dạng',
             'email.required' => 'Email bắt buộc phải nhập',
             'email.unique' => 'Hiện tại email này đã có',
@@ -42,13 +45,13 @@ class AdminQuanlyCompanies extends Controller {
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_companies.them')->withErrors($xuly);
+            return redirect()->route('admin.quanly_curriculumvitaes.them')->withErrors($xuly);
         }
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['user_id'] = auth()->user()->id;
         //dd($dulieu);
-        Company::create($dulieu);
+        Curriculumvita::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
@@ -57,9 +60,9 @@ class AdminQuanlyCompanies extends Controller {
 
     //sua
     public function edit($id) {
-        $company = Company::find($id);
-        return view('admin.congty.edit')->with([
-                    'company' => $company,
+        $curriculumvitaes = Curriculumvita::find($id);
+        return view('admin.hoso.edit')->with([
+                    'curriculumvita' => $curriculumvitaes
         ]);
     }
 
@@ -84,29 +87,22 @@ class AdminQuanlyCompanies extends Controller {
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_companies.them')->withErrors($xuly);
+            return redirect()->route('admin.quanly_curriculumvita')->withErrors($xuly);
         }
-        
-        $company = Company::find($id);
-        $company->update($dulieu);
+
+        $curriculumvitaes = Curriculumvita::find($id);
+        $curriculumvitaes->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
 
         return redirect()->back();
     }
-
+   
     public function destroy($id){
-        $company = Company::find($id);
-        $company->delete();
+        $curriculumvitaes = Curriculumvita::find($id);
+        $curriculumvitaes->delete();
         
         return redirect()->back();
-    }
-    
-    public function show($id){
-        $company = Company::find($id);
-        return view('admin.congty.show')->with([
-                    'company' => $company,
-            ]);
     }
 
 }

@@ -20,12 +20,6 @@ class User extends Authenticatable {
        'address',
        
    ];
-    //protected $table = 'users';
-    public $timestamps = false;
-    protected $guarded = array();
-     
-    public function user(){
-        return $this->belongsTo('Locaton','id_location');
-    }
+    
    
 }
