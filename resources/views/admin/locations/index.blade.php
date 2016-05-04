@@ -1,5 +1,14 @@
-<a href='{!! route("admin.diadiem.them") !!}'>Them</a>
-<table border='1px'>
+@extends('admin.trangAdmin.admin')
+@section('location')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Location</small>
+                        </h1>
+                    </div>
+                </div>
+<a href='{!! route("admin.diadiem.them") !!}'>Thêm</a>
+<table class="table">
     <tr>
         <th>id</th>
         <th>Tên Địa Điểm</th>
@@ -17,3 +26,4 @@
     </tr>
     @endforeach
 </table>
+@endsection

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use \App\skills;
-
-class AdminQuanLyDanhMuc extends Controller {
-
+use App\skills;
+use App\users;
+class AdminQuanlyKyNang extends Controller {
+    
     //danh sach
     public function index() {
         $skills = skills::all();
@@ -17,33 +17,31 @@ class AdminQuanLyDanhMuc extends Controller {
 
     //create
     public function create() {
-        return view('admin.kynang.create')->with([
-               //     'parents' => $parents
-        ]);
+        return view('admin.kynang.create');
     }
 
     public function store() {
         $dulieu = request()->all();
-
-        //dd($dulieu);
-
         $quyluat = [
             'name' => 'required',
+            
         ];
 
         $thongbao = [
-            'name.required' => 'Ten khong dc de trong',
-            'id_user.integer' => 'Thuoc danh muc khong dung dinh dang',
-            'id_ parent.min' => 'Thuoc danh muc khong dung dinh dang',
-        ];
+            'name.required' => 'Tên không được để trống',
+      ];
+        
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_danhmuc.them')->withErrors($xuly);
+            return redirect()->route('admin.quanly-kynang.them')->withErrors($xuly);
         }
-
-        Category::create($dulieu);
+        
+        //auth()->user() lay thongg tin cua user dang dang nhap hien tai
+        $dulieu['id_user'] = auth()->user()->id;
+        //dd($dulieu);
+        skills::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
@@ -52,39 +50,36 @@ class AdminQuanLyDanhMuc extends Controller {
 
     //sua
     public function edit($id) {
-        $category = Category::find($id);
-        $parents = Category::whereNull('id_parent')->get();
+        $skills = skills::find($id);
+        $user = skills::whereNull('id_user')->get();
 
-        return view('admin.danhmuc.edit')->with([
-                    'category' => $category,
-                    'parents' => $parents
+        return view('admin.kynang.edit')->with([
+                    'kynang' => $skills,
+                    '$user' => $user
         ]);
     }
 
     public function update($id) {
         $dulieu = request()->all();
-
-        //dd($dulieu);
-
         $quyluat = [
             'name' => 'required',
-            'id_parent' => 'integer|min:1',
+            'id_user'=> 'integer|min:1',
         ];
 
         $thongbao = [
-            'name.required' => 'Ten khong dc de trong',
-            'id_parent.integer' => 'Thuoc danh muc khong dung dinh dang',
-            'id_parent.min' => 'Thuoc danh muc khong dung dinh dang',
-        ];
+            'name.required' => 'Tên không được để trống',
+            'id_user.integer' => 'Thuộc không đúng định dạng',
+            'id_user.min' => 'Thuộc không đúng định dạng',
+      ];
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_danhmuc.them')->withErrors($xuly);
+            return redirect()->route('admin.quanly-kynang.them')->withErrors($xuly);
         }
 
-        $category = Category::find($id);
-        $category->update($dulieu);
+        $skills= Company::find($id);
+        $skills->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
 
@@ -92,8 +87,8 @@ class AdminQuanLyDanhMuc extends Controller {
     }
 
     public function destroy($id){
-        $category = Category::find($id);
-        $category->delete();
+        $skills = skills::find($id);
+        $skills->delete();
         
         return redirect()->back();
     }

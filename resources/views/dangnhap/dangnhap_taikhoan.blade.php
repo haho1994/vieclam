@@ -1,5 +1,5 @@
-@extends('layouts.headerfooter')
-@section('dn')
+@extends('admin.trangAdmin.admin')
+@section('dangnhap')
 <div class="login-card">
     <h1>Đăng Nhập</h1><br>
     <form  action="<?php echo route('xuly.dangnhap'); ?>" method="POST" >

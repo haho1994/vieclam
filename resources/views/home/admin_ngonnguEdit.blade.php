@@ -1,4 +1,4 @@
 @extends('admin.trangAdmin.admin')
-@section('login')
+@section('ngonngu2')
 @endsection
 

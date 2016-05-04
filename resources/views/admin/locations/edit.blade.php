@@ -1,3 +1,12 @@
+@extends('admin.trangAdmin.admin')
+@section('location1')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Location</small>
+                        </h1>
+                    </div>
+                </div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
@@ -23,3 +32,4 @@
         </div>
     </div>
 </form>
+@endsection

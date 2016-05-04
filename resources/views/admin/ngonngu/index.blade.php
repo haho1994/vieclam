@@ -1,9 +1,20 @@
-<a href='{!! route("admin.quanly-ngonngu.them") !!}'>Them</a>
-<table border='1px'>
+@extends('admin.trangAdmin.admin')
+@section('ngonngu1')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Cập Nhật <small>Ngôn Ngữ</small>
+                        </h1>
+                    </div>
+                </div>
+<a href='{!! route("admin.quanly-ngonngu.them") !!}'>Thêm</a>
+
+<table class="table">
+
     <tr>
         <th>id</th>
         <th>Tên Ngôn Ngữ</th>
-        <th>Thao tac</th>
+        <th>Thao Tác</th>
     </tr>
     @foreach($ngonngu as $item)
     <tr>
@@ -17,3 +28,4 @@
     </tr>
     @endforeach
 </table>
+@endsection
