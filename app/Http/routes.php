@@ -46,10 +46,8 @@ Route::post('dangky-vieclam', [
 //admin
 Route::get('admin', [
     'as' => 'admin',
-    'uses' => 'TrangchuController@admin'
+    'uses' => 'TrangchuController@trangAdmin'
 ]);
-
-
 Route::get('dangnhap', [
     'as' => 'dangnhap',
     'uses' => 'TrangchuController@dangNhapTaiKhoan'
@@ -57,6 +55,14 @@ Route::get('dangnhap', [
 Route::post('dangnhap', [
     'as' => 'xuly.dangnhap',
     'uses' => 'TrangchuController@xuLyDangNhap'
+]);
+Route::post('ngonngu', [
+    'as' => 'ngongu',
+    'uses' => 'TrangchuController@trangNgonNgu'
+]);
+Route::post('ngonngu', [
+    'as' => 'ngongu',
+    'uses' => 'TrangchuController@trangNgonNgu2'
 ]);
 
 
@@ -69,6 +75,7 @@ Route::get('admin/login', [
     'as' => 'admin_login',
     'uses' => 'AdminQuanlyDanhMuc@login'
 ]);
+
 Route::post('admin/login', [
     'as' => 'admin.login',
     'uses' => 'AdminQuanlyDanhMuc@xuLyLogin'
@@ -258,3 +265,67 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'AdminQuanlyCompanies@destroy'
     ]);
 });
+
+//quan ly user
+    Route::get('admin/quanly-user', [
+        'as' => 'admin.quanly_user',
+        'uses' => 'AdminQuanLyUser@index'
+    ]);
+    Route::get('admin/quanly-user/them', [
+        'as' => 'admin.quanly_user.them',
+        'uses' => 'AdminQuanLyUser@create'
+    ]);
+
+    Route::post('admin/quanly-user/them', [
+        'as' => 'admin.quanly_user.xuly',
+        'uses' => 'AdminQuanLyUser@store'
+    ]);
+
+    Route::get('admin/quanly-user/sua/{id}', [
+        'as' => 'admin.quanly_user.sua',
+        'uses' => 'AdminQuanLyUser@edit'
+    ]);
+
+    Route::post('admin/quanly-user/luu/{id}', [
+        'as' => 'admin.quanly_user.luu',
+        'uses' => 'AdminQuanLyUser@update'
+    ]);
+
+    Route::get('admin/quanly-user/xoa/{id}', [
+        'as' => 'admin.quanly_user.xoa',
+        'uses' => 'AdminQuanLyUser@destroy'
+    ]);
+    
+    //Công việc yêu thích
+     Route::get('admin/quanly-job-fa', [
+        'as' => 'admin.quanly_job',
+        'uses' => 'AdminQuanLyCongViecYeuThich@index'
+    ]);
+    Route::get('admin/quanly-job-fa/them', [
+        'as' => 'admin.quanly_job.them',
+        'uses' => 'AdminQuanLyCongViecYeuThich@create'
+    ]);
+
+    Route::post('admin/quanly-job-fa/them', [
+        'as' => 'admin.quanly_job.xuly',
+        'uses' => 'AdminQuanLyCongViecYeuThich@store'
+    ]);
+
+    Route::get('admin/quanly-job-fa/sua/{id}', [
+        'as' => 'admin.quanly_job.sua',
+        'uses' => 'AdminQuanLyCongViecYeuThich@edit'
+    ]);
+
+    Route::post('admin/quanly-job-fa/luu/{id}', [
+        'as' => 'admin.quanly_job.luu',
+        'uses' => 'AdminQuanLyCongViecYeuThich@update'
+    ]);
+
+    Route::get('admin/quanly-job-fa/xoa/{id}', [
+        'as' => 'admin.quanly_job.xoa',
+        'uses' => 'AdminQuanLyCongViecYeuThich@destroy'
+    ]);
+Route::get('admin', [
+    'as' => 'admin1',
+    'uses' => 'TrangchuController@trangAdmin'
+]);

@@ -109,9 +109,20 @@ class TrangchuController extends Controller {
 //        
 //        return redirect()->route('danhsach.taikhoan');
 //    }
-
+    public function trangAdmin(){
+        return view('admin.trangAdmin.admin');
+    }
     public function dangNhapTaiKhoan() {
         return view('dangnhap.dangnhap_taikhoan');
+    }
+     public function trangNgonNgu() {
+        return view('ngonngu.create');
+    }
+     public function trangNgonNgu1() {
+        return view('ngonngu.index');
+    }
+     public function trangNgonNgu2() {
+        return view('ngonngu.edit');
     }
 
     public function xuLyDangNhap() {

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable {
+class users extends Authenticatable {
     
    protected $table = 'users';
    
@@ -18,14 +18,19 @@ class User extends Authenticatable {
        'email',
        'phone',
        'address',
+       'id_location',
+       'id_category'
        
    ];
     //protected $table = 'users';
     public $timestamps = false;
     protected $guarded = array();
      
-    public function user(){
-        return $this->belongsTo('Locaton','id_location');
+    public function location(){
+        return $this->belongsTo(Location::class, 'id_location' , 'id');
+    }
+     public function category(){
+        return $this->belongsTo(Category::class, 'id_category' , 'id');
     }
    
 }
