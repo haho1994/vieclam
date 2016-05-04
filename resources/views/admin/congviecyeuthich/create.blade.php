@@ -12,8 +12,8 @@ if (Session::has('success')) {
             <td>
                 <input type="text" value="" name="name" />
                 <?php
-                if ($errors->has('name')) {
-                    echo $errors->first('name');
+                if ($errors->has('id_job->job->name')) {
+                    echo $errors->first('id_job->job->name');
                 }
                 ?>
             </td>
@@ -23,8 +23,8 @@ if (Session::has('success')) {
             <td>
                 <input type="text" value="" name="address" />
                 <?php
-                if ($errors->has('address')) {
-                    echo $errors->first('address');
+                if ($errors->has('id_user->user->full_name')) {
+                    echo $errors->first('id_user->user->full_name');
                 }
                 ?>
             </td>

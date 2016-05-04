@@ -4,13 +4,13 @@
     }
 ?>
 
-<form action="{!! route('admin.quanly_danhmuc.luu', ['id' => $category->id]) !!}" method="post">
+<form action="{!! route('admin.quanly_curriculumvitaes.xuly') !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
             <td><label>Ten</label></td>
             <td>
-                <input type="text" value="{!! $category->name !!}" name="name" />
+                <input type="text" value="" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');
@@ -24,13 +24,7 @@
                 <select name="id_parent" >
                     <option value="" >Chon danh muc</option>
                     @foreach($parents as $parent)
-                    <?php
-                        $selected = '';
-                        if ($parent->id == $category->id_parent) {
-                            $selected = 'selected';
-                        }
-                    ?>
-                    <option value="{!! $parent->id !!}" {!!$selected!!} >{!! $parent->name !!}</option>
+                    <option value="{!! $parent->id !!}" >{!! $parent->name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -42,7 +36,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Sua" />
+                <input type="submit" value="Tao" />
             </td>
         </tr>
     </table>

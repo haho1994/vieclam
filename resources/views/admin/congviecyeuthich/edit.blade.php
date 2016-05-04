@@ -10,10 +10,10 @@
        <tr>
             <td><label>Tên Công Việc</label></td>
             <td>
-                <input type="text" value="{!! $job_favourites->name !!}" name="name" />
+                <input type="text" value="{!! $job_favourites->id_job !!}" name="" />
                 <?php
-                if ($errors->has('name')) {
-                    echo $errors->first('name');
+                if ($errors->has('id_job->job->name')) {
+                    echo $errors->first('id_job->job->name');
                 }
                 ?>
             </td>
@@ -21,10 +21,10 @@
         <tr>
             <td><label>Tên Người Dùng</label></td>
             <td>
-                <input type="text" value="{!! $company->address !!}" name="address" />
+                <input type="text" value="{!! $job_favourites->id_user !!}" name="" />
                 <?php
-                if ($errors->has('address')) {
-                    echo $errors->first('address');
+                if ($errors->has('id_user->user->full_name')) {
+                    echo $errors->first('id_user->user->full_name');
                 }
                 ?>
             </td>

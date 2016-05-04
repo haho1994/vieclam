@@ -1,25 +1,10 @@
 <?php
 
-/*
-  |--------------------------------------------------------------------------
-  | Application Routes
-  |--------------------------------------------------------------------------
-  |
-  | Here is where you can register all of the routes for an application.
-  | It's a breeze. Simply tell Laravel the URIs it should respond to
-  | and give it the controller to call when that URI is requested.
-  |
- */
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/vidu', [
-//    'as' => 'vidu',
-//    'uses' => 'TrangchuController@index'
-//]);
-//
-//Route::get('dangky', 'TrangchuController@dangky');
 
 
 Route::get('dangky-vieclam', [
@@ -81,37 +66,7 @@ Route::post('admin/login', [
     'uses' => 'AdminQuanlyDanhMuc@xuLyLogin'
 ]);
 
-//danh muc
 
-Route::get('admin/quanly-danhmuc', [
-    'as' => 'admin.quanly_danhmuc',
-    'uses' => 'AdminQuanlyDanhMuc@index'
-]);
-
-Route::get('admin/quanly-danhmuc/them', [
-    'as' => 'admin.quanly_danhmuc.them',
-    'uses' => 'AdminQuanlyDanhMuc@create'
-]);
-
-Route::post('admin/quanly-danhmuc/them', [
-    'as' => 'admin.quanly_danhmuc.xuly',
-    'uses' => 'AdminQuanlyDanhMuc@store'
-]);
-
-Route::get('admin/quanly-danhmuc/sua/{id}', [
-    'as' => 'admin.quanly_danhmuc.sua',
-    'uses' => 'AdminQuanlyDanhMuc@edit'
-]);
-
-Route::post('admin/quanly-danhmuc/luu/{id}', [
-    'as' => 'admin.quanly_danhmuc.luu',
-    'uses' => 'AdminQuanlyDanhMuc@update'
-]);
-
-Route::get('admin/quanly-danhmuc/xoa/{id}', [
-    'as' => 'admin.quanly_danhmuc.xoa',
-    'uses' => 'AdminQuanlyDanhMuc@destroy'
-]);
 //location
 Route::get('admin/locations', [
     'as' => 'admin.diadiem',
@@ -235,6 +190,37 @@ Route::get('admin/logout', function() {
 });
 
 Route::group(['middleware' => 'auth'], function() {
+    //danh muc
+
+    Route::get('admin/quanly-danhmuc', [
+        'as' => 'admin.quanly_danhmuc',
+        'uses' => 'AdminQuanlyDanhMuc@index'
+    ]);
+
+    Route::get('admin/quanly-danhmuc/them', [
+        'as' => 'admin.quanly_danhmuc.them',
+        'uses' => 'AdminQuanlyDanhMuc@create'
+    ]);
+
+    Route::post('admin/quanly-danhmuc/them', [
+        'as' => 'admin.quanly_danhmuc.xuly',
+        'uses' => 'AdminQuanlyDanhMuc@store'
+    ]);
+
+    Route::get('admin/quanly-danhmuc/sua/{id}', [
+        'as' => 'admin.quanly_danhmuc.sua',
+        'uses' => 'AdminQuanlyDanhMuc@edit'
+    ]);
+
+    Route::post('admin/quanly-danhmuc/luu/{id}', [
+        'as' => 'admin.quanly_danhmuc.luu',
+        'uses' => 'AdminQuanlyDanhMuc@update'
+    ]);
+
+    Route::get('admin/quanly-danhmuc/xoa/{id}', [
+        'as' => 'admin.quanly_danhmuc.xoa',
+        'uses' => 'AdminQuanlyDanhMuc@destroy'
+    ]);
     //company
     Route::get('admin/quanly-companies', [
         'as' => 'admin.quanly_companies',
@@ -263,6 +249,41 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('admin/quanly-companies/xoa/{id}', [
         'as' => 'admin.quanly_companies.xoa',
         'uses' => 'AdminQuanlyCompanies@destroy'
+    ]);
+    
+    Route::get('admin/quanly-companies/xem/{id}', [
+        'as' => 'admin.quanly_companies.xem',
+        'uses' => 'AdminQuanlyCompanies@show'
+        ]);
+    
+    //hoso
+    Route::get('admin/quanly-curriculumvitaes', [
+        'as' => 'admin.quanly_curriculumvitaes',
+        'uses' => 'AdminQuanlyCurriculumvitaes@index'
+    ]);
+    Route::get('admin/quanly-curriculumvitaes/them', [
+        'as' => 'admin.quanly_curriculumvitaes.them',
+        'uses' => 'AdminQuanlyCurriculumvitaes@create'
+    ]);
+
+    Route::post('admin/quanly-curriculumvitaes/them', [
+        'as' => 'admin.quanly_curriculumvitaes.xuly',
+        'uses' => 'AdminQuanlyCurriculumvitaes@store'
+    ]);
+
+    Route::get('admin/quanly-curriculumvitaes/sua/{id}', [
+        'as' => 'admin.quanly_curriculumvitaes.sua',
+        'uses' => 'AdminQuanlyCurriculumvitaes@edit'
+    ]);
+
+    Route::post('admin/quanly-curriculumvitaes/luu/{id}', [
+        'as' => 'admin.quanly_curriculumvitaes.luu',
+        'uses' => 'AdminQuanlyCurriculumvitaes@update'
+    ]);
+
+    Route::get('admin/quanly-curriculumvitaes/xoa/{id}', [
+        'as' => 'admin.quanly_curriculumvitaes.xoa',
+        'uses' => 'AdminQuanlyCurriculumvitaes@destroy'
     ]);
 });
 

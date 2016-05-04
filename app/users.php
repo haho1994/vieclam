@@ -22,6 +22,7 @@ class users extends Authenticatable {
        'id_category'
        
    ];
+<<<<<<< HEAD:app/users.php
     //protected $table = 'users';
     public $timestamps = false;
     protected $guarded = array();
@@ -32,5 +33,8 @@ class users extends Authenticatable {
      public function category(){
         return $this->belongsTo(Category::class, 'id_category' , 'id');
     }
+=======
+    
+>>>>>>> c803c0e53dd92797c100f180296dc0c59d4f9a74:app/User.php
    
 }
