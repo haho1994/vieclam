@@ -1,7 +1,5 @@
 <?php
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,8 +24,6 @@ Route::post('dangky-vieclam', [
 //    'as' => 'xuly.xoa',
 //    'uses' => 'TrangchuController@xuLyXoa'
 //]);
-
-
 //admin
 Route::get('admin', [
     'as' => 'admin',
@@ -45,7 +41,7 @@ Route::post('dangnhap', [
 ]);
 
 
-       
+
 Route::get('timkiem-vieclam', function() {
     return view('timkiem.timkiemvieclam');
 });
@@ -243,12 +239,12 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly_companies.xoa',
         'uses' => 'AdminQuanlyCompanies@destroy'
     ]);
-    
+
     Route::get('admin/quanly-companies/xem/{id}', [
         'as' => 'admin.quanly_companies.xem',
         'uses' => 'AdminQuanlyCompanies@show'
-        ]);
-    
+    ]);
+
     //hoso
     Route::get('admin/quanly-curriculumvitaes', [
         'as' => 'admin.quanly_curriculumvitaes',
@@ -279,3 +275,26 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'AdminQuanlyCurriculumvitaes@destroy'
     ]);
 });
+
+Route::get('/upload-cv', function() {
+    return view('admin.upload.index');
+});
+
+Route::post('/upload-cv', function() {
+    $user = auth()->user();
+    $file = request()->file('cv');
+
+    $director = public_path('upload/cv' . '/' . $user->id);
+    //move_uploaded_file($file->getPathName(), $director.'/abc.doc');
+
+    File::makeDirectory($director, $mode = 0777, true, true);
+    $fileName = gen_uuid();
+    $file->move($director, $fileName . '.' . $file->getClientOriginalExtension());
+
+    return view('admin.upload.index');
+});
+
+Route::get('tai-cv/{filename}', [
+    'as' => 'admin.download.cv',
+    'uses' => 'DownloadController@downloadCV'
+]);

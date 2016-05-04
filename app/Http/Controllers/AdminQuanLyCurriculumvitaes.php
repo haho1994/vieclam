@@ -4,41 +4,69 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Curriculumvita;
+use App\User;
+use App\Company;
+use App\Category;
+use App\Location;
+
+
 class AdminQuanlyCurriculumvitaes extends Controller {
     
     //danh sach
     public function index() {
-        $curriculumvitaes = Curriculumvita::all();
+        $curriculumvita = Curriculumvita::all();
         return view('admin.hoso.index')->with([
-                    'hoso' => $curriculumvitaes
+                    'hoso' => $curriculumvita,
+                    'company' => $curriculumvita
         ]);
     }
 
     //create
     public function create() {
-        return view('admin.hoso.create');
+        $users = User::all();
+        $companies = Company::all();
+        $categories = Category::all();
+        $locations = Location::all();
+        return view('admin.hoso.create')->with([
+                    'users' => $users,
+                    'companies' => $companies,
+                    'categories' => $categories,
+                    'locations' => $locations
+                
+    ]);
     }
 
     public function store() {
         $dulieu = request()->all();
         $quyluat = [
-            'name' => 'required',
-            'address' => 'required',
-            'id_location'=> 'integer|min:1',
-            'email' => 'required|email|unique:companies',
-            'phone'=> 'required|between:10,12',
+            'id_user' => 'required',
+            'year_experience' => 'required',
+            'highes_edu' => 'required',
+            'recent_company_id' => 'required',
+            'recent_category_id' => 'required',
+            'expected_position_id' => 'required',
+            'expected_location_id' => 'required',
+            'expected_salary' => 'required',
+            'current_job_level' => 'required',
+            'expected_job_level' => 'required',
+            'expected_job_category' => 'required',
+            'is_negotiable' => 'required'
         ];
 
         $thongbao = [
-            'name.required' => 'Tên không được để trống',
-            'address.required' => 'Địa chỉ không được để trống',
-            'id_location.integer' => 'Thuộc công ty không đúng định dạng',
-            'id_location.min' => 'Thuộc công ty không đúng định dạng',
-            'email.email' => 'Email không đúng định dạng',
-            'email.required' => 'Email bắt buộc phải nhập',
-            'email.unique' => 'Hiện tại email này đã có',
-            'phone.required' => 'Số điện thoại không được để trống',
-            'phone.between' => 'Số điện thoại không đúng định dạng',
+            'id_user.required' => 'Thuộc công ty không đúng định dạng',
+            'year_experience.required' => 'Kinh nghiệm bắt buộc phải nhập',
+            'highes_edu.required' => 'Trình độ bắt buộc phải nhập',
+            'recent_company_id.required' => 'Thuộc công ty gần đây không đúng định dạng',
+            'recent_category_id.required' => 'Thuộc ngành nghề gần đây không đúng định dạng',
+            'expected_position_id.required' => 'Vị trí công việc bắt buộc phải nhập',
+            'expected_location_id.required' => 'Thuộc công ty không đúng định dạng',
+            'expected_salary.required' => 'Mức lương bắt buộc phải nhập',
+            'current_job_level.required' => 'Mức độ công việc hiện tại bắt buộc phải nhập',
+            'expected_job_level.required' => 'Mức độ công việc dự kiến bắt buộc phải nhập',
+            'expected_job_category.required' => 'Thuộc loại công việc dự kiến không đúng định dạng',
+            'is_negotiable.required' => 'Thuộc công ty không đúng định dạng',
+           
         ];
         
 
@@ -60,38 +88,54 @@ class AdminQuanlyCurriculumvitaes extends Controller {
 
     //sua
     public function edit($id) {
-        $curriculumvitaes = Curriculumvita::find($id);
+        $curriculumvita = Curriculumvita::find($id);
         return view('admin.hoso.edit')->with([
-                    'curriculumvita' => $curriculumvitaes
+                    'curriculumvita' => $curriculumvita
         ]);
     }
 
     public function update($id) {
         $dulieu = request()->all();
         $quyluat = [
-            'name' => 'required',
-            'address' => 'required',
-            'email' => 'required|email',
-            'phone'=> 'required|between:10,12',
+            'id_user' => 'required',
+            'year_experience' => 'required',
+            'highes_edu' => 'required',
+            'recent_company_id' => 'required',
+            'recent_category_id' => 'required',
+            'expected_position_id' => 'required',
+            'expected_location_id' => 'required',
+            'expected_salary' => 'required',
+            'current_job_level' => 'required',
+            'expected_job_level' => 'required',
+            'expected_job_category' => 'required',
+            'is_negotiable' => 'required'
         ];
 
         $thongbao = [
-            'name.required' => 'Tên không được để trống',
-            'address.required' => 'Địa chỉ không được để trống',
-            'email.email' => 'Email không đúng định dạng',
-            'email.required' => 'Email bắt buộc phải nhập',
-            'phone.required' => 'Số điện thoại không được để trống',
-            'phone.between' => 'Số điện thoại không đúng định dạng',
+            'id_user.required' => 'Thuộc công ty không đúng định dạng',
+            'year_experience.required' => 'Kinh nghiệm bắt buộc phải nhập',
+            'highes_edu.required' => 'Trình độ bắt buộc phải nhập',
+            'recent_company_id.required' => 'Thuộc công ty gần đây không đúng định dạng',
+            'recent_category_id.required' => 'Thuộc ngành nghề gần đây không đúng định dạng',
+            'expected_position_id.required' => 'Vị trí công việc bắt buộc phải nhập',
+            'expected_location_id.required' => 'Thuộc công ty không đúng định dạng',
+            'expected_salary.required' => 'Mức lương bắt buộc phải nhập',
+            'current_job_level.required' => 'Mức độ công việc hiện tại bắt buộc phải nhập',
+            'expected_job_level.required' => 'Mức độ công việc dự kiến bắt buộc phải nhập',
+            'expected_job_category.required' => 'Thuộc loại công việc dự kiến không đúng định dạng',
+            'is_negotiable.required' => 'Thuộc công ty không đúng định dạng',
+           
         ];
+        
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_curriculumvita')->withErrors($xuly);
+            return redirect()->route('admin.quanly_curriculumvitaes')->withErrors($xuly);
         }
 
-        $curriculumvitaes = Curriculumvita::find($id);
-        $curriculumvitaes->update($dulieu);
+        $curriculumvita = Curriculumvita::find($id);
+        $curriculumvita->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
 
@@ -99,8 +143,8 @@ class AdminQuanlyCurriculumvitaes extends Controller {
     }
    
     public function destroy($id){
-        $curriculumvitaes = Curriculumvita::find($id);
-        $curriculumvitaes->delete();
+        $curriculumvita = Curriculumvita::find($id);
+        $curriculumvita->delete();
         
         return redirect()->back();
     }

@@ -9,17 +9,14 @@ class Location extends Model {
     
     use SoftDeletes;
     
-    protected $table = 'location';
+    protected $table = 'locations';
     protected $fillable = [
         'name'
     ];
-    //class User extends Eloquent{
-   // protected $table = 'location';
-    public $timestamps = false;
-    protected $guarded = array();
+    
      
-    public function location_id(){
-        return $this->hasOne('User');
-    }
+//    public function location_id(){
+//        return $this->hasOne('User');
+//    }
 }
 
