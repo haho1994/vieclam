@@ -24,12 +24,13 @@ class User extends Authenticatable {
        'description'
        
    ];
-     
+    //protected $table = 'users';
+    public $timestamps = false;
+    protected $guarded = array();
     public function location(){
         return $this->belongsTo(Location::class, 'id_location' , 'id');
     }
      public function category(){
         return $this->belongsTo(Category::class, 'id_category' , 'id');
     }
-    
 }

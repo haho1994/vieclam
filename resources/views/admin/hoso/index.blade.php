@@ -12,15 +12,26 @@
     @foreach($hoso as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-        <td>{!! $item->user->full_name !!}</td>
-        <td>{!! $item->year_experience !!}</td>
-        <td>{!! $item->name !!}</td>
-        <td>{!! $item->company->name !!}</td> 
-        <td>{!! $item->category->name !!}</td>
         <td>
-            <a href='{!! route("admin.quanly_companies.xem", array("id" => $item->id)) !!}'>Xem</a>
-            <a href='{!! route("admin.quanly_companies.sua", array("id" => $item->id)) !!}'>Sua</a>
-            <a href='{!! route("admin.quanly_companies.xoa", array("id" => $item->id)) !!}'>Xoa</a>
+            @if (!empty($item->user))
+            {!! $item->user->full_name !!}
+            @endif
+        </td>
+        <td>{!! $item->year_experience !!}</td>
+        <td>{!! $item->highes_edu !!}</td>
+        <td>
+            @if (!empty($item->company))
+            {!! $item->company->name !!}
+            @endif
+        </td> 
+        <td>
+            @if (!empty($item->category))
+            {!! $item->category->name !!}
+            @endif
+        </td>
+        <td>
+            <a href='{!! route("admin.quanly_curriculumvitaes.sua", array("id" => $item->id)) !!}'>Sua</a>
+            <a href='{!! route("admin.quanly_curriculumvitaes.xoa", array("id" => $item->id)) !!}'>Xoa</a>
         </td>
     </tr>
     @endforeach

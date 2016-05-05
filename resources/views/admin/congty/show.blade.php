@@ -9,49 +9,19 @@
     <table>
        <tr>
             <td><label>Tên</label></td>
-            <td>
-<!--                <text ></text>-->
-                <output type="text" value="{!! $company->name !!}" name="name" ></output>
-<!--                <input type="text" value="{!! $company->name !!}" name="name" />-->
-                <?php
-                if ($errors->has('name')) {
-                    echo $errors->first('name');
-                }
-                ?>
-            </td>
+            <td><label type="text" value="{!! $company->name !!}" name="name">{!! $company->name !!}</label></td>
         </tr>
         <tr>
             <td><label>Địa chỉ</label></td>
-            <td>
-                <label type="text" value="{!! $company->name !!}" name="name"></label>
-                <?php
-                if ($errors->has('address')) {
-                    echo $errors->first('address');
-                }
-                ?>
-            </td>
+            <td><label type="text" value="{!! $company->address !!}" name="name">{!! $company->address !!}</label></td>
         </tr>
         <tr>
             <td><label>Email</label></td>
-            <td>
-                <label type="text" value="{!! $company->name !!}" name="name"></label>
-                <?php
-                if ($errors->has('email')) {
-                    echo $errors->first('email');
-                }
-                ?>
-            </td>
+            <td><label type="text" value="{!! $company->email !!}" name="name">{!! $company->email !!}</label></td>
         </tr>
         <tr>
             <td><label>Số điện thoại</label></td>
-            <td>
-                <label type="text" value="{!! $company->name !!}" name="name"></label>
-                <?php
-                if ($errors->has('phone')) {
-                    echo $errors->first('phone');
-                }
-                ?>
-            </td>
+            <td><label type="text" value="{!! $company->phone !!}" name="name">{!! $company->phone !!}</label></td>
         </tr>
         <tr>
             <td colspan="2">
