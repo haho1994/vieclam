@@ -12,8 +12,8 @@ if (Session::has('success')) {
     echo \Session::get('success');
 }
 ?>
-
-<form action="{!! route('admin.quanly_user.xuly') !!}" method="post">
+<div class="hh" align="center">
+<form action="{!! route('admin.quanly_user.xuly') !!}" method="post" >
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
@@ -30,10 +30,10 @@ if (Session::has('success')) {
         <tr>
             <td><label>Ngày Sinh</label></td>
             <td>
-                <input type="text" value="" name="address" />
+                <input type="text" value="" name="brithday" />
                 <?php
-                if ($errors->has('address')) {
-                    echo $errors->first('address');
+                if ($errors->has('brithday')) {
+                    echo $errors->first('brithday');
                 }
                 ?>
             </td>
@@ -63,10 +63,10 @@ if (Session::has('success')) {
         <tr>
             <td><label>Địa Chỉ</label></td>
             <td>
-                <input type="text" value="" name="phone" />
+                <input type="text" value="" name="address" />
                 <?php
-                if ($errors->has('phone')) {
-                    echo $errors->first('phone');
+                if ($errors->has('address')) {
+                    echo $errors->first('address');
                 }
                 ?>
             </td>
@@ -76,19 +76,19 @@ if (Session::has('success')) {
             <td>
                 <select name="id_location" >
                     <option value="" >Chon tỉnh, tp</option>
-                    @foreach($location as $location)
+                    @foreach($locations as $location)
                     <?php
-//                        $selected = '';
-                        if ($location->id == $user->id_location) {
+                        $selected = '';
+                        if ($location->id == $location->name) {
                             $selected = 'selected';
                         }
                     ?>
                     <option value="{!! $location->id !!}" {!!$selected!!} >{!! $location->name !!}</option>
                     @endforeach
                 </select>
-                //<?php
-                if ($errors->has('id')) {
-                    echo $errors->first('id');
+                <?php
+                if ($errors->has('id_location')) {
+                    echo $errors->first('id_location');
                 }
                 ?>
             </td>
@@ -96,30 +96,54 @@ if (Session::has('success')) {
         <tr>
             <td><label>Hình Thức</label></td>
             <td>
-                <select name="id_location" >
+                <select name="id_category" >
                     <option value="" >Chọn hình thức</option>
-                    @foreach($category as $category)
+                    @foreach($categories as $category)
                     <?php
-                       $selected = '';
-                        if ($category->id == $user->id_category) {
+                       //$selected = '';
+                        if ($category->id == $category->name) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $category->id !!}" {!!$selected!!} >{!! Category->name !!}</option>
+                    <option value="{!! $category->id !!}" {!!$selected!!} >{!! $category->name !!}</option>
                     @endforeach
                 </select>
-                //<?php
-                if ($errors->has('id')) {
-                    echo $errors->first('id');
+                <?php
+                if ($errors->has('id_category')) {
+                    echo $errors->first('id_category');
                 }
                 ?>
             </td>
         </tr>
         <tr>
+            <td><label>Lương</label></td>
+            <td>
+                <input type="text" value="" name="salary" />
+                <?php
+                if ($errors->has('salary')) {
+                    echo $errors->first('salary');
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Mô Tả</label></td>
+            <td>
+                <textarea value="" name="description">
+                <?php
+                if ($errors->has('description')) {
+                    echo $errors->first('description');
+                }
+                ?>
+                </textarea>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
-                <input type="submit" value="Tao" />
+                <input type="submit" value="Tạo" />
             </td>
         </tr>
     </table>
 </form>
+</div>
 @endsection

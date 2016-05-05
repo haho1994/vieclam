@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\languages;
+use App\Languages;
 
 class AdminQuanLyNgonNgu extends Controller {
 
     //danh sach
     public function index() {
-        $languages = languages::all();
+        $languages = Languages::all();
         return view('admin.ngonngu.index')->with([
                     'ngonngu' => $languages
         ]);
@@ -41,7 +41,7 @@ class AdminQuanLyNgonNgu extends Controller {
             return redirect()->route('admin.ngonngu.them')->withErrors($xuly);
         }
 
-        languages::create($dulieu);
+        Languages::create($dulieu);
 
         \Session::flash('success', 'Thêm Thành Công!!');
 
@@ -50,7 +50,7 @@ class AdminQuanLyNgonNgu extends Controller {
 
     //sua
     public function edit($id) {
-        $languages = languages::find($id);
+        $languages = Languages::find($id);
         return view('admin.ngonngu.edit')->with([
                     'languages' => $languages
         ]);
@@ -75,7 +75,7 @@ class AdminQuanLyNgonNgu extends Controller {
             return redirect()->route('admin.quangly-ngonngu.them')->withErrors($xuly);
         }
 
-        $languages = languages::find($id);
+        $languages = Languages::find($id);
         $languages->update($dulieu);
 
         \Session::flash('success', 'Sửa Thành Công');
@@ -84,7 +84,7 @@ class AdminQuanLyNgonNgu extends Controller {
     }
 
     public function destroy($id){
-        $languages = languages::find($id);
+        $languages = Languages::find($id);
         $languages->delete();
         return redirect()->back();
     }

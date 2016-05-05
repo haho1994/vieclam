@@ -7,6 +7,8 @@ Route::get('/', function () {
 });
 
 
+
+
 Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'

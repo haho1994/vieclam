@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\users;
+use App\User;
 use App\Location;
 use App\Category;
 class AdminQuanLyUser extends Controller {
     
     //danh sach
     public function index() {
-        $user = users::all();
+        $user = User::all();
         return view('admin.nguoisudung.index')->with([
                     'nguoisudung' => $user
         ]);
@@ -18,7 +18,12 @@ class AdminQuanLyUser extends Controller {
 
     //create
     public function create() {
-        return view('admin.nguoisudung.create');
+        $locations = Location::all();
+        $categories  = Category::all();
+        return view('admin.nguoisudung.create')->with([
+           'locations' => $locations,
+            'categories' => $categories
+        ]);
     }
 
     public function store() {
@@ -26,11 +31,12 @@ class AdminQuanLyUser extends Controller {
         $quyluat = [
             'full_name' => 'required',
             'brithday' => 'required',
-            'email' => 'required|email|unique:companies',
+            'email' => 'required|email|unique:users',
             'phone'=> 'required|between:10,12',
             'address'=> 'required',
             'id_location'=> 'integer|min:1',
             'id_category'=> 'integer|min:1',
+            'salary'=>'required'
             
         ];
 
@@ -47,6 +53,7 @@ class AdminQuanLyUser extends Controller {
             'id_location.min' => 'Thuộc không đúng định dạng',
             'id_category.integer' => 'Thuộc không đúng định dạng',
             'id_category.min' => 'Thuộc không đúng định dạng',
+            'salary'=>'Mức lương không được để trống'
         ];
         
 
@@ -57,10 +64,9 @@ class AdminQuanLyUser extends Controller {
         }
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
-        $dulieu['id_location'] = auth()->location()->id;
-        $dulieu['id_category'] = auth()->category()->id;
-        dd($dulieu);
-        users::create($dulieu);
+        $dulieu['id_user'] = auth()->user()->id;
+        //dd($dulieu);
+        User::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
@@ -69,9 +75,9 @@ class AdminQuanLyUser extends Controller {
 
     //sua
     public function edit($id) {
-        $user = users::find($id);
-        $location= users::whereNull('id_location')->get();
-        $category= users::whereNull('id_category')->get();
+        $user = User::find($id);
+        $location= User::whereNull('id_location')->get();
+        $category= User::whereNull('id_category')->get();
         return view('admin.nguoisudung.edit')->with([
                     'users' => $user,
                     '$locations' => $locations,
@@ -112,7 +118,7 @@ class AdminQuanLyUser extends Controller {
             return redirect()->route('admin.quanly_user.them')->withErrors($xuly);
         }
 
-        $user = users::find($id);
+        $user = User::find($id);
         $user->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
@@ -121,10 +127,12 @@ class AdminQuanLyUser extends Controller {
     }
 
     public function destroy($id){
-        $user = users::find($id);
+        $user = User::find($id);
         $user->delete();
         
         return redirect()->back();
     }
+   
+    
 
 }

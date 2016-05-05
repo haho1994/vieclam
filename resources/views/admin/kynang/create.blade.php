@@ -28,6 +28,28 @@
             </td>
         </tr>
         <tr>
+            <td><label>Tên Người Tạo</label></td>
+            <td>
+                <select name="id_user" >
+                    <option value="" >Chon tỉnh, tp</option>
+                    @foreach($users as $user)
+                    <?php
+                        $selected = '';
+                        if ($user->id == $user->full_name) {
+                            $selected = 'selected';
+                        }
+                    ?>
+                    <option value="{!! $user->id !!}" {!!$selected!!} >{!! $user->full_name !!}</option>
+                    @endforeach
+                </select>
+                <?php
+                if ($errors->has('id_user')) {
+                    echo $errors->first('id_user');
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <input type="submit" value="Tao" />
             </td>

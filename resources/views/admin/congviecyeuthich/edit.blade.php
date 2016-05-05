@@ -1,10 +1,18 @@
+@extends('admin.trangAdmin.admin')
+@section('congviecyeuthich2')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>User</small>
+                        </h1>
+                    </div>
+                </div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
     }
 ?>
-
-<form action="{!! route('admin.quanly_job.luu', ['id' => $job_favourites->id]) !!}" method="post">
+<form class="table"action="{!! route('admin.quanly_job.luu', ['id' => $job_favourites->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
        <tr>
@@ -36,3 +44,4 @@
         </tr>
     </table>
 </form>
+@endsection

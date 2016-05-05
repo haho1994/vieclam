@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\skills;
-use App\users;
+use App\Skill;
+use App\User;
 class AdminQuanlyKyNang extends Controller {
     
     //danh sach
     public function index() {
-        $skills = skills::all();
+        $skills = Skill::all();
         return view('admin.kynang.index')->with([
                     'kynang' => $skills
         ]);
@@ -17,7 +17,10 @@ class AdminQuanlyKyNang extends Controller {
 
     //create
     public function create() {
-        return view('admin.kynang.create');
+        $users = User::all();
+        return view('admin.kynang.create')->with([
+           'users' => $users 
+        ]);
     }
 
     public function store() {
@@ -39,19 +42,19 @@ class AdminQuanlyKyNang extends Controller {
         }
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
-        $dulieu['id_user'] = auth()->user()->id;
+        //$dulieu['id_user'] = auth()->user()->id;
         //dd($dulieu);
-        skills::create($dulieu);
+        Skill::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
         return redirect()->back();
     }
-
+    
     //sua
     public function edit($id) {
-        $skills = skills::find($id);
-        $user = skills::whereNull('id_user')->get();
+        $skills = Skill::find($id);
+        $user = Skill::whereNull('id_user')->get();
 
         return view('admin.kynang.edit')->with([
                     'kynang' => $skills,
@@ -78,7 +81,7 @@ class AdminQuanlyKyNang extends Controller {
             return redirect()->route('admin.quanly-kynang.them')->withErrors($xuly);
         }
 
-        $skills= Company::find($id);
+        $skills= Skill::find($id);
         $skills->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
@@ -87,7 +90,7 @@ class AdminQuanlyKyNang extends Controller {
     }
 
     public function destroy($id){
-        $skills = skills::find($id);
+        $skills = Skill::find($id);
         $skills->delete();
         
         return redirect()->back();

@@ -12,7 +12,7 @@ if (Session::has('success')) {
     echo \Session::get('success');
 }
 ?>
-
+<div align="center">
 <form action="{!! route('admin.quanly-ngonngu.xuly') !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <div>
@@ -32,4 +32,5 @@ if (Session::has('success')) {
         </div>
     </div>
 </form>
+</div>
 @endsection

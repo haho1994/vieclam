@@ -12,7 +12,7 @@
         echo \Session::get('success');
     }
 ?>
-
+<div align="center">
 <form action="{!! route('admin.quanly_user.luu', ['id' => $user->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
@@ -60,10 +60,10 @@
                 ?>
             </td>
         </tr>
-           <tr>
+        <tr>
             <td><label>Địa Chỉ</label></td>
             <td>
-                <input type ="text" value="{!! $users->address !!}" name="address" />
+                <input type="text" value="" name="phone" />
                 <?php
                 if ($errors->has('address')) {
                     echo $errors->first('address');
@@ -72,7 +72,7 @@
             </td>
         </tr>
         <tr>
-            <td><label>Địa Chỉ</label></td>
+            <td><label>Tỉnh, T.p</label></td>
             <td>
                 <input type="text" value="" name="phone" />
                 <?php
@@ -134,4 +134,5 @@
         </tr>
     </table>
 </form>
+</div>
 @endsection

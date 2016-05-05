@@ -7,7 +7,7 @@
                         </h1>
                     </div>
                 </div>
-<a href='{!! route("admin.quanly_user.them") !!}'>Them</a>
+<a href='{!! route("admin.quanly_user.them") !!}'>Thêm</a>
 <table class="table">
     <tr>
         <th>id</th>
@@ -27,11 +27,11 @@
         <td>{!! $item->brithday!!}</td>
         <td>{!! $item->email !!}</td>
          <td>{!! $item->phone !!}</td>
-        <td>{!! $item->address !!}</td>
         <td>{!! $item->location->name !!}</td>
         <td>{!! $item->category->name !!}</td> 
        
         
+        <td>{!! $item->address !!}</td>
         
         <td></td>
         <td>

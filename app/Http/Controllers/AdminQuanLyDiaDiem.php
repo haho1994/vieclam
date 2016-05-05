@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\locations;
+use App\Location;
 
 class AdminQuanLyDiaDiem extends Controller {
 
     //danh sach
     public function index() {
-        $locations = locations::all();
+        $locations = Location::all();
         return view('admin.locations.index')->with([
                     'locations' => $locations
         ]);
@@ -41,7 +41,7 @@ class AdminQuanLyDiaDiem extends Controller {
             return redirect()->route('admin.diadiem.them')->withErrors($xuly);
         }
 
-        locations::create($dulieu);
+        Location::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
@@ -50,7 +50,7 @@ class AdminQuanLyDiaDiem extends Controller {
 
     //sua
     public function edit($id) {
-        $locations = locations::find($id);
+        $locations = Location::find($id);
         return view('admin.locations.edit')->with([
                     'locations' => $locations
         ]);
@@ -75,7 +75,7 @@ class AdminQuanLyDiaDiem extends Controller {
             return redirect()->route('admin.diadiem.them')->withErrors($xuly);
         }
 
-        $locations = locations::find($id);
+        $locations = Location::find($id);
         $locations->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
@@ -84,7 +84,7 @@ class AdminQuanLyDiaDiem extends Controller {
     }
 
     public function destroy($id){
-        $locations = locations::find($id);
+        $locations = Location::find($id);
         $locations->delete();
         return redirect()->back();
     }
