@@ -1,7 +1,7 @@
 @extends('layouts.headerfooter')
 @section('timkiem')
-<div class="search_form">
-    <h1>Tìm Kiếm Việc Làm</h1>
+<div class="search_form" align="center">
+    <h1 class='text'>Tìm Kiếm Công Việc Mơ Ước.<strong>Nâng Cao Thành Công!</strong></h1>
     <form  method="get" action="<?php echo route('xuly.dangnhap'); ?>">
         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
         <input type="text" class="text"  value="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
@@ -153,24 +153,37 @@
         </select>
         <input id="input" type="submit" name="login" class="login login-submit" value="Tìm Kiếm">
     </form>
+    <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" />Tải Hồ Sơ</a>
+<form action="/upload-cv" method="post" enctype="multipart/form-data" >
+    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+<!--    <input type="file" name="cv" />
+    <input type="submit" name="upload" />-->
+</form>
 </div>
-<div id="scroll_box">
-  <p>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-    Put a long text in here. It will be crollable.<br/>
-  </p>
+<div>
+    <div class="h3">
+        <h3>Viêc Làm Mới Nhất</h3>
+    </div>
+    <div align="center">
+        <div id="scroll_box" align="center" >
+            <p>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+                Put a long text in here. It will be crollable.<br/>
+            </p>
+        </div>
+    </div>
 </div>
 @endsection
 

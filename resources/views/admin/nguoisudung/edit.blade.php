@@ -72,17 +72,6 @@
             </td>
         </tr>
         <tr>
-            <td><label>Tỉnh, T.p</label></td>
-            <td>
-                <input type="text" value="" name="phone" />
-                <?php
-                if ($errors->has('phone')) {
-                    echo $errors->first('phone');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
             <td><label>Tỉnh, T.P</label></td>
             <td>
                 <select name="id_location" >
@@ -122,6 +111,17 @@
                 //<?php
                 if ($errors->has('id')) {
                     echo $errors->first('id');
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Mức Lương</label></td>
+            <td>
+                <input type="text" value="" name="salary" />
+                <?php
+                if ($errors->has('salary')) {
+                    echo $errors->first('salary');
                 }
                 ?>
             </td>

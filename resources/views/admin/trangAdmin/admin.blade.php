@@ -51,15 +51,28 @@
                         <li>
                             <a href='{!! route("admin.quanly_companies") !!}'>Công Ty </a>
                         </li>
-
-
                         <li>
                             <a href='{!! route("admin.quanly-kynang") !!}'>Kỹ Năng</a>
                         </li>
                         <li>
-                            <a href='{!! route("admin.quanly_companies") !!}'> Công Ty</a>
+                            <a >Việc Làm</a>
                         </li>
-
+                            <li>
+                            <a>Tỉnh, T.p</a>
+                        </li>
+                            <li>
+                            <a>Hình Ảnh</a>
+                        </li>
+                            <li>
+                            <a href='{!! route("admin.quanly_companies") !!}'>Hồ Sơ</a>
+                        </li>
+                            <li>
+                            <a href='{!! route("admin.quanly_companies") !!}'>Hồ Sơ - Ngôn Ngữ</a>
+                        </li>
+                         </li>
+                            <li>
+                            <a href='{!! route("admin.quanly_companies") !!}'>Công Việc Yêu Thích</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -72,18 +85,22 @@
                     @yield('ngonngu2')
                     @yield('ngonngu')
                     @yield('ngonngu1')
+                    @yield('ngonngu3')
                     @yield('location')
                     @yield('location1')
                     @yield('location2')
+                    @yield('diadiem3')
                     @yield('user')
                     @yield('user1')
                     @yield('user2')
                     @yield('skill')
                     @yield('skill1')
                     @yield('skill2')
+                    @yield('skill3')
                     @yield('congviecyeuthich')
                     @yield('congviecyeuthich1')
                     @yield('congviecyeuthich2')
+                    @yield('congviecyeuthich3')
                     @yield('index')
 
                 </div>

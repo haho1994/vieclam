@@ -19,13 +19,13 @@
     @foreach($congviecyeuthich as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-        <td>{!! $item->User->full_name !!}</td>
-        <td>{!! $item->Job->name !!}</td> 
+        <td>{!! $item->user->full_name !!}</td>
+        <td>{!! $item->jobs->name !!}</td> 
         <td></td>
         <td>
             <a href='#'>Xem</a>
-            <a href='{!! route("admin.quanly_companies.sua", array("id" => $item->id)) !!}'>Sửa</a>
-            <a href='{!! route("admin.quanly_companies.xoa", array("id" => $item->id)) !!}'>Xóa</a>
+            <a href='{!! route("admin.quanly_job.sua", array("id" => $item->id)) !!}'>Sửa</a>
+            <a href='{!! route("admin.quanly_job.xoa", array("id" => $item->id)) !!}'>Xóa</a>
          </td>
     </tr>
     @endforeach

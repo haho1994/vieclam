@@ -107,5 +107,12 @@ class AdminQuanlyCongViecYeuThich extends Controller {
         
         return redirect()->back();
     }
+    public function show($id){
+        $job_favourites = Job_favourites::find($id);
+        return view('admin.quanly_job.show')->with([
+                    '$quanly_job' => $quanly_job,
+            ]);
+    }
+
 
 }
