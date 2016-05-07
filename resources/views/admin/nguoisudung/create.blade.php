@@ -72,35 +72,13 @@ if (Session::has('success')) {
             </td>
         </tr>
         <tr>
-            <td><label>Tỉnh, T.P</label></td>
-            <td>
-                <select name="id_location" >
-                    <option value="" >Chon tỉnh, tp</option>
-                    @foreach($locations as $location)
-                    <?php
-                        $selected = '';
-                        if ($location->id == $location->name) {
-                            $selected = 'selected';
-                        }
-                    ?>
-                    <option value="{!! $location->id !!}" {!!$selected!!} >{!! $location->name !!}</option>
-                    @endforeach
-                </select>
-                <?php
-                if ($errors->has('id_location')) {
-                    echo $errors->first('id_location');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
             <td><label>Hình Thức</label></td>
             <td>
                 <select name="id_category" >
                     <option value="" >Chọn hình thức</option>
                     @foreach($categories as $category)
                     <?php
-                       //$selected = '';
+                       $selected = '';
                         if ($category->id == $category->name) {
                             $selected = 'selected';
                         }

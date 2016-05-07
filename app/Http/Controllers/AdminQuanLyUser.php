@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Location;
 use App\Category;
 class AdminQuanLyUser extends Controller {
     
@@ -12,16 +11,14 @@ class AdminQuanLyUser extends Controller {
     public function index() {
         $user = User::all();
         return view('admin.nguoisudung.index')->with([
-                    'nguoisudung' => $user
+                    'user' => $user
         ]);
     }
 
     //create
     public function create() {
-        $locations = Location::all();
         $categories  = Category::all();
         return view('admin.nguoisudung.create')->with([
-           'locations' => $locations,
             'categories' => $categories
         ]);
     }
@@ -34,7 +31,6 @@ class AdminQuanLyUser extends Controller {
             'email' => 'required|email|unique:users',
             'phone'=> 'required|between:10,12',
             'address'=> 'required',
-            'id_location'=> 'integer|min:1',
             'id_category'=> 'integer|min:1',
             'salary'=>'required'
             
@@ -49,8 +45,6 @@ class AdminQuanLyUser extends Controller {
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.between' => 'Số điện thoại không đúng định dạng',
             'address.required' => 'Địa chỉ không được để trống',
-            'id_location.integer' => 'Thuộc không đúng định dạng',
-            'id_location.min' => 'Thuộc không đúng định dạng',
             'id_category.integer' => 'Thuộc không đúng định dạng',
             'id_category.min' => 'Thuộc không đúng định dạng',
             'salary'=>'Mức lương không được để trống'
@@ -75,13 +69,11 @@ class AdminQuanLyUser extends Controller {
 
     //sua
     public function edit($id) {
-        $user = User::find($id);
-        $location= User::whereNull('id_location')->get();
-        $category= User::whereNull('id_category')->get();
+        $users = User::find($id);
+        $categories = Category::all();
         return view('admin.nguoisudung.edit')->with([
-                    'users' => $user,
-                    '$locations' => $locations,
-                    '$category' => $category,
+                    'users' => $users,
+                    'categories' => $categories
         ]);
     }
 
@@ -93,8 +85,6 @@ class AdminQuanLyUser extends Controller {
             'email' => 'required|email|unique:companies',
             'phone'=> 'required|between:10,12',
             'address'=> 'required',
-            'id_location'=> 'integer|min:1',
-            'id_category'=> 'integer|min:1',
         ];
 
         $thongbao = [
@@ -106,8 +96,6 @@ class AdminQuanLyUser extends Controller {
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.between' => 'Số điện thoại không đúng định dạng',
             'address.required' => 'Địa chỉ không được để trống',
-            'id_location.integer' => 'Thuộc không đúng định dạng',
-            'id_location.min' => 'Thuộc không đúng định dạng',
             'id_category.integer' => 'Thuộc không đúng định dạng',
             'id_category.min' => 'Thuộc không đúng định dạng',
         ];

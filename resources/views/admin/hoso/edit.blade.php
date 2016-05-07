@@ -1,3 +1,12 @@
+@extends('admin.trangAdmin.admin')
+@section('hoso2')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Curriculumvitaes/ Sửa</small>
+                        </h1>
+                    </div>
+</div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
@@ -11,15 +20,14 @@
             <td><label>Id user</label></td>
             <td>
                 <select name="id_user" >
-                    <option value="" >Chọn</option>
-                    @foreach($curriculumvita as $user)
+                    @foreach($users as $user)
                     <?php
                         $selected = '';
-                        if ($user->user->id == $curriculumvita->id_user) {
+                        if ($user->id == $curriculumvita->id_user) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $user->user->id !!}" {!!$selected!!} >{!! $user->user->name !!}</option>
+                    <option value="{!! $user->id !!}" {!!$selected!!} >{!! $user->full_name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -55,15 +63,14 @@
             <td><label>Công ty gần đây</label></td>
             <td>
                 <select name="recent_company_id" >
-                    <option value="" >Chọn</option>
-                    @foreach($curriculumvita as $user)
+                    @foreach($companies as $company)
                     <?php
                         $selected = '';
-                        if ($user->company->id == $curriculumvita->recent_company_id) {
+                        if ($company->id == $curriculumvita->recent_company_id) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $user->company->id !!}" {!!$selected!!} >{!! $user->company->name !!}</option>
+                    <option value="{!! $company->id !!}" {!!$selected!!} >{!! $company->name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -74,18 +81,17 @@
             </td>
         </tr>
         <tr>
-            <td><label>Ngành nghề gần đây</label></td>
+            <td><label>Nghành nghề gần đây</label></td>
             <td>
                 <select name="recent_category_id" >
-                    <option value="" >Chọn</option>
-                    @foreach($curriculumvita as $user)
+                    @foreach($categories as $category)
                     <?php
                         $selected = '';
-                        if ($user->category->id == $curriculumvita->recent_category_id) {
+                        if ($category->id == $curriculumvita->recent_category_id) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $user->category->id !!}" {!!$selected!!} >{!! $user->category->name !!}</option>
+                    <option value="{!! $category->id !!}" {!!$selected!!} >{!! $category->name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -98,27 +104,35 @@
         <tr>
             <td><label>Vị trí công việc dự kiến</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->expected_position_id !!}" name="expected_position_id" />
+                <select name="expected_position_id" >
+                    @foreach($categories as $category)
+                    <?php
+                        $selected = '';
+                        if ($category->id == $curriculumvita->expected_position_id) {
+                            $selected = 'selected';
+                        }
+                    ?>
+                    <option value="{!! $category->id !!}" {!!$selected!!} >{!! $category->name !!}</option>
+                    @endforeach
+                </select>
                 <?php
                 if ($errors->has('expected_position_id')) {
                     echo $errors->first('expected_position_id');
                 }
                 ?>
-            </td>
         </tr>
         <tr>
             <td><label>Đia điểm dự kiến</label></td>
             <td>
                 <select name="expected_location_id" >
-                    <option value="" >Chọn</option>
-                    @foreach($curriculumvita as $user)
+                    @foreach($locations as $location)
                     <?php
                         $selected = '';
-                        if ($user->location->id == $curriculumvita->expected_location_id) {
+                        if ($location->id == $curriculumvita->expected_location_id) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $user->location->id !!}" {!!$selected!!} >{!! $user->location->name !!}</option>
+                    <option value="{!! $location->id !!}" {!!$selected!!} >{!! $location->name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -165,15 +179,14 @@
             <td><label>Loại công việc dự kiến</label></td>
             <td>
                 <select name="expected_job_category" >
-                    <option value="" >Chọn</option>
-                    @foreach($curriculumvita as $user)
+                    @foreach($categories as $category)
                     <?php
                         $selected = '';
-                        if ($user->category->id == $curriculumvita->expected_job_category) {
+                        if ($category->id == $curriculumvita->expected_job_category) {
                             $selected = 'selected';
                         }
                     ?>
-                    <option value="{!! $user->category->id !!}" {!!$selected!!} >{!! $user->category->name !!}</option>
+                    <option value="{!! $category->id !!}" {!!$selected!!} >{!! $category->name !!}</option>
                     @endforeach
                 </select>
                 <?php
@@ -186,7 +199,8 @@
         <tr>
             <td><label>Thương lượng</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable" />
+                <input type="radio" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable" />Kích hoạt<br>
+                <input type="radio" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable">Không kích hoạt<br>
                 <?php
                 if ($errors->has('is_negotiable')) {
                     echo $errors->first('is_negotiable');
@@ -201,3 +215,4 @@
         </tr>
     </table>
 </form>
+@endsection

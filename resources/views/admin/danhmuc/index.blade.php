@@ -1,5 +1,14 @@
+@extends('admin.trangAdmin.admin')
+@section('danhmuc')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Danh mục</small>
+                        </h1>
+                    </div>
+</div>
 <a href='{!! route("admin.quanly_danhmuc.them") !!}'>Them</a>
-<table border='1px'>
+<table class="table">
     <tr>
         <th>id</th>
         <th>Ten</th>
@@ -19,3 +28,4 @@
     </tr>
     @endforeach
 </table>
+@endsection

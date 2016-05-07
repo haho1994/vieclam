@@ -1,5 +1,14 @@
+@extends('admin.trangAdmin.admin')                
+@section('congty')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Companies</small>
+                        </h1>
+                    </div>
+</div>
 <a href='{!! route("admin.quanly_companies.them") !!}'>Them</a>
-<table border='1px'>
+<table class="table">
     <tr>
         <th>id</th>
         <th>Ten</th>
@@ -7,6 +16,7 @@
         <th>Người tạo</th>
         <th>Email</th> 
         <th>Số điện thoại</th>
+        <th>Thao tác</th>
         
     </tr>
     @foreach($congty as $item)
@@ -25,3 +35,4 @@
     </tr>
     @endforeach
 </table>
+@endsection

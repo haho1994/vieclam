@@ -1,3 +1,12 @@
+@extends('admin.trangAdmin.admin')
+@section('danhmuc1')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Danh mục/ Thêm</small>
+                        </h1>
+                    </div>
+</div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
@@ -41,3 +50,4 @@
         </tr>
     </table>
 </form>
+@endsection

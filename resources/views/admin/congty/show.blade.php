@@ -1,10 +1,19 @@
+@extends('admin.trangAdmin.admin')
+@section('congty3')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Companies/ Xem</small>
+                        </h1>
+                    </div>
+</div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
     }
 ?>
 
-<form action="{!! route('admin.quanly_companies.xem', ['id' => $company->id]) !!}" method="post">
+<form action="{!! route('admin.quanly_companies.thoat', ['id' => $company->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
        <tr>
@@ -30,3 +39,4 @@
         </tr>
     </table>
 </form>
+@endsection

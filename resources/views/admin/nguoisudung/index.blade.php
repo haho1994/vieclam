@@ -16,28 +16,21 @@
         <th>Email</th>
         <th>Số Điện Thoại</th> 
         <th>Địa Chỉ</th>
-         <th>Tỉnh, T.P</th>
-         <th>Hình Thức</th>
+         <th>Thao tác </th>
         
     </tr>
-    @foreach($nguoisudung as $item)
+    @foreach($user as $item)
     <tr>
         <td>{!! $item->id !!}</td>
         <td>{!! $item->full_name !!}</td>
         <td>{!! $item->brithday!!}</td>
         <td>{!! $item->email !!}</td>
-         <td>{!! $item->phone !!}</td>
-        <td>{!! $item->location->name !!}</td>
-        <td>{!! $item->category->name !!}</td> 
-       
-        
+        <td>{!! $item->phone !!}</td>
         <td>{!! $item->address !!}</td>
-        
-        <td></td>
         <td>
             <a href='#'>Xem</a>
-            <a href='{!! route("admin.quanly_companies.sua", array("id" => $item->id)) !!}'>Sua</a>
-            <a href='{!! route("admin.quanly_companies.xoa", array("id" => $item->id)) !!}'>Xoa</a>
+            <a href='{!! route("admin.quanly_user.sua", array("id" => $item->id)) !!}'>Sua</a>
+            <a href='{!! route("admin.quanly_user.xoa", array("id" => $item->id)) !!}'>Xoa</a>
         </td>
     </tr>
     @endforeach

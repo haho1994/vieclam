@@ -1,3 +1,12 @@
+@extends('admin.trangAdmin.admin')
+@section('danhmuc2')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Danh mục/ Sửa</small>
+                        </h1>
+                    </div>
+</div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
@@ -22,7 +31,6 @@
             <td><label>Thuoc danh muc</label></td>
             <td>
                 <select name="id_parent" >
-                    <option value="" >Chon danh muc</option>
                     @foreach($parents as $parent)
                     <?php
                         $selected = '';
@@ -47,3 +55,4 @@
         </tr>
     </table>
 </form>
+@endsection

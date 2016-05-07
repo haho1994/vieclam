@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Job_favourites;
+use App\Job_favourite;
 use App\User;
 use App\Job;
 class AdminQuanlyCongViecYeuThich extends Controller {
     
     //danh sach
     public function index() {
-        $job_favourites = Job_favourites::all();
+        $jobfavourites = Job_favourite::all();
         return view('admin.congviecyeuthich.index')->with([
-                    'congviecyeuthich' => $job_favourites
+                    'jobfavourites' => $jobfavourites
         ]);
     }
 
@@ -52,7 +52,7 @@ class AdminQuanlyCongViecYeuThich extends Controller {
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['id_user'] = auth()->user()->id;
        // dd($dulieu);
-       Job_favourites::create($dulieu);
+       Job_favourite::create($dulieu);
 
         \Session::flash('success', 'Tao thanh cong');
 
@@ -61,13 +61,13 @@ class AdminQuanlyCongViecYeuThich extends Controller {
 
     //sua
     public function edit($id) {
-        $job_favourites = Job_favourites::find($id);
-//        $user = job_favourites::whereNull('id_user')->get();
-//        $user = job_favourites::whereNull('id_user')->get();
-
+        $job_favourite = Job_favourite::find($id);
+        $jobs = Job::all();
+        $users = User::all();
         return view('admin.congviecyeuthich.edit')->with([
-                    'job_favourites' => $job_favourites,
-                    'jobs' => $jobs
+                    'job_favourite' => $job_favourite,
+                    'jobs' => $jobs,
+                    'users' => $users
         ]);
     }
 
@@ -93,8 +93,8 @@ class AdminQuanlyCongViecYeuThich extends Controller {
             return redirect()->route('admin.quanly_job.them')->withErrors($xuly);
         }
 
-        $job_favourites = Job_favourites::find($id);
-        $job_favourites->update($dulieu);
+        $job_favourite = Job_favourite::find($id);
+        $job_favourite->update($dulieu);
 
         \Session::flash('success', 'Sua thanh cong');
 
@@ -102,10 +102,15 @@ class AdminQuanlyCongViecYeuThich extends Controller {
     }
 
     public function destroy($id){
-        $job_favourites = Job_favourites::find($id);
-        $job_favourites->delete();
+        $job_favourite = Job_favourite::find($id);
+        $job_favourite->delete();
         
         return redirect()->back();
     }
-
+    public function show($id){
+        $job_favourite = Job_favourite::find($id);
+        return view('admin.congviecyeuthich.show')->with([
+                    'job_favourite' => $job_favourite,
+            ]);
+    }
 }

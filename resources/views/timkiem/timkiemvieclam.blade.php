@@ -1,5 +1,6 @@
 @extends('layouts.headerfooter')
 @section('timkiem')
+<div class="image">
 <div class="search_form">
     <h1>Tìm Kiếm Việc Làm</h1>
     <form  method="get" action="<?php echo route('xuly.dangnhap'); ?>">
@@ -153,6 +154,11 @@
         </select>
         <input id="input" type="submit" name="login" class="login login-submit" value="Tìm Kiếm">
     </form>
+    <form action="/upload-cv" method="post" enctype="multipart/form-data" >
+    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+    <input type="file" name="cv" />
+    <input type="submit" name="upload" />
+    </form>
 </div>
 <div id="scroll_box">
   <p>
@@ -171,6 +177,7 @@
     Put a long text in here. It will be crollable.<br/>
     Put a long text in here. It will be crollable.<br/>
   </p>
+</div>
 </div>
 @endsection
 

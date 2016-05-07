@@ -16,12 +16,12 @@
         <th>Thao Tác</th>
         
     </tr>
-    @foreach($kynang as $item)
+    @foreach($skills as $item)
     <tr>
         <td>{!! $item->id !!}</td>
         <td>{!! $item->name !!}</td>
         <td>{!! $item->user->full_name !!}</td>
-        <td></td>
+     
         <td>
             <a href='#'>Xem</a>
             <a href='{!! route("admin.quanly-kynang.sua", array("id" => $item->id)) !!}'>Sua</a>

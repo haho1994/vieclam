@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>User</small>
+                             Job<small>Favourites</small>
                         </h1>
                     </div>
                 </div>
@@ -19,7 +19,7 @@ if (Session::has('success')) {
             <td><label>Tên Công Việc</label></td>
             <td>
                 <select name="id_job" >
-                    <option value="" >Chon danh muc</option>
+                    <option value="" >Chọn công việc</option>
                     @foreach($jobs as $job)
                     <option value="{!! $job->id !!}" >{!! $job->name !!}</option>
                     @endforeach
@@ -37,7 +37,7 @@ if (Session::has('success')) {
             <td><label>Tên Người Sử Dụng</label></td>
             <td>
                 <select name="id_user" >
-                    <option value="" >Chon danh muc</option>
+                    <option value="" >Chọn người dùng</option>
                     @foreach($users as $user)
                     <option value="{!! $user->id !!}" >{!! $user->full_name !!}</option>
                     @endforeach
@@ -51,7 +51,7 @@ if (Session::has('success')) {
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Tao" />
+                <input type="submit" value="Tạo" />
             </td>
         </tr>
     </table>

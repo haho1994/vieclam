@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Request\Login;
-
+use App\User;
 class TrangchuController extends Controller {
 
 //    public function index() {
@@ -141,40 +141,53 @@ class TrangchuController extends Controller {
         return view('taikhoan.doipass');
     }
     public function xuLyDoiMatKhau(){
-        $email = request()->get('email');
-        $password = request()->get('password');
-        //'is_admin' =1;
-        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Nếu đăng nhập đúng
-            return redirect()->route('dangnhap');
-        }
-        //Nếu đăng nhập sai
-        return redirect()->route('dangky');
         
-        $dulieu = request()->all();
-        $quyluat = [
-            'password_news' => 'required',
-            'password_confirmation' => 'required|same:password_news',
-        ];
+//        $email = request()->get('email');
+//        $password = request()->get('password');
+//        //'is_admin' =1;
+//        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
+//            // Nếu đăng nhập đúng
+//            return redirect()->route('xuly.doimatkhau');
+//        }
+//        //Nếu đăng nhập sai
+//        return redirect()->route('dangky');
+//        
+//        $dulieu = request()->all();
+//        $quyluat = [
+//            'password_news' => 'required',
+//            'password_confirmation' => 'required|same:password_news',
+//        ];
+//
+//        $thongbao = [
+//            
+//            'password_news.required' => 'Mật khẩu bắt buộc phải nhập',
+//            'password_confirmation.required' => 'Nhập lại mật khẩu bắt buộc phải nhập',
+//            'password_confirmation.same' => 'Nhập lại mật khẩu phải trùng ở trên',
+//            
+//        ];
+//
+//        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
+//        if ($xuly->fails()) {
+//            return redirect()->route('dangky')->withErrors($xuly);
+//        }
+//        $dulieu['id_user'] = auth()->user()->id;
+//        $user = new \App\User;
+//        $user->password = \Hash::make($dulieu['password']);
+//        $user->save();
+//        return redirect()->route('dangky');
+//    }
+//    public function postUserPasswordChange(){
+        $validator = Validator::make(Input::all(), User::$change_password_rules);
+        if($validator->passes()){
 
-        $thongbao = [
-            
-            'password_news.required' => 'Mật khẩu bắt buộc phải nhập',
-            'password_confirmation.required' => 'Nhập lại mật khẩu bắt buộc phải nhập',
-            'password_confirmation.same' => 'Nhập lại mật khẩu phải trùng ở trên',
-            
-        ];
+        $user = UserEventbot::findOrFail(Auth::user()->id);
 
-        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
-        if ($xuly->fails()) {
-            return redirect()->route('dangky')->withErrors($xuly);
-        }
-
-        $user = new \App\User;
-        $user->password = \Hash::make($dulieu['password']);
+        $user->password = Hash::make(Input::get('new_password'));
         $user->save();
-        return redirect()->route('dangky');
+        return Redirect::to('users/change-password');
+        }else {
+        return Redirect::to('users/change-password')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
     }
-    
-
+}
+   
 }
