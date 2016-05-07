@@ -43,8 +43,7 @@ class AdminQuanLyDiaDiem extends Controller {
 
         Location::create($dulieu);
 
-        \Session::flash('success', 'Tao thanh cong');
-
+        \Session::flash('success', 'Thêm thành công!!');
         return redirect()->back();
     }
 
@@ -87,6 +86,12 @@ class AdminQuanLyDiaDiem extends Controller {
         $locations = Location::find($id);
         $locations->delete();
         return redirect()->back();
+    }
+     public function show($id){
+        $locations = Location::find($id);
+        return view('admin.locations.show')->with([
+                    'locations' => $locations,
+            ]);
     }
 
 }

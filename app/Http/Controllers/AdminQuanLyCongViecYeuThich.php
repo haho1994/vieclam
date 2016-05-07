@@ -108,9 +108,11 @@ class AdminQuanlyCongViecYeuThich extends Controller {
         return redirect()->back();
     }
     public function show($id){
+
         $job_favourite = Job_favourite::find($id);
         return view('admin.congviecyeuthich.show')->with([
                     'job_favourite' => $job_favourite,
             ]);
     }
+
 }

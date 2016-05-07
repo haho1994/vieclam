@@ -88,5 +88,11 @@ class AdminQuanLyNgonNgu extends Controller {
         $languages->delete();
         return redirect()->back();
     }
+     public function show($id){
+        $languages = Languages::find($id);
+        return view('admin.ngonngu.show')->with([
+                    'languages' => $languages,
+            ]);
+    }
 
 }

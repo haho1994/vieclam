@@ -89,12 +89,14 @@ class AdminQuanlyCurriculumvitaes extends Controller {
         $companies = Company::all();
         $categories = Category::all();
         $locations = Location::all();
+        $languages = \App\Language::all();
         return view('admin.hoso.edit')->with([
                     'curriculumvita' => $curriculumvita,
                     'users' => $users,
                     'companies' => $companies,
                     'categories' => $categories,
-                    'locations' => $locations
+                    'locations' => $locations,
+                    'languages' => $languages
         ]);
     }
 

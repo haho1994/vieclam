@@ -12,16 +12,16 @@
     <tr>
         <th>id</th>
         <th>Tên Địa Điểm</th>
-        <th>Thao tac</th>
+        <th>Thao Tác</th>
     </tr>
     @foreach($locations as $item)
     <tr>
         <td>{!! $item->id !!}</td>
         <td>{!! $item->name !!}</td>
         <td>
-            <a href='#'>Xem</a>
-            <a href='{!! route("admin.diadiem.sua", array("id" => $item->id)) !!}'>Sua</a>
-            <a href='{!! route("admin.diadiem.xoa", array("id" => $item->id)) !!}'>Xoa</a>
+            <a href='{!! route("admin.diadiem.xem", array("id" => $item->id)) !!}'>Xem</a>
+            <a href='{!! route("admin.diadiem.sua", array("id" => $item->id)) !!}'>Sửa</a>
+            <a href='{!! route("admin.diadiem.xoa", array("id" => $item->id)) !!}'>Xóa</a>
         </td>
     </tr>
     @endforeach

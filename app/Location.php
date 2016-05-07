@@ -11,12 +11,11 @@ class Location extends Model {
     
     protected $table = 'locations';
     protected $fillable = [
-        'name'
+        'name',
+        'description'
     ];
     
      
-//    public function location_id(){
-//        return $this->hasOne('User');
-//    }
+
 }
 

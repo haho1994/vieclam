@@ -120,7 +120,12 @@ class AdminQuanLyUser extends Controller {
         
         return redirect()->back();
     }
-   
+    public function show($id){
+        $user = User::find($id);
+        return view('admin.quanly_user.show')->with([
+                    'quanly_user' => $user,
+            ]);
+    }
     
 
 }

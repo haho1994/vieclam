@@ -92,5 +92,11 @@ class AdminQuanlyKyNang extends Controller {
         
         return redirect()->back();
     }
+     public function show($id){
+        $skills = Skill::find($id);
+        return view('admin.kynang.show')->with([
+                    'skills' => $skills,
+            ]);
+    }
 
 }

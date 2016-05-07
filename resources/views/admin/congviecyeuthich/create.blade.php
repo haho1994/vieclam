@@ -31,8 +31,6 @@ if (Session::has('success')) {
                 ?>
             </td>
         </tr>
-            </td>
-        </tr>
         <tr>
             <td><label>Tên Người Sử Dụng</label></td>
             <td>

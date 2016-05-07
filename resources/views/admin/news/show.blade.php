@@ -18,23 +18,36 @@
     <table>
        <tr>
             <td><label>Tiêu đề</label></td>
-            <td><label type="text" value="{!! $news->title !!}" name="title">{!! $news->title !!}</label></td>
+            <td><label type="text" >{!! $news->title !!}</label></td>
         </tr>
         <tr>
             <td><label>Nội dung</label></td>
-            <td><label type="text" value="{!! $news->content !!}" name="content">{!! $news->content !!}</label></td>
+            <td><label type="text">{!! $news->content !!}</label></td>
         </tr>
         <tr>
             <td><label>Nghành nghề</label></td>
-            <td><label type="text" value="{!! $news->category->id !!}" name="category_id">{!! $news->category->name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($news->category)
+                    {!! $news->category->name !!}
+                    @endif
+                    
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Trạng thái</label></td>
-            <td><label type="text" value="{!! $news->status_new !!}" name="status_new">{!! $news->status_new !!}</label></td>
+            <td><label type="text" >{!! $news->status_new !!}</label></td>
         </tr>
         <tr>
             <td><label>Người tạo</label></td>
-            <td><label type="text" value="{!! $news->user->id !!}" name="user_id">{!! $news->user->full_name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($news->user)
+                    {!! $news->user->full_name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

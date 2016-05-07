@@ -42,7 +42,8 @@
         </p>
         </div>
         <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
-        <input type="text"  name='brithday' type="text" placeholder="Ngày Sinh" path="dob" class="form-control"/>
+            <input type="date"  name='brithday' placeholder="Ngày Sinh" path="dob" class="form-control" style="width: 274px; height: 44px;size: 16px;border-radius: 5px;border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;"/>
         <p>
         <?php
         if ($errors->has('brithday')) {

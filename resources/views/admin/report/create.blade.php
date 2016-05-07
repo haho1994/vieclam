@@ -1,21 +1,22 @@
 @extends('admin.trangAdmin.admin')
-@section('location1')
+@section('baocao')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Location</small>
+                             <small>Báo Cáo</small>
                         </h1>
                     </div>
                 </div>
-<?php 
-    if (Session::has('success')) {
-        echo \Session::get('success');
-    }
+<?php
+if (Session::has('success')) {
+    echo \Session::get('success');
+}
 ?>
-<form action="{!! route('admin.diadiem.luu', ['id' => $locations->id]) !!}" method="post">
+<div align="center">
+<form action="{!! route('admin.quanly-baocao.xuly') !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <div>
-        <label>Tên Địa Điểm</label>
+        <label>Tên Ngôn Ngữ</label>
         <div>
             <input type="text" value=""  name="name">
             <?php
@@ -31,4 +32,5 @@
         </div>
     </div>
 </form>
+</div>
 @endsection

@@ -209,6 +209,16 @@
             </td>
         </tr>
         <tr>
+            <td><label>Ngon ngu</label></td>
+            <td>
+                <select multiple >
+                    @foreach($languages as $language)
+                    <option value="{!!$language->id!!}" >{!!$language->name!!}</option>
+                    @endforeach
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <input type="submit" value="Sửa" />
             </td>

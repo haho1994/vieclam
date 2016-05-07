@@ -18,55 +18,85 @@
     <table>
         <tr>
             <td><label>Id</label></td>
-            <td><label type="text" value="{!! $curriculumvita->id !!}" name="id">{!! $curriculumvita->id !!}</label></td>
+            <td><label type="text" >{!! $curriculumvita->id !!}</label></td>
         </tr>
         <tr>
             <td><label>Tên</label></td>
-            <td><label type="text" value="{!! $curriculumvita->user->id !!}" name="id_user">{!! $curriculumvita->user->full_name !!}</label></td>
+            <td><label type="text" >{!! $curriculumvita->user->full_name !!}</label></td>
         </tr>
         <tr>
             <td><label>Kinh nghiệm</label></td>
-            <td><label type="text" value="{!! $curriculumvita->year_experience !!}" name="year_experience">{!! $curriculumvita->year_experience !!}</label></td>
+            <td><label type="text" >{!! $curriculumvita->year_experience !!}</label></td>
         </tr>
         <tr>
             <td><label>Trình độ</label></td>
-            <td><label type="text" value="{!! $curriculumvita->highes_edu !!}" name="highes_edu">{!! $curriculumvita->highes_edu !!}</label></td>
+            <td><label type="text">{!! $curriculumvita->highes_edu !!}</label></td>
         </tr>
         <tr>
             <td><label>Công ty gần đây</label></td>
-            <td><label type="text" value="{!! $curriculumvita->company->id !!}" name="recent_company_id">{!! $curriculumvita->company->name !!}</label></td>
+            <td>
+                <label type="text">
+                    @if($curriculumvita->company)
+                    {!! $curriculumvita->company->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Ngành nghề gần đây</label></td>
-            <td><label type="text" value="{!! $curriculumvita->category->id !!}" name="recent_category_id">{!! $curriculumvita->category->name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($curriculumvita->category)
+                    {!! $curriculumvita->category->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Vị trí công việc dự kiến</label></td>
-            <td><label type="text" value="{!! $curriculumvita->category->id !!}" name="expected_position_id">{!! $curriculumvita->category->name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($curriculumvita->category)
+                    {!! $curriculumvita->category->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Đia điểm dự kiến</label></td>
-            <td><label type="text" value="{!! $curriculumvita->location->id !!}" name="expected_location_id">{!! $curriculumvita->location->name !!}</label></td>
+            <td>
+                <label type="text">
+                    @if($curriculumvita->location)
+                    {!! $curriculumvita->location->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Mức lương dự kiến</label></td>
-            <td><label type="text" value="{!! $curriculumvita->expected_salary!!}" name="expected_salary">{!! $curriculumvita->expected_salary !!}</label></td>
+            <td><label type="text">{!! $curriculumvita->expected_salary !!}</label></td>
         </tr>
         <tr>
             <td><label>Mức độ công việc hiện tại</label></td>
-            <td><label type="text" value="{!! $curriculumvita->current_job_level !!}" name="current_job_level">{!! $curriculumvita->current_job_level !!}</label></td>
+            <td><label type="text" >{!! $curriculumvita->current_job_level !!}</label></td>
         </tr>
         <tr>
             <td><label>Mức độ công việc dự kiến</label></td>
-            <td><label type="text" value="{!! $curriculumvita->expected_job_level !!}" name="expected_job_level">{!! $curriculumvita->expected_job_level !!}</label></td>
+            <td><label type="text">{!! $curriculumvita->expected_job_level !!}</label></td>
         </tr>
         <tr>
             <td><label>Loại công việc dự kiến</label></td>
-            <td><label type="text" value="{!! $curriculumvita->category->id !!}" name="expected_job_category">{!! $curriculumvita->category->name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($curriculumvita->category)
+                    {!! $curriculumvita->category->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td><label>Thương lượng</label></td>
-            <td><label type="text" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable">{!! $curriculumvita->is_negotiable !!}</label></td>
+            <td><label type="text" >{!! $curriculumvita->is_negotiable !!}</label></td>
         </tr>
         <tr>
             <td colspan="2">

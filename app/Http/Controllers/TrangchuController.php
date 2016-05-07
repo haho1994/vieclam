@@ -69,7 +69,7 @@ class TrangchuController extends Controller {
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
         if ($xuly->fails()) {
-            return redirect()->route('dangky')->withErrors($xuly);
+            return redirect()->route('dangnhap')->withErrors($xuly);
         }
 
         $user = new \App\User;
@@ -113,7 +113,7 @@ class TrangchuController extends Controller {
         return view('admin.trangAdmin.admin');
     }
     public function dangNhapTaiKhoan() {
-        return view('dangnhap.dangnhap_taikhoan');
+        return view('dangnhap.login_user');
     }
      public function trangNgonNgu() {
         return view('ngonngu.create');
@@ -131,7 +131,7 @@ class TrangchuController extends Controller {
         //'is_admin' =1;
         if (\Auth::attempt(['email' => $email, 'password' => $password])) {
             // Nếu đăng nhập đúng
-            return redirect()->route('admin.quanly_companies');
+            return redirect()->route('frontend.search.get');
         }
         //Nếu đăng nhập sai
         return redirect()->route('dangky');

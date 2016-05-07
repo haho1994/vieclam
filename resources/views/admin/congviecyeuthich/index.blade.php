@@ -12,13 +12,23 @@
     <tr>
         <th>id</th>
         <th>Tên Người Dùng</th>
+        <th>Tên công việc</th>
          <th>Thao Tác</th>
         
     </tr>
     @foreach($jobfavourites as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-        <td>{!! $item->user->full_name !!}</td>
+        <td>
+            @if($item->user)
+            {!! $item->user->full_name !!} 
+            @endif
+        </td>
+        <td>
+            @if($item->job)
+            {!! $item->job->name !!} 
+            @endif
+        </td> 
         <td>
             <a href='{!! route("admin.quanly_job.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly_job.sua", array("id" => $item->id)) !!}'>Sửa</a>

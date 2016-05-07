@@ -50,9 +50,14 @@ Route::post('ngonngu', [
 
 
 
-Route::get('timkiem-vieclam', function() {
-    return view('timkiem.timkiemvieclam');
-});
+Route::get('/', [
+    'as' => 'frontend.search.get',
+    'uses' => 'SearchController@index'
+]);
+Route::get('timkiem', [
+    'as' => 'frontend.search.search',
+    'uses' => 'SearchController@search'
+]);
 
 Route::get('admin/login', [
     'as' => 'admin_login',
@@ -94,6 +99,11 @@ Route::get('admin/locations/xoa/{id}', [
     'as' => 'admin.diadiem.xoa',
     'uses' => 'AdminQuanlyDiaDiem@destroy'
 ]);
+Route::get('admin/locations/xem/{id}', [
+        'as' => 'admin.diadiem.xem',
+        'uses' => 'AdminQuanlyDiaDiem@show'
+    ]);
+
 
 
 
@@ -129,11 +139,29 @@ Route::get('admin/ngonngu/xoa/{id}', [
     'as' => 'admin.quanly-ngonngu.xoa',
     'uses' => 'AdminQuanLyNgonNgu@destroy'
 ]);
+Route::get('admin/ngonngu/xem/{id}', [
+        'as' => 'admin.quanly-ngonngu.xem',
+        'uses' => 'AdminQuanLyNgonNgu@show'
+    ]);
 
 
 
 
 
+
+//Route::post('admin/kynang/luu/{id}', [
+//    'as' => 'admin.quanly-kynang.luu',
+//    'uses' => 'AdminQuanLyKyNang@update'
+//]);
+//
+//Route::get('admin/kynang/xoa/{id}', [
+//    'as' => 'admin.quanly-kynang.xoa',
+//    'uses' => 'AdminQuanLyKyNang@destroy'
+//]);
+//Route::get('admin/kynang/xem/{id}', [
+//        'as' => 'admin.quanly-kynang.xem',
+//        'uses' => 'AdminQuanLyKyNang@show'
+//    ]);
 
 
 
@@ -447,7 +475,10 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly-kynang.xoa',
         'uses' => 'AdminQuanLyKyNang@destroy'
     ]);
-    
+    Route::get('admin/kynang/xem/{id}', [
+        'as' => 'admin.quanly-kynang.xem',
+        'uses' => 'AdminQuanLyKyNang@show'
+    ]);
 });
 
 
@@ -503,6 +534,11 @@ Route::get('tai-cv/{filename}', [
         'as' => 'admin.quanly_user.xoa',
         'uses' => 'AdminQuanLyUser@destroy'
     ]);
+    Route::get('admin/quanly-user/xem/{id}', [
+        'as' => 'admin.quanly_user.xem',
+        'uses' => 'AdminQuanLyUser@show'
+    ]);
+
     
     //Công việc yêu thích
      Route::get('admin/quanly-job-fa', [
@@ -537,7 +573,42 @@ Route::get('tai-cv/{filename}', [
         'as' => 'admin.quanly_job.xem',
         'uses' => 'AdminQuanLyCongViecYeuThich@show'
     ]);
-    
+
+    //report
+     Route::get('admin/report', [
+        'as' => 'admin.quanly-report',
+        'uses' => 'AdminQuanLyReport@index'
+    ]);
+
+    Route::get('admin/report/them', [
+        'as' => 'admin.quanly-report.them',
+        'uses' => 'AdminQuanLyReport@create'
+    ]);
+
+    Route::post('admin/report/them', [
+        'as' => 'admin.quanly-report.xuly',
+        'uses' => 'AdminQuanLyReport@store'
+    ]);
+
+    Route::get('admin/report/sua/{id}', [
+        'as' => 'admin.quanly-report.sua',
+        'uses' => 'AdminQuanLyReport@edit'
+    ]);
+
+    Route::post('admin/report/luu/{id}', [
+        'as' => 'admin.quanly-report.luu',
+        'uses' => 'AdminQuanLyReport@update'
+    ]);
+
+    Route::get('admin/report/xoa/{id}', [
+        'as' => 'admin.quanly-report.xoa',
+        'uses' => 'AdminQuanLyReport@destroy'
+    ]);
+    Route::get('admin/report/xem/{id}', [
+        'as' => 'admin.quanly-report.xem',
+        'uses' => 'AdminQuanLyReport@show'
+    ]);
+
 Route::get('admin', [
     'as' => 'admin1',
     'uses' => 'TrangchuController@trangAdmin'

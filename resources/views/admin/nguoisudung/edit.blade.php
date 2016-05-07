@@ -72,6 +72,7 @@
             </td>
         </tr>
         <tr>
+<<<<<<< HEAD
             <td><label>Công việc</label></td>
             <td>
                 <select name="id_category" >
@@ -94,6 +95,9 @@
         </tr>
         <tr>
             <td><label>Địa điểm</label></td>
+=======
+            <td><label>Tỉnh, T.P</label></td>
+>>>>>>> 6a0d612dd001d5aafc81983b720dd9d1f881ae41
             <td>
                 <input type="text" value="{!! $users->address !!}" name="address" />
                 <?php
@@ -115,6 +119,21 @@
             </td>
         </tr>
         <tr>
+<<<<<<< HEAD
+=======
+            <td><label>Mức Lương</label></td>
+            <td>
+                <input type="text" value="" name="salary" />
+                <?php
+                if ($errors->has('salary')) {
+                    echo $errors->first('salary');
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            
+>>>>>>> 6a0d612dd001d5aafc81983b720dd9d1f881ae41
             <td colspan="2">
                 <input type="submit" value="Sửa" />
             </td>

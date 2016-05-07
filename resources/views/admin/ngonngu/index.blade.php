@@ -21,7 +21,7 @@
         <td>{!! $item->id !!}</td>
         <td>{!! $item->name !!}</td>
         <td>
-            <a href='#'>Xem</a>
+            <a href='{!! route("admin.quanly-ngonngu.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly-ngonngu.sua", array("id" => $item->id)) !!}'>Sua</a>
             <a href='{!! route("admin.quanly-ngonngu.xoa", array("id" => $item->id)) !!}'>Xoa</a>
         </td>

@@ -22,20 +22,20 @@
     @foreach($hoso as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-<!--        <td>
-            @if (!empty($item->user))
+        <td>
+            @if ($item->user)
             {!! $item->user->full_name !!}
             @endif
-        </td>-->
-        <td>{!! $item->user->full_name !!}</td>
+        </td>
         <td>{!! $item->year_experience !!}</td>
         <td>{!! $item->highes_edu !!}</td>
-        <td> @if(!empty($item->company))
-            {!!$item->recent_company_id !!}
+        <td>
+            @if($item->company)
+            {!!$item->company->name !!}
             @endif
         </td>
-        <td> @if(!empty($item->company))
-           {!!$item->recent_category_id !!}
+        <td> @if($item->category)
+           {!!$item->category->name !!}
             @endif 
         </td>
         <td>

@@ -19,7 +19,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
                         <a href="#">Thông Báo
-                       </a>
+                        </a>
                     </li>
                     <li>
                         <a  href='{!! route("admin.login") !!}' aria-expanded="false" >Đăng Nhập
@@ -51,15 +51,22 @@
                         <li>
                             <a href='{!! route("admin.quanly_companies") !!}'>Công Ty </a>
                         </li>
-
-
                         <li>
                             <a href='{!! route("admin.quanly-kynang") !!}'>Kỹ Năng</a>
                         </li>
                         <li>
-                            <a href='{!! route("admin.quanly_companies") !!}'> Công Ty</a>
+                            <a  href='{!! route("admin.quanly_jobs") !!}'>Việc Làm</a>
                         </li>
-
+                        <li>
+                            <a>Tỉnh, T.p</a>
+                        </li>
+                        <li>
+                            <a href='{!! route("admin.quanly_curriculumvitaes") !!}'>Hồ Sơ</a>
+                        </li>
+                        </li>
+                        <li>
+                            <a href='{!! route("admin.quanly_companies") !!}'>Công Việc Yêu Thích</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -72,15 +79,18 @@
                     @yield('ngonngu2')
                     @yield('ngonngu')
                     @yield('ngonngu1')
+                    @yield('ngonngu3')
                     @yield('location')
                     @yield('location1')
                     @yield('location2')
+                    @yield('diadiem3')
                     @yield('user')
                     @yield('user1')
                     @yield('user2')
                     @yield('skill')
                     @yield('skill1')
                     @yield('skill2')
+                    @yield('skill3')
                     @yield('congviecyeuthich')
                     @yield('congviecyeuthich1')
                     @yield('congviecyeuthich2')

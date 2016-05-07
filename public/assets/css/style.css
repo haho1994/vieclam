@@ -26,13 +26,7 @@ h2
   color: #1293EE;}
 
 
-a, a:hover
-{ outline: none;
-  text-decoration: underline;
-  color: #FD5BFF;}
 
-a:hover
-{ text-decoration: none;}
 ul
 { margin: 2px 0 22px 17px;}
 
@@ -52,8 +46,10 @@ ol li
   margin-right: auto;}
 
 .header
-{ background:url(../images/header.png) repeat;
-  height: 240px;}
+{
+  height: 150px;
+  border-bottom: 1px #ddd solid;
+  }
 
 .logo
 { width: 825px; 
@@ -73,23 +69,26 @@ ol li
 
 .logo_text h1, .logo_text h1 a, .logo_text h1 a:hover 
 { padding: 22px 0 0 0;
-  color: #FFF;
+  color: #000066;
   letter-spacing: 0.1em;
   text-decoration: none;}
 
 .logo_text h1 a .logo_colour
-{ color: #1293EE;}
+{ color: #0000FF;}
 
 .logo_text h2
 { font-size: 100%;
   padding: 4px 0 0 0;
-  color: #DDD;}
+  color: #FF9933;}
 
 #menubar
 { width: 900px;
   height: 72px;
   padding: 0;
-  background: #1293EE;} 
+  color: #999999;
+  margin-left: 500px;
+  margin-top: 10px;
+} 
 
 ul#menu, ul#menu li
 { float: left;
@@ -112,18 +111,17 @@ ul#menu li ul.nm1 {
 ul#menu li a
 { letter-spacing: 0.1em;
   font: normal 100% arial, sans-serif;
-  float: left; 
   height: 37px;
   padding: 29px 26px 6px 26px;
   text-align: center;
-  color: #FFF;
+  color: #999999;
   text-transform: uppercase;
   text-decoration: none;
-  background: transparent;} 
+  } 
 
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
-{ color: #FFF;
-  background: #0D66A5;}
+{ color:#FF0000;
+  }
 #site_content
 { width: 837px;
   overflow: hidden;
@@ -174,12 +172,12 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
   height: 100%;
 }
 #footer
-{ width: 900px;
+{ width: 100%;
   font: normal 100% 'lucida sans unicode', arial, sans-serif;
   height: 33px;
   padding: 24px 0 5px 0;
   text-align: center; 
-  background: #1293EE;
+  background: #CCCCCC;
   color: #FFF;
   text-transform: uppercase;
   letter-spacing: 0.1em;}
@@ -232,6 +230,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
 }
 #footer a
 { color: #FFF;
+  width: 100%;
 }
 
 #footer a:hover
@@ -243,7 +242,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
     margin-right: auto;
     margin-left: auto;
 }
-//dangki, dangnhap
+
 body {
   background:#FFFFFF no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -348,48 +347,87 @@ body {
   font-size: 12px;
 }
 
-//timkiem
+
 .search_form{
-    margin-top:50px;
-    margin-left: 50px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    background:url(../images/hh.png) no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 330px;
 }
+
 .search_form h1{
     font-size: 30px;
-    margin-left: 550px;
-    font-weight:400;
-    margin-top: 70px;
+    font-weight: 300;
+    text-align: center;
+/*    margin-top: 70px;*/
     margin-bottom: 50px;
 }
+
 .search_form .text[type="text"]{
-    margin-left: 270px;
-    width: 200px;
+    
+    width:250px;
     font-size: 13px;
     margin-bottom: 100px;
+    height: 50px;
 }
 .option1{
-    width: 200px;
+    width: 250px;
     height: 43px;
     border-radius: 5px;
+    height: 50px;
 }
 .option2{
-    width: 200px;
+    width: 250px;
     height: 43px;
     border-radius: 5px;
+    height: 50px;
 }
 #input{
     width: 200px;
     height: 43px;
     border-radius: 5px;
+    height: 50px;
+}
+.upload {
+    font-size:15px;
+    color: #3333FF;
+    list-style: none;
+    display: inline-block;
+     text-decoration:none;
+}
+.up{
+    width: 100%;
+    height: 400px;
+    background:url(../images/hh.png) no-repeat top center;
+    
+}
+a:hover
+{ color:#FF9933;
+  
 }
 #scroll_box {
   height: 200px;
-  width: 500px; 
-  border: 1px solid #CCCCCC;
+  width: 900px; 
   margin: 1em 0;
-  margin-left: 400px;
   overflow: auto;
+  border: 1px solid #e5e5e5;
+  
+}
+.h3{
+   
+   width: 185px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #3079ed;
+    border: 1px solid #00b9f2;
+    border-bottom: none;
+    color: #fff!important;
+    height: 34px;
+    padding: 10px 25px;
+    margin-top:50px;
+    margin-left: 223.5px;
+    margin-bottom: -13px;
+    
 }
 #scroll_box p{
     margin-left: 50px;

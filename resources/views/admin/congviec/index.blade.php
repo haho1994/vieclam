@@ -20,7 +20,8 @@
     <tr>
         <td>{!! $item->id !!}</td>
         <td>{!! $item->name !!}</td>
-        <td> @if(!empty($item->loction))
+        <td> 
+            @if($item->location)
             {!! $item->location->name !!}
             @endif
         </td>
