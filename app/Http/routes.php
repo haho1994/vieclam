@@ -58,7 +58,14 @@ Route::get('timkiem', [
     'as' => 'frontend.search.search',
     'uses' => 'SearchController@search'
 ]);
-
+Route::get('timkiem1', [
+    'as' => 'frontend.search.get1',
+    'uses' => 'SearchController@index1'
+]);
+Route::get('timkiem2', [
+    'as' => 'frontend.search.search1',
+    'uses' => 'SearchController@search1'
+]);
 Route::get('admin/login', [
     'as' => 'admin_login',
     'uses' => 'AdminQuanlyDanhMuc@login'

@@ -98,6 +98,16 @@
             <td><label>Thương lượng</label></td>
             <td><label type="text" >{!! $curriculumvita->is_negotiable !!}</label></td>
         </tr>
+<!--        <tr>
+            <td><label>Ngôn ngữ</label></td>
+            <td>
+                <label type="text" >
+                    @if($curriculumvita->languages)
+                    {!! $curriculumvita->languages->name !!}
+                    @endif
+                </label>
+            </td>
+        </tr>-->
         <tr>
             <td colspan="2">
                 <input type="submit" value="Trở về" />
