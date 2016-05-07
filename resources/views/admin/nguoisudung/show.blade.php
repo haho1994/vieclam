@@ -9,7 +9,11 @@
     <table>
         <tr>
             <td><label>ID</label></td>
-            <td><label type="text" value="{!! $user->id !!}" name="name">{!! $user->id !!}</label></td>
+            <td>
+                <label>
+                    {!! $user->id !!}
+                </label>
+            </td>
         </tr>
        <tr>
             <td><label>Họ Và Tên</label></td>
