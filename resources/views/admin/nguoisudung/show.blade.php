@@ -9,7 +9,15 @@
     <table>
         <tr>
             <td><label>ID</label></td>
+<<<<<<< HEAD
+            <td>
+                <label>
+                    {!! $user->id !!}
+                </label>
+            </td>
+=======
             <td><label type="text" >{!! $user->id !!}</label></td>
+>>>>>>> 1ed772e2400776f92a1647f85ebc6cd4af2bb960
         </tr>
        <tr>
             <td><label>Họ Và Tên</label></td>

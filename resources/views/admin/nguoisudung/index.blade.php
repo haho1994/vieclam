@@ -22,10 +22,27 @@
     @foreach($user as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-        <td>{!! $item->full_name !!}</td>
+        <td>{!! $item->full_name !!}
+        </td>
         <td>{!! $item->brithday!!}</td>
         <td>{!! $item->email !!}</td>
+<<<<<<< HEAD
+         <td>{!! $item->phone !!}</td>
+        <td>
+            @if($item->location)
+            {!! $item->location->name !!}
+            @endif
+        </td>
+        <td>
+            @if($item->category)
+            {!! $item->category->name !!}
+            @endif
+        </td> 
+       
+        
+=======
         <td>{!! $item->phone !!}</td>
+>>>>>>> 1ed772e2400776f92a1647f85ebc6cd4af2bb960
         <td>{!! $item->address !!}</td>
         <td>
             <a href='#'>Xem</a>

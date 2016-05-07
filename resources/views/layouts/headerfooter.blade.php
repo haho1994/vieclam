@@ -17,10 +17,10 @@
                     <ul id="menu">
                         <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->	 
                         <li class="hh">
-                            <a class="menu-main">Việc Làm</a>
+                            <a class="menu-main"><b>Việc Làm</b></a>
                         </li>
-                        <li><a href='{!! route("dangnhap") !!}'>Đăng Nhập</a></li>
-                        <li><a href='{!! route("dangky") !!}'>Đăng Ký</a></li>
+                        <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
+                        <li><a href='{!! route("dangky") !!}'><b>Đăng Ký</b></a></li>
                     </ul>
                 </div>  
                 </div>

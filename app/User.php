@@ -22,6 +22,11 @@ class User extends Authenticatable {
        'salary',
        
    ];
+
+    public function location(){
+        return $this->belongsTo(Location::class, 'id_location' , 'id');
+    }
+
     
    
      public function category(){
