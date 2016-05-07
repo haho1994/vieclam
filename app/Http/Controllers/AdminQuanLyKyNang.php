@@ -11,7 +11,7 @@ class AdminQuanlyKyNang extends Controller {
     public function index() {
         $skills = Skill::all();
         return view('admin.kynang.index')->with([
-                    'kynang' => $skills
+                    'skills' => $skills
         ]);
     }
 
@@ -42,7 +42,7 @@ class AdminQuanlyKyNang extends Controller {
         }
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
-        //$dulieu['id_user'] = auth()->user()->id;
+        $dulieu['id_user'] = auth()->user()->id;
         //dd($dulieu);
         Skill::create($dulieu);
 
@@ -53,12 +53,9 @@ class AdminQuanlyKyNang extends Controller {
     
     //sua
     public function edit($id) {
-        $skills = Skill::find($id);
-        $user = Skill::whereNull('id_user')->get();
-
+        $company = Skill::find($id);
         return view('admin.kynang.edit')->with([
-                    'kynang' => $skills,
-                    '$user' => $user
+                    'company' => $company,
         ]);
     }
 
@@ -97,7 +94,7 @@ class AdminQuanlyKyNang extends Controller {
     }
      public function show($id){
         $skills = Skill::find($id);
-        return view('admin.quanly-kynang.show')->with([
+        return view('admin.kynang.show')->with([
                     'skills' => $skills,
             ]);
     }

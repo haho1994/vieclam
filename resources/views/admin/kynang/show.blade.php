@@ -1,5 +1,5 @@
 @extends('admin.trangAdmin.admin')
-@section('kynang3')
+@section('skill3')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
@@ -17,19 +17,25 @@
     <table>
         <tr>
             <td><label>ID</label></td>
-            <td><label type="text" value="{!! $skills->id !!}" name="id">{!! $skills->id !!}</label></td>
+            <td><label type="text" >{!! $skills->id !!}</label></td>
         </tr>
        <tr>
             <td><label>Tên Ngôn Ngữ</label></td>
-            <td><label type="text" value="{!! $skills->name !!}" name="name">{!! $skills->name !!}</label></td>
+            <td><label type="text">{!! $skills->name !!}</label></td>
         </tr>
         <tr>
             <td><label>Tên Người Sử Dụng</label></td>
-            <td><label type="text" value="{!! $skills->id_user !!}" name="id_user">{!! $user->full_name !!}</label></td>
+            <td>
+                <label type="text" >
+                    @if($skills->user)
+                    {!! $skills->user->full_name !!}
+                    @endif
+                
+                </label></td>
         </tr>
         <tr>
             <td><label>Miêu Tả</label></td>
-            <td><label type="text" value="{!! $skills->description !!}" name="description">{!! $skills->description !!}</label></td>
+            <td><label type="text">{!! $skills->description !!}</label></td>
         </tr>
         <tr>
             <td colspan="2">

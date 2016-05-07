@@ -11,19 +11,26 @@
 <table class="table">
     <tr>
         <th>id</th>
-        <th>Tên Công Việc</th>
         <th>Tên Người Dùng</th>
+        <th>Tên công việc</th>
          <th>Thao Tác</th>
         
     </tr>
-    @foreach($congviecyeuthich as $item)
+    @foreach($jobfavourites as $item)
     <tr>
         <td>{!! $item->id !!}</td>
-        <td>{!! $item->user->full_name !!}</td>
-        <td>{!! $item->jobs->name !!}</td> 
-        <td></td>
         <td>
-            <a href='#'>Xem</a>
+            @if($item->user)
+            {!! $item->user->full_name !!} 
+            @endif
+        </td>
+        <td>
+            @if($item->job)
+            {!! $item->job->name !!} 
+            @endif
+        </td> 
+        <td>
+            <a href='{!! route("admin.quanly_job.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly_job.sua", array("id" => $item->id)) !!}'>Sửa</a>
             <a href='{!! route("admin.quanly_job.xoa", array("id" => $item->id)) !!}'>Xóa</a>
          </td>

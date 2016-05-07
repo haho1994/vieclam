@@ -17,7 +17,8 @@ class AdminQuanlyCurriculumvitaes extends Controller {
         $curriculumvita = Curriculumvita::all();
         return view('admin.hoso.index')->with([
                     'hoso' => $curriculumvita,
-                    'company' => $curriculumvita
+                    
+                
         ]);
     }
 
@@ -47,10 +48,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
             'expected_position_id' => 'required',
             'expected_location_id' => 'required',
             'expected_salary' => 'required',
-            'current_job_level' => 'required',
-            'expected_job_level' => 'required',
-            'expected_job_category' => 'required',
-            'is_negotiable' => 'required'
+            
         ];
 
         $thongbao = [
@@ -62,10 +60,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
             'expected_position_id.required' => 'Vị trí công việc bắt buộc phải nhập',
             'expected_location_id.required' => 'Thuộc công ty không đúng định dạng',
             'expected_salary.required' => 'Mức lương bắt buộc phải nhập',
-            'current_job_level.required' => 'Mức độ công việc hiện tại bắt buộc phải nhập',
-            'expected_job_level.required' => 'Mức độ công việc dự kiến bắt buộc phải nhập',
-            'expected_job_category.required' => 'Thuộc loại công việc dự kiến không đúng định dạng',
-            'is_negotiable.required' => 'Thuộc công ty không đúng định dạng',
+            
            
         ];
         
@@ -73,7 +68,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('admin.quanly_curriculumvitaes.them')->withErrors($xuly);
+            return redirect()->route('admin.quanly_curriculumvitaes')->withErrors($xuly);
         }
         
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
@@ -88,16 +83,26 @@ class AdminQuanlyCurriculumvitaes extends Controller {
 
     //sua
     public function edit($id) {
-        $curriculumvita = Curriculumvita::find($id);
+        
+        $curriculumvita = Curriculumvita::find($id);    
+        $users = User::all();
+        $companies = Company::all();
+        $categories = Category::all();
+        $locations = Location::all();
+        $languages = \App\Language::all();
         return view('admin.hoso.edit')->with([
-                    'curriculumvita' => $curriculumvita
+                    'curriculumvita' => $curriculumvita,
+                    'users' => $users,
+                    'companies' => $companies,
+                    'categories' => $categories,
+                    'locations' => $locations,
+                    'languages' => $languages
         ]);
     }
 
     public function update($id) {
         $dulieu = request()->all();
         $quyluat = [
-            'id_user' => 'required',
             'year_experience' => 'required',
             'highes_edu' => 'required',
             'recent_company_id' => 'required',
@@ -105,14 +110,10 @@ class AdminQuanlyCurriculumvitaes extends Controller {
             'expected_position_id' => 'required',
             'expected_location_id' => 'required',
             'expected_salary' => 'required',
-            'current_job_level' => 'required',
-            'expected_job_level' => 'required',
-            'expected_job_category' => 'required',
-            'is_negotiable' => 'required'
+            
         ];
 
         $thongbao = [
-            'id_user.required' => 'Thuộc công ty không đúng định dạng',
             'year_experience.required' => 'Kinh nghiệm bắt buộc phải nhập',
             'highes_edu.required' => 'Trình độ bắt buộc phải nhập',
             'recent_company_id.required' => 'Thuộc công ty gần đây không đúng định dạng',
@@ -120,10 +121,6 @@ class AdminQuanlyCurriculumvitaes extends Controller {
             'expected_position_id.required' => 'Vị trí công việc bắt buộc phải nhập',
             'expected_location_id.required' => 'Thuộc công ty không đúng định dạng',
             'expected_salary.required' => 'Mức lương bắt buộc phải nhập',
-            'current_job_level.required' => 'Mức độ công việc hiện tại bắt buộc phải nhập',
-            'expected_job_level.required' => 'Mức độ công việc dự kiến bắt buộc phải nhập',
-            'expected_job_category.required' => 'Thuộc loại công việc dự kiến không đúng định dạng',
-            'is_negotiable.required' => 'Thuộc công ty không đúng định dạng',
            
         ];
         
@@ -147,6 +144,12 @@ class AdminQuanlyCurriculumvitaes extends Controller {
         $curriculumvita->delete();
         
         return redirect()->back();
+    }
+    public function show($id){
+        $curriculumvita = Curriculumvita::find($id);
+        return view('admin.hoso.show')->with([
+                    'curriculumvita' => $curriculumvita,
+            ]);
     }
 
 }

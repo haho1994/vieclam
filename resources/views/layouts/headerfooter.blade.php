@@ -19,8 +19,8 @@
                         <li class="hh">
                             <a class="menu-main">Việc Làm</a>
                         </li>
-                        <li><a href="another_page.html">Đăng Nhập</a></li>
-                        <li><a href="contact.html">Đăng Ký</a></li>
+                        <li><a href='{!! route("dangnhap") !!}'>Đăng Nhập</a></li>
+                        <li><a href='{!! route("dangky") !!}'>Đăng Ký</a></li>
                     </ul>
                 </div>  
                 </div>

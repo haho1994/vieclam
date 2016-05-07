@@ -43,7 +43,11 @@ class  Curriculumvita extends Model {
     {
         return $this->belongsTo(location::class, 'expected_location_id', 'id');
     }
-
+    
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'curriculumvitaes_languages', 'id_curriculum_vitae', 'id_language');
+    }
 }
 
 

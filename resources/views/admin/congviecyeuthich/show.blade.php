@@ -12,29 +12,41 @@
         echo \Session::get('success');
     }
 ?>
-<form action="{!! route('admin.quanly_job.xem', ['id' => $job_favourites->id]) !!}" method="post">
+
+<form action="{!! route('admin.quanly_job.xem', ['id' => $job_favourite->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
-            <td><label>ID</label></td>
-            <td><label type="text" value="{!! $job_favourites->id !!}" name="id">{!! $job_favourites->id !!}</label></td>
+            <td><label>id</label></td>
+            <td>
+                <label type="text">
+                    {!! $job_favourite->id !!}
+                </label>
+            </td>
         </tr>
        <tr>
-            <td><label>Tên Công Việc</label></td>
-            <td><label type="text" value="{!! $job_favourites->id_job !!}" name="id_job">{!! $job->name !!}</label></td>
+            <td><label>Tên công việc</label></td>
+            <td>
+                <label type="text" >
+                    @if($job_favourite->job)
+                    {!! $job_favourite->job->name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
-            <td><label>Tên Người Sử Dụng</label></td>
-            <td><label type="text" value="{!! $job_favourites->id_user !!}" name="id_user">{!! $user->full_name !!}</label></td>
-        </tr>
-        <tr>
-            <td><label>Miêu Tả</label></td>
-            <td><label type="text" value="{!! id_job->description !!}" name="description">{!! id_job->description !!}</label></td>
+            <td><label>Tên người dùng</label></td>
+            <td>
+                <label type="text">
+                    @if($job_favourite->user)
+                    {!! $job_favourite->user->full_name !!}
+                    @endif
+                </label>
+            </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Trở về" href='{!! route("admin.quanly_job") !!}' />
-            </td>
+                <input type="submit" value="Trở về" action="<?php echo route('admin.quanly_job'); ?>"/>
         </tr>
     </table>
 </form>

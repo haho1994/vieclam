@@ -108,5 +108,7 @@ class AdminQuanlyCompanies extends Controller {
                     'company' => $company,
             ]);
     }
-
+    public function thoat(){
+       return view('admin.congty.index');
+    }
 }

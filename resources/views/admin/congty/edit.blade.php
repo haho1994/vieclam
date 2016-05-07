@@ -1,3 +1,12 @@
+@extends('admin.trangAdmin.admin')
+@section('congty2')
+<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                             <small>Companies/ Sửa</small>
+                        </h1>
+                    </div>
+</div>
 <?php 
     if (Session::has('success')) {
         echo \Session::get('success');
@@ -58,3 +67,4 @@
         </tr>
     </table>
 </form>
+@endsection

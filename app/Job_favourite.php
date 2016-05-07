@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\User;
-use App\Jobs;
 
-class Job_favourites extends Model {
+class job_favourite extends Model {
     
     use SoftDeletes;
     
@@ -16,8 +14,9 @@ class Job_favourites extends Model {
         'id_job',
         'id_user'
     ];
-    public function jobs(){
-        return $this->belongTo(Jobs::class, 'id_job', 'id');
+    public function job()
+    {
+        return $this->belongsTo(Job::class, 'id_job', 'id');
     }
     public function user()
     {

@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>User</small>
+                             Job<small>Favourites</small>
                         </h1>
                     </div>
                 </div>
@@ -12,27 +12,47 @@
         echo \Session::get('success');
     }
 ?>
-<form class="table"action="{!! route('admin.quanly_job.luu', ['id' => $job_favourites->id]) !!}" method="post">
+<form action="{!! route('admin.quanly_job.luu', ['id' => $job_favourite->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
-       <tr>
-            <td><label>Tên Công Việc</label></td>
+        <tr>
+            <td><label>Tên công việc</label></td>
             <td>
-                <input type="text" value="{!! $job_favourites->id_job !!}" name="" />
+                <select name="id_job" >
+                    @foreach($jobs as $job)
+                    <?php
+                        $selected = '';
+                        if ($job->id == $job_favourite->id_job) {
+                            $selected = 'selected';
+                        }
+                    ?>
+                    <option value="{!! $job->id !!}" {!!$selected!!} >{!! $job->name !!}</option>
+                    @endforeach
+                </select>
                 <?php
-                if ($errors->has('id_job->job->name')) {
-                    echo $errors->first('id_job->job->name');
+                if ($errors->has('id_job')) {
+                    echo $errors->first('id_job');
                 }
                 ?>
             </td>
         </tr>
         <tr>
-            <td><label>Tên Người Dùng</label></td>
+            <td><label>Tên người dùng</label></td>
             <td>
-                <input type="text" value="{!! $job_favourites->id_user !!}" name="" />
+                <select name="id_user" >
+                    @foreach($users as $user)
+                    <?php
+                        $selected = '';
+                        if ($user->id == $job_favourite->id_user) {
+                            $selected = 'selected';
+                        }
+                    ?>
+                    <option value="{!! $user->id !!}" {!!$selected!!} >{!! $user->full_name !!}</option>
+                    @endforeach
+                </select>
                 <?php
-                if ($errors->has('id_user->user->full_name')) {
-                    echo $errors->first('id_user->user->full_name');
+                if ($errors->has('id_user')) {
+                    echo $errors->first('id_user');
                 }
                 ?>
             </td>

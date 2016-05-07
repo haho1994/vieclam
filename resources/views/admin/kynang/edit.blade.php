@@ -13,13 +13,13 @@
     }
 ?>
 
-<form action="{!! route('admin.quanly_kynang.luu', ['id' => $skills->id]) !!}" method="post">
+<form action="{!! route('admin.quanly-kynang.luu', ['id' => $company->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
             <td><label>Tên</label></td>
             <td>
-                <input type="text" value="{!! $skills->name !!}" name="name" />
+                <input type="text" value="{!! $company->name !!}" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');

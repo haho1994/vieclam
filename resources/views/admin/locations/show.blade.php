@@ -17,15 +17,15 @@
     <table>
         <tr>
             <td><label>ID</label></td>
-            <td><label type="text" value="{!! $locations->id !!}" name="id">{!! $locations->id !!}</label></td>
+            <td><label type="text">{!! $locations->id !!}</label></td>
         </tr>
        <tr>
             <td><label>Tên Ngôn Ngữ</label></td>
-            <td><label type="text" value="{!! $locations->name !!}" name="name">{!! $locations->name !!}</label></td>
+            <td><label type="text">{!! $locations->name !!}</label></td>
         </tr>
         <tr>
             <td><label>Miêu Tả</label></td>
-            <td><label type="text" value="{!! $locations->description !!}" name="description">{!! $locations->description !!}</label></td>
+            <td><label type="text" >{!! $locations->description !!}</label></td>
         </tr>
         <tr>
             <td colspan="2">
