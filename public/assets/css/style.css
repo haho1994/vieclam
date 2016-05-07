@@ -85,7 +85,7 @@ ol li
 { width: 900px;
   height: 72px;
   padding: 0;
-  color: #999999;
+  color: #000033;
   margin-left: 500px;
   margin-top: 10px;
 } 
@@ -114,7 +114,7 @@ ul#menu li a
   height: 37px;
   padding: 29px 26px 6px 26px;
   text-align: center;
-  color: #999999;
+  color: #000033;
   text-transform: uppercase;
   text-decoration: none;
   } 
@@ -394,6 +394,7 @@ body {
     list-style: none;
     display: inline-block;
      text-decoration:none;
+     
 }
 .up{
     width: 100%;
@@ -413,6 +414,21 @@ a:hover
   border: 1px solid #e5e5e5;
   
 }
+.job #scroll_box ul li{
+    float: left;
+    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: 1px dotted #ccc;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+}
+#scroll_box ul li em{
+display: block;
+    font-style: normal;
+    color: #888;
+    font-weight: 400;}
 .h3{
    
    width: 185px;

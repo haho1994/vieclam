@@ -9,19 +9,19 @@
                 }">
         <select name="category_id" class="option1" >
             <option value="" >Chọn nghành nghề</option>
-                    @foreach($categories as $category)
-                    <option value="{!! $category->id !!}">{!! $category->name !!}</option>
-                    @endforeach
+            @foreach($categories as $category)
+            <option value="{!! $category->id !!}">{!! $category->name !!}</option>
+            @endforeach
         </select >
         <select name="location_id" class="option2">
             <option value="" >Chọn địa điểm</option>
-                    @foreach($locations as $location)
-                    <option value="{!! $location->id !!}">{!! $location->name !!}</option>
-                    @endforeach
+            @foreach($locations as $location)
+            <option value="{!! $location->id !!}">{!! $location->name !!}</option>
+            @endforeach
         </select>
         <input id="input" type="submit" class="login login-submit" value="Tìm Kiếm">
     </form>
-    <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" />Tải Hồ Sơ</a>
+    <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>
 <form action="/upload-cv" method="post" enctype="multipart/form-data" >
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
 <!--    <input type="file" name="cv" />
@@ -32,24 +32,40 @@
     <div class="h3">
         <h3>Viêc Làm Mới Nhất</h3>
     </div>
-    <div align="center">
+    <div align="center" class="job" width="100%">
         <div id="scroll_box">
-            @foreach($jobs as $key => $job)
+                        @foreach($jobs as $key => $job)
+                            @if ($key %2 == 0)
+                                <div class='job-wrap' style="width: 100%;">
+                            @endif
+                            <div class='job-content' style="width: 49%; display: inline-block">
+                                {!!$job->name!!}
+                                @if($job->company)
+                                <p>{!!$job->company->name!!}</p>
+                                @endif
+                            </div>
+                            @if ($key+1 %2 == 0)
+                                </div>
+                            @endif
+                        @endforeach
+            
+<!--                @foreach($jobs as $key =>job)
                 @if ($key %2 == 0)
+                <ul>
                     <div class='job-wrap' style="width: 100%;">
-                @endif
-                <div class='job-content' style="width: 49%; display: inline-block">
-                    {!!$job->name!!}
-                    @if($job->company)
-                    <p>{!!$job->company->name!!}</p>
-                    @endif
-                </div>
-                @if ($key+1 %2 == 0)
+                        @endif
+                        <li style="width: 49%;">
+                            <strong>{!!$job->name!!}</strong></br>
+                            @if($job->company)
+                            <em>{!!$job->company->name!!}</em>
+                            @endif
+                        </li>
+                        @if ($key+1 %2 ==0)
                     </div>
-                @endif
-            @endforeach
+                    @endforeach
+                </ul>-->
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
 
