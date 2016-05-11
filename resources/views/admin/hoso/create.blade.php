@@ -1,5 +1,5 @@
 @extends('admin.trangAdmin.admin')
-@section('hoso1')
+@section('noidung')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">

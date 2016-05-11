@@ -1,5 +1,5 @@
 @extends('admin.trangAdmin.admin')
-@section('congty3')
+@section('noidung')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Trở về" />
+                <input action="{!! route('admin.quanly_companies')!!}" type="submit" value="Trở về"  />
             </td>
         </tr>
     </table>
