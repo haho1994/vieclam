@@ -16,7 +16,10 @@ Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
 ]);
-
+ Route::get('lienhe', [
+    'as' => 'lien-he',
+    'uses' => 'TrangchuController@LienHe'
+]);
 //Route::get('danhsach-taikhoan', [
 //    'as' => 'danhsach.taikhoan',
 //    'uses' => 'TrangchuController@danhSachTaiKhoan'
@@ -58,7 +61,6 @@ Route::get('timkiem', [
     'as' => 'frontend.search.search',
     'uses' => 'SearchController@search'
 ]);
-
 Route::get('admin/login', [
     'as' => 'admin_login',
     'uses' => 'AdminQuanlyDanhMuc@login'
@@ -69,6 +71,10 @@ Route::post('admin/login', [
     'uses' => 'AdminQuanlyDanhMuc@xuLyLogin'
 ]);
 
+Route::get('xemchitiet/{id}', [
+    'as' => 'thongtin.chitiet.xem',
+    'uses' => 'ChiTietController@index'
+]);
 
 //location
 Route::get('admin/locations', [
@@ -170,6 +176,15 @@ Route::get('admin/ngonngu/xem/{id}', [
 
 
 Route::get('/test', function() {
+    
+    $user = App\User::findOrFail(2);
+
+        Mail::send('welcome', ['user' => $user], function ($m) use ($user) {
+            //$m->from('viethung090@gmail.com', 'Your Application');
+
+            $m->to($user->email, $user->full_name)->subject('Your Reminder!');
+        });
+    
     dd(App\User::class);
 });
 

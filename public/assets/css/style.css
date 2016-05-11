@@ -82,21 +82,27 @@ ol li
   color: #FF9933;}
 
 #menubar
-{ width: 900px;
+{ 
+  margin-left: 600px;
+  width: 900px;
   height: 72px;
   padding: 0;
   color: #000033;
-  margin-left: 500px;
+  background: 0 0;
   margin-top: 10px;
+  
 } 
-
+#menu{
+    margin-left: -30px;
+}
 ul#menu, ul#menu li
-{ float: left;
+{ 
   margin: 0; 
   padding: 0;}
 
 #menubar ul li
-{ list-style: none;}
+{   
+    list-style: none;}
 li {
    display: inline-block;
 }
@@ -109,19 +115,45 @@ ul#menu li ul.nm1 {
  width: 100px;
 }
 ul#menu li a
-{ letter-spacing: 0.1em;
+{
+    letter-spacing: 0.1em;
   font: normal 100% arial, sans-serif;
-  height: 37px;
-  padding: 29px 26px 6px 26px;
+  padding: 15px 20px 6px 26px;
   text-align: center;
   color: #000033;
   text-transform: uppercase;
   text-decoration: none;
   } 
-
+  .image ul li{
+       margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    right: 0;
+    left: auto;
+  }
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
 { color:#FF0000;
   }
+
+
+.xoxuong ul {
+    display: none;
+}
+.xo li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+li:hover ul {
+    display: block;
+    position: absolute;
+}
+li:hover li {
+    float: none;
+    font-size: 11px;
+}
 #site_content
 { width: 837px;
   overflow: hidden;
@@ -178,9 +210,10 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
   padding: 24px 0 5px 0;
   text-align: center; 
   background: #CCCCCC;
-  color: #FFF;
+  color: #333;
   text-transform: uppercase;
-  letter-spacing: 0.1em;}
+  letter-spacing: 0.1em;
+  font-weight: bold;}
 
 #search_wrapper1{
 	margin-top:3em;
@@ -229,12 +262,12 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li a:hover
     min-height: 500px;
 }
 #footer a
-{ color: #FFF;
+{ color: #333;
   width: 100%;
 }
 
 #footer a:hover
-{ color: #FFF;
+{ color: #3079ed;
   text-decoration: underline;}
 
 .dangki{
@@ -404,17 +437,23 @@ body {
 }
 a:hover
 { color:#FF9933;
-  
+
 }
 #scroll_box {
-  height: 200px;
-  width: 900px; 
-  margin: 1em 0;
-  overflow: auto;
-  border: 1px solid #e5e5e5;
-  
+    height: 200px;
+    width: 900px; 
+    margin: 1em 0;
+    overflow: auto;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    top: 0;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    max-width: 100%;
+    
 }
-.job #scroll_box ul li{
+.job-content{
     float: left;
     width: 50%;
     text-overflow: ellipsis;
@@ -422,31 +461,109 @@ a:hover
     border-bottom: 1px dotted #ccc;
     padding-top: 8px;
     padding-bottom: 8px;
+    height: 58px;
     
+
 }
-#scroll_box ul li em{
-display: block;
+.job-content b{
+font-weight: bold;
+}
+.chitiet b {
+    font-size: 1.1em;
+    font-weight: 500;
+    display: inline-block;
+    color: #333;
+}
+#scroll_box .job-content em{
+    display: block;
     font-style: normal;
     color: #888;
-    font-weight: 400;}
+    font-weight: 400;
+    margin-left: 57px;
+    margin-top: 12px;
+}
+.job{
+    margin-left: 223.5px;
+}
+.hot{
+    background-color: #ef474f;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    vertical-align: baseline;
+    border-radius: .25em;
+    margin-left: 22px;
+}
 .h3{
-   
-   width: 185px;
+
+    width: 150px;
     font-weight: 500;
     font-size: 14px;
     background-color: #3079ed;
     border: 1px solid #00b9f2;
     border-bottom: none;
     color: #fff!important;
-    height: 34px;
+    height: 28px;
     padding: 10px 25px;
     margin-top:50px;
     margin-left: 223.5px;
     margin-bottom: -13px;
-    
+
 }
 #scroll_box p{
     margin-left: 50px;
+}
+.wap{
+    background: #f4f4f4;
+    padding: 30px 0;
+}
+.lienhe{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 1070px;
+}
+.lienhe1{
+    padding: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px #ddd solid;
+    
+}
+.lienhe1 h1{
+    color: #f7941d;
+    text-transform: capitalize;
+    font-size: 30px;
+    margin-bottom: 15px;
+    display: block;
+}
+.lienhe1 h3{
+    font-size: 23px;
+    font-weight: 300;
+    color: #888;
+}
+
+.image {
+    margin-top: 78px;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: url(../images/sprite.png) 0 -60px no-repeat;
+}
+.anhkiem{
+   
+    margin-left: 300px;
+    width: 49px;
+    height: 49px;
+   margin-top: 78px;
+   float: right;
+    background:url(../images/sprite.png) -60px 0 no-repeat
+    
 }
 
 
