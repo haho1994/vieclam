@@ -15,20 +15,26 @@
         <div class="text_div">
             <strong class="text_ttcn">Cập nhập thông tin cá nhân</strong>
         </div>
-        <form action="{!! route('xuly.taikhoan_suathongtincanhan', ['id' => $users->id]) !!}" method="POST"  >
+        <form action="{!! route('xuly.taikhoan_suathongtincanhan')!!}" method="POST"  >
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
             <table class="form_ttcn">
-<!--                <tr>
-                    <td><label>Email hiện tại</label></td>
-                    <td>
-                        <input type="password" value="" name="password" />
-                        //<?php
-//                        if ($errors->has('password')) {
-//                            echo $errors->first('password');
-//                        }
-//                        ?>
-                    </td>
-                </tr>-->
+                <tr>
+                    <td><label>Email</label></td>
+                <td>
+                    <input type="text" value="{!! $users->email !!}" name="email" disabled placeholder="Nhập email"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Mật khẩu hiện tại</label></td>
+                <td>
+                    <input type="password" value="" name="password" placeholder="Mật khẩu hiện tại"/>
+                    <?php
+                    if ($errors->has('password')) {
+                        echo $errors->first('password');
+                    }
+                    ?>
+                </td>
+            </tr>
                 <tr>
                     <td><label>Họ Tên</label></td>
                     <td>

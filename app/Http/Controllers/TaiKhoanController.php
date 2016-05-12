@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Database\Query\Builder;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Request\Login;
 use App\User;
@@ -41,19 +42,19 @@ class TaiKhoanController extends Controller {
        // return redirect()->route('dangnhap');
         
         $user = auth()->user();
-//        dd(\Hash::make('123123'));
+       //dd(\Hash::make('123123'));
         if (!\Hash::check($dulieu['password'], $user->password)) {
             return redirect()->route('doimatkhau')->withErrors([
-                'password' => "mat khau hien tai khong dung"
+                'password' => "Mật khẩu hiện tại không đúng"
             ]);
         }     
         
         $user->password = \Hash::make($dulieu['password_confirmation']);
         $user->save();
+        return redirect()->route('dangnhap');
+        //\Session::flash('sauccess', 'Sua thanh cong');
 
-        \Session::flash('sauccess', 'Sua thanh cong');
-
-        return redirect()->back();
+        //return redirect()->back();
     }
 //    public function postUserPasswordChange(){
 //        $validator = Validator::make(Input::all(), User::$change_password_rules);
@@ -69,14 +70,14 @@ class TaiKhoanController extends Controller {
 //        }
 //    }
 
-    public function suathongtincanhan($id) {
-        $users = User::find($id);
+    public function suathongtincanhan() {
+        $users = auth()->user();
         return view('taikhoan.suathongtincanhan')->with([
                     'users' => $users
         ]);
     }
 
-    public function xulysuathongtincanhan($id) {
+    public function xulysuathongtincanhan() {
         $dulieu = request()->all();
         $quyluat = [
             'full_name' => 'required',
@@ -96,15 +97,22 @@ class TaiKhoanController extends Controller {
         
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
-
         if ($xuly->fails()) {
-            return redirect()->route('cnttcn')->withErrors($xuly);
+            return redirect()->route('taikhoan_suathongtincanhan')->withErrors($xuly);
         }
-
-        $user = User::find($id);
-        $user->update($dulieu);
-
-        \Session::flash('success', 'Sua thanh cong');
+        $dulieu['id_user'] = auth()->user()->id;
+        
+        $user = auth()->user();
+        //$user->update($dulieu);
+        if (!\Hash::check($dulieu['password'], $user->password)) {
+            return redirect()->route('taikhoan_suathongtincanhan')->withErrors([
+                'password' => "Mật khẩu hiện tại không đúng"
+            ]);
+        } 
+        //$user->update($xuly);
+        $user->password = \Hash::make($dulieu['password']);
+        $user->save();
+        \Session::flash('success', 'Cập nhập thành công');
 
         return redirect()->back();
     }

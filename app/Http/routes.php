@@ -237,11 +237,11 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 
     //suathongtincanhan
-    Route::get('taikhoan/capnhapthongtincanhan/{id}', [
+    Route::get('taikhoan/capnhapthongtincanhan', [
         'as' => 'taikhoan_suathongtincanhan',
         'uses' => 'TaiKhoanController@suathongtincanhan'
     ]);
-    Route::post('taikhoan/capnhapthongtincanhan/{id}', [
+    Route::post('taikhoan/capnhapthongtincanhan', [
         'as' => 'xuly.taikhoan_suathongtincanhan',
         'uses' => 'TaiKhoanController@xulysuathongtincanhan'
     ]);

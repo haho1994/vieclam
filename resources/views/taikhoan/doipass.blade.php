@@ -1,10 +1,6 @@
 @extends('layouts.headerfooter')
 @section('noi_dung')
-<?php 
-    if (Session::has('success')) {
-        echo \Session::get('success');
-    }
-?>
+
 <div class="login-card">
     <h1>Đổi mật khẩu</h1><br>
     <form action="{!! route('xuly.doimatkhau') !!}" method="POST"  >

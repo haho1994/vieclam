@@ -13,6 +13,5 @@
         </a>
         @endif
     </h2>
-    </h2>
 </div>
 @endsection
