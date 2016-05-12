@@ -1,4 +1,4 @@
-<html>
+ <html>
 
     <head>
         <title>Trang quản trị</title>
@@ -75,52 +75,9 @@
             <!-- /. NAV SIDE  -->
             <div id="page-wrapper">
                 <div id="page-inner">
+                    @yield('noidung')
                     @yield('dangnhap')
-                    @yield('ngonngu2')
-                    @yield('ngonngu')
-                    @yield('ngonngu1')
-                    @yield('ngonngu3')
-                    @yield('location')
-                    @yield('location1')
-                    @yield('location2')
-                    @yield('diadiem3')
-                    @yield('user')
-                    @yield('user1')
-                    @yield('user2')
-                    @yield('skill')
-                    @yield('skill1')
-                    @yield('skill2')
-                    @yield('skill3')
-                    @yield('congviecyeuthich')
-                    @yield('congviecyeuthich1')
-                    @yield('congviecyeuthich2')
-                    @yield('congviecyeuthich3')
-                    @yield('index')
-                    @yield('congty')
-                    @yield('congty1')
-                    @yield('congty2')
-                    @yield('congty3')
-                    @yield('job')
-                    @yield('job1')
-                    @yield('job2')
-                    @yield('job3')
-                    @yield('danhmuc')
-                    @yield('danhmuc1')
-                    @yield('danhmuc2')
-                    @yield('hoso')
-                    @yield('hoso1')
-                    @yield('hoso2')
-                    @yield('hoso3')
-                    @yield('hosongonngu')
-                    @yield('hosongonngu1')
-                    @yield('hosongonngu2')
-                    @yield('image')
-                    @yield('image1')
-                    @yield('image2')
-                    @yield('news')
-                    @yield('news1')
-                    @yield('news2')
-                    @yield('news3')
+                    
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 @extends('admin.trangAdmin.admin')
-@section('hoso3')
+@section('noidung')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
@@ -98,6 +98,16 @@
             <td><label>Thương lượng</label></td>
             <td><label type="text" >{!! $curriculumvita->is_negotiable !!}</label></td>
         </tr>
+<!--        <tr>
+            <td><label>Ngôn ngữ</label></td>
+            <td>
+                <label type="text" >
+                    @if($curriculumvita->languages)
+                    {!! $curriculumvita->languages->name !!}
+                    @endif
+                </label>
+            </td>
+        </tr>-->
         <tr>
             <td colspan="2">
                 <input type="submit" value="Trở về" />

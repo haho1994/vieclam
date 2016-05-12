@@ -109,6 +109,6 @@ class AdminQuanLyNews extends Controller {
             ]);
     }
     public function thoat(){
-       return view('admin.congty.index');
+       return view('admin.news.index');
     }
 }

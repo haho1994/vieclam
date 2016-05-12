@@ -72,16 +72,17 @@ public function LienHe() {
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
         if ($xuly->fails()) {
-            return redirect()->route('dangnhap')->withErrors($xuly);
+            return redirect()->route('dangky')->withErrors($xuly);
         }
 
-        $user = new \App\User;
+        $user = new User;
         $user->full_name = $dulieu['full_name'];
         $user->password = \Hash::make($dulieu['password']);
         $user->brithday = $dulieu['brithday'];
         $user->email = $dulieu['email'];
         $user->phone = $dulieu['phone'];
         $user->address = $dulieu['address'];
+        $user->type = $dulieu = '1';
 
         $user->save();
 
@@ -93,7 +94,57 @@ public function LienHe() {
         //$user = \App\User::find(1);
         //$user->delete();
 
-        return redirect()->route('dangky');
+        return redirect()->route('dangnhap');
+    }
+
+    public function dangKyTuyenDung() {
+        return view('dangky.nhatuyendung_dangki');
+    }
+
+    public function xuLyDangKyTuyenDung() {
+        $dulieu = request()->all();
+
+        $quyluat = [
+            'full_name' => 'required|min:3',
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+            'brithday' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'address' => 'required',
+        ];
+
+        $thongbao = [
+            'email.email' => 'Email không đúng định dạng',
+            'full_name.required' => 'Họ tên bắt buộc phải nhập',
+            'full_name.min' => 'Họ tên bắt buộc phải nhập trên 3 kí tự',
+            'email.required' => 'Email bắt buộc phải nhập',
+            'email.unique' => 'Hiện tại email này đã có',
+            'password.required' => 'Mật khẩu bắt buộc phải nhập',
+            'password_confirmation.required' => 'Nhập lại mật khẩu bắt buộc phải nhập',
+            'password_confirmation.same' => 'Nhập lại mật khẩu phải trùng ở trên',
+            'phone.required' => 'Số điện thoại bắt buộc phải nhập',
+            'brithday.required' => 'Ngày sinh bắt buộc phải nhập',
+            'address.required' => 'Địa chỉ bắt buộc phải nhập',
+        ];
+
+        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
+        if ($xuly->fails()) {
+            return redirect()->route('dangky')->withErrors($xuly);
+        }
+
+        $user = new User;
+        $user->full_name = $dulieu['full_name'];
+        $user->password = \Hash::make($dulieu['password']);
+        $user->brithday = $dulieu['brithday'];
+        $user->email = $dulieu['email'];
+        $user->phone = $dulieu['phone'];
+        $user->address = $dulieu['address'];
+        $user->type = $dulieu = '2';
+
+        $user->save();
+
+        return redirect()->route('dangnhap');
     }
      //thông tin cong viec
   public function chitiet() {
@@ -119,20 +170,24 @@ public function LienHe() {
 //        
 //        return redirect()->route('danhsach.taikhoan');
 //    }
-    public function trangAdmin(){
-        return view('admin.trangAdmin.admin');
-    }
-    public function dangNhapTaiKhoan() {
-        return view('dangnhap.login_user');
-    }
-     public function trangNgonNgu() {
+//    public function trangAdmin(){
+//        return view('admin.trangAdmin.admin');
+//    }
+
+    public function trangNgonNgu() {
         return view('ngonngu.create');
     }
-     public function trangNgonNgu1() {
+
+    public function trangNgonNgu1() {
         return view('ngonngu.index');
     }
-     public function trangNgonNgu2() {
+
+    public function trangNgonNgu2() {
         return view('ngonngu.edit');
+    }
+
+    public function dangNhapTaiKhoan() {
+        return view('dangnhap.login_user');
     }
 
     public function xuLyDangNhap() {
@@ -141,64 +196,17 @@ public function LienHe() {
         //'is_admin' =1;
         if (\Auth::attempt(['email' => $email, 'password' => $password])) {
             // Nếu đăng nhập đúng
+            if (\Auth::attempt(['email' => $email, 'password' => $password, 'type' => 2])) {
+                return redirect()->route('admin_login');
+            }
             return redirect()->route('frontend.search.get');
         }
         //Nếu đăng nhập sai
-        return redirect()->route('dangky');
+        return redirect()->route('dangnhap');
     }
-    
-    public function doiMatKhau(){
-        return view('taikhoan.doipass');
-    }
-    public function xuLyDoiMatKhau(){
-        
-//        $email = request()->get('email');
-//        $password = request()->get('password');
-//        //'is_admin' =1;
-//        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
-//            // Nếu đăng nhập đúng
-//            return redirect()->route('xuly.doimatkhau');
-//        }
-//        //Nếu đăng nhập sai
-//        return redirect()->route('dangky');
-//        
-//        $dulieu = request()->all();
-//        $quyluat = [
-//            'password_news' => 'required',
-//            'password_confirmation' => 'required|same:password_news',
-//        ];
-//
-//        $thongbao = [
-//            
-//            'password_news.required' => 'Mật khẩu bắt buộc phải nhập',
-//            'password_confirmation.required' => 'Nhập lại mật khẩu bắt buộc phải nhập',
-//            'password_confirmation.same' => 'Nhập lại mật khẩu phải trùng ở trên',
-//            
-//        ];
-//
-//        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
-//        if ($xuly->fails()) {
-//            return redirect()->route('dangky')->withErrors($xuly);
-//        }
-//        $dulieu['id_user'] = auth()->user()->id;
-//        $user = new \App\User;
-//        $user->password = \Hash::make($dulieu['password']);
-//        $user->save();
-//        return redirect()->route('dangky');
-//    }
-//    public function postUserPasswordChange(){
-        $validator = Validator::make(Input::all(), User::$change_password_rules);
-        if($validator->passes()){
-
-        $user = UserEventbot::findOrFail(Auth::user()->id);
-
-        $user->password = Hash::make(Input::get('new_password'));
-        $user->save();
-        return Redirect::to('users/change-password');
-        }else {
-        return Redirect::to('users/change-password')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
+       
     }
    
-}
+
    
-}
+

@@ -1,5 +1,5 @@
 @extends('admin.trangAdmin.admin')
-@section('user1')
+@section('noidung')
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
@@ -72,7 +72,6 @@
             </td>
         </tr>
         <tr>
-<<<<<<< HEAD
             <td><label>Công việc</label></td>
             <td>
                 <select name="id_category" >
@@ -94,33 +93,6 @@
             </td>
         </tr>
         <tr>
-            <td><label>Địa điểm</label></td>
-=======
-            <td><label>Tỉnh, T.P</label></td>
->>>>>>> 6a0d612dd001d5aafc81983b720dd9d1f881ae41
-            <td>
-                <input type="text" value="{!! $users->address !!}" name="address" />
-                <?php
-                if ($errors->has('address')) {
-                    echo $errors->first('address');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
-            <td><label>Mức lương</label></td>
-            <td>
-                <input type="text" value="{!! $users->salary !!}" name="salary" />
-                <?php
-                if ($errors->has('salary')) {
-                    echo $errors->first('salary');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
-<<<<<<< HEAD
-=======
             <td><label>Mức Lương</label></td>
             <td>
                 <input type="text" value="" name="salary" />
@@ -132,8 +104,6 @@
             </td>
         </tr>
         <tr>
-            
->>>>>>> 6a0d612dd001d5aafc81983b720dd9d1f881ae41
             <td colspan="2">
                 <input type="submit" value="Sửa" />
             </td>

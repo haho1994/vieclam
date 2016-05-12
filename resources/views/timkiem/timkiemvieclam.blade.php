@@ -1,9 +1,9 @@
 @extends('layouts.headerfooter')
-@section('timkiem')
+@section('noi_dung')
 
 <div class="search_form" align="center">
     <h1 class='text'>Tìm Kiếm Công Việc Mơ Ước.<strong>Nâng Cao Thành Công!</strong></h1>
-    <form action="{!! route('frontend.search.search') !!}" method="get">
+    <form  method="get" action="{!!route('frontend.search.search')!!}">
         <input type="text" class="text" name='keyword'  value="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
                     this.value = 'Enter Keyword(s)';
                 }">
@@ -22,25 +22,10 @@
         <input id="input" type="submit" class="login login-submit" value="Tìm Kiếm">
     </form>
  <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>
-
-
-<!--<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
-
-<!--<div action="/upload-cv" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <input type="file" name="cv" />
-    </div>
-  </div>
-</div>-->
-<!--<form action="/upload-cv" method="post" enctype="multipart/form-data" >
-    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />-->
-<!--    <input type="file" name="cv" />
-    <input type="submit" name="upload" />-->
 </form>
 </div>
 <div>
-    <div class="h3">
+    <div class="hhh">
         <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="2">Viêc Làm Mới Nhất</marquee></marquee>
     </div>
     <div >
@@ -51,9 +36,9 @@
                     <div class='job-wrap' style="width: 100%;">
                 @endif
                
-                <div class='job-content' style="width: 49%; display: inline-block">
+                <div class='job-content' style="width: 49%; display: inline-block" >
                     <div class="hot">HOT</div>
-                    <a class="chitiet" href='#'><b>{!!$job->name!!}</b></a>
+                    <a class="chitiet" href="{!! route('frontend.congviec.timkiem', ['id' => $job->id]) !!}"><b>{!!$job->name!!}</b></a>
                     @if($job->company)
                     <em>{!!$job->company->name!!}</em>
                     @endif

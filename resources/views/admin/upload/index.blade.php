@@ -1,5 +1,5 @@
 @extends('layouts.headerfooter')
-@section('upload')
+@section('noi_dung')
 <div class="up" align="center">
 <a href='{!! route("admin.download.cv", ["filename" => "02367f29-a86d-4578-8172-e32ce154ffa0.docx"]) !!}'>Tai ve</a>
 

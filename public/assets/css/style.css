@@ -6,7 +6,8 @@ html
   padding: 0;}
 
 body
-{ font: normal .80em 'trebuchet ms', arial, sans-serif;}
+{ font: normal .80em 'trebuchet ms', arial, sans-serif;
+}
 
 p
 { padding: 0 0 20px 0;
@@ -49,6 +50,7 @@ ol li
 {
   height: 150px;
   border-bottom: 1px #ddd solid;
+  background: #FFF;
   }
 
 .logo
@@ -202,11 +204,13 @@ li:hover li {
   min-height: 100%; /* Fix cho firefox */
   height: auto !important;
   height: 100%;
+  background: #f9f2f4;
 }
+
 #footer
 { width: 100%;
   font: normal 100% 'lucida sans unicode', arial, sans-serif;
-  height: 33px;
+  height: 60px;
   padding: 24px 0 5px 0;
   text-align: center; 
   background: #CCCCCC;
@@ -262,7 +266,7 @@ li:hover li {
     min-height: 500px;
 }
 #footer a
-{ color: #333;
+{ color: #888;
   width: 100%;
 }
 
@@ -379,13 +383,46 @@ body {
   text-align: center;
   font-size: 12px;
 }
+.form_sum{
+    background: #f9f2f4;
+    margin-bottom: 100px;
+}
+.form{
 
-
+    
+}
+.centerdangki{
+    background: #FFF;
+}
+.form1{
+    background-size: cover;
+    width: 80%;
+    height: 230px;
+    background: #FF9933;
+    margin-left: 130px;
+}
+.text1{
+    margin-top: 100px;
+    color: #F7F7F7;
+    margin-left: 500px;
+}
+.form1 .text2[type="text"]{
+    
+    width:825px;
+    font-size: 13px;
+    height: 35px;
+}
+.tim{
+    margin-top: 30px;
+    height: 150px;
+}
 .search_form{
     background:url(../images/hh.png) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 330px;
+    margin-top: -20px;
+    
 }
 
 .search_form h1{
@@ -394,6 +431,7 @@ body {
     text-align: center;
 /*    margin-top: 70px;*/
     margin-bottom: 50px;
+    
 }
 
 .search_form .text[type="text"]{
@@ -401,25 +439,18 @@ body {
     width:250px;
     font-size: 13px;
     margin-bottom: 100px;
-    height: 50px;
+    height: 35px;
 }
-.option1{
-    width: 250px;
-    height: 43px;
-    border-radius: 5px;
-    height: 50px;
-}
-.option2{
-    width: 250px;
-    height: 43px;
-    border-radius: 5px;
-    height: 50px;
-}
-#input{
+
+.input_tk{
     width: 200px;
-    height: 43px;
+    height: 35px;
     border-radius: 5px;
     height: 50px;
+    border: 1px solid #e5e5e5;
+    background: #4d90fe;
+    color: #fff;
+    
 }
 .upload {
     font-size:15px;
@@ -427,6 +458,7 @@ body {
     list-style: none;
     display: inline-block;
      text-decoration:none;
+     margin-top: 40px;
      
 }
 .up{
@@ -497,7 +529,7 @@ font-weight: bold;
     border-radius: .25em;
     margin-left: 22px;
 }
-.h3{
+.hhh{
 
     width: 150px;
     font-weight: 500;
@@ -566,5 +598,140 @@ font-weight: bold;
     
 }
 
+.hinhtimkiem{
+    background: url(../images/timkiem.png);
+}
+.suattcn{
+    background: #f9f9f9;
+}
+.ttcn1{
+    height:80% ;
+}
+.ttcn{
+    background:#FFF;
+    width: 70%;
+    height: 90%;
+    border: 1px;
+    margin-left: 200px;
+    border: 1px #ddd solid;
+   
+    
+}
+.form_ttcn{
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    width: 70%;
+    
+}
+.text_ttcn{
+    font-size: 20px;
+    margin-left: 10px;
+    color: #FFF;
+    
+}
+.text_div{
+    width: 100%;
+    height: 30px;
+    background: #4d90fe;
+    
+}
+.taikhoan_div{
+    height: 70px;
+    
+}
+.taikhoan{
+    font: bold;
+    color: #5e5e5e;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-left: 200px;
+}
 
+.luucn_input{
+    width:110px;
+    height: 30px;
+    font-size: 15px;
+    background:#357ae8;
+    color: #FFF;
+    margin-left: 50%;
+    
+}
+.sum_tk input{
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+}
+.top_tk{
+    margin-left: 20px;
+    width: 600px;
+}
+ .option1{
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.option2{
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+.option3{
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+}
+.center_tk .option4{
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: -50px;
+}
+
+.text2{
+    height: 35px;
+    border-radius: 5px;
+}
+.text3{
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+}
+.left_tk{
+    margin-left: 20px;
+}
+.showjob{
+    background: #f4f4f4;
+    padding: 30px 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.dua{
+    
+    width: 1050px;
+    padding: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px #ddd solid;
+     margin-right: auto;
+    margin-left: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.dua1{
+    padding: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px #ddd solid;
+    
+}
+.dua2{
+    float: right;
+    margin-top: -230px;
+}
 
