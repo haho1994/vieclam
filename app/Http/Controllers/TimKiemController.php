@@ -41,7 +41,7 @@ class TimKiemController extends Controller {
                 $job->where('experience', '=', request()->get('experience'));
             }
             $jobs = $job->get();
-            return view('timkiem.ketqua', compact('jobs', 'categories', 'locations', 'skills'));
+            return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills'));
         }
     }
 }

@@ -5,10 +5,12 @@
         echo \Session::get('success');
     }
 ?>
+
 <div class="suattcn">
     <div class="taikhoan_div">
         <u class="taikhoan">Tài Khoản</u>
     </div>
+    <a style="margin-left: 200px;margin-bottom: 50px;" href='{!! route("taikhoan_xemthongtincanhan") !!}'>Xem</a>
     <div class="ttcn1">
     <div class="ttcn">
 

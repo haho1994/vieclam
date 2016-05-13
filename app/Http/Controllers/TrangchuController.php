@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Request\Login;
 use App\User;
-
+use App\Job;
 class TrangchuController extends Controller {
 
 //    public function index() {
@@ -40,7 +40,9 @@ class TrangchuController extends Controller {
     public function dangKyViecLam() {
         return view('dangky.dangkyvieclam');
     }
-
+public function LienHe() {
+        return view('layouts.lienhe');
+    }
     public function xuLyDangKyViecLam() {
         $dulieu = request()->all();
 
@@ -144,6 +146,13 @@ class TrangchuController extends Controller {
 
         return redirect()->route('dangnhap');
     }
+     //thông tin cong viec
+  public function chitiet() {
+        $job = Job::all();
+        return view('timkiem.chitiet')->with([
+            'timkiem' => $job
+        ]);
+    }
 
 //    public function danhSachTaiKhoan()
 //    {
@@ -195,6 +204,10 @@ class TrangchuController extends Controller {
         //Nếu đăng nhập sai
         return redirect()->route('dangnhap');
     }
+    
+       
+    }
+   
 
    
-}
+

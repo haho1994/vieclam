@@ -1,18 +1,6 @@
 @extends('layouts.headerfooter')
 @section('noi_dung')
 <div class="form_sum">
-    <i style="font: bold;size: 18px;margin-left: 150px"> Kết quả tìm kiếm :</i>
-    <h2 style="height: 70px;margin-left: 270px;margin-top: 20px;font-size: 20px;font-family: Helvetica, Arial;">
-        @if($jobs->isEmpty())
-        Không tìm thấy kết quả nào
-        @else
-        <a href="{!!route('frontend.congviec.timkiem', ['id' => $job->id])!!}">
-        @foreach($jobs as $job)
-        {!!$job->name!!}<br/>
-        @endforeach
-        </a>
-        @endif
-    </h2>
     <div class="form">
         <div class="form1" >
             <strong class="text1" >Tìm việc làm!!!</strong>
@@ -51,7 +39,7 @@
                             </select>
                             <select name="experience" class="option4">
                                 <option ></option>
-                                <option>Không có kinh nghiệm</option>
+                                <option>Không yêu cầu kinh nghiệm</option>
                                 <option>1 năm</option>
                                 <option>1-2 năm</option>
                                 <option>2-5 năm</option>

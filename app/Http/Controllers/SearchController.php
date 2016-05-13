@@ -19,6 +19,11 @@ class SearchController extends Controller {
         $categories = Category::all();
         $locations = Location::all();
         return view('timkiem.timkiemvieclam', compact('jobs', 'categories', 'locations'));
+    
+    }
+    public function tendnht(){
+        $user = auth()->user();
+        return view('layout.tendn',  compact($user));
     }
 
     public function search() {
@@ -39,7 +44,7 @@ class SearchController extends Controller {
                 $job->where('id_skill', '=', request()->get('skill_id'));
             }
             $jobs = $job->get();
-            return view('timkiem.ketqua', compact('jobs', 'categories', 'locations', 'skills'));
+            return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills'));
         }
     }
 

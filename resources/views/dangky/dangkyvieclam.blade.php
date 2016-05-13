@@ -2,7 +2,7 @@
 @section('noi_dung')
 <div class="login-card">
     <h1>Đăng Kí</h1>
-    <form action="<?php echo route('xuly.dangky'); ?>" method="POST" >
+    <form action="<?php echo route('xuly.dangky'); ?>" method="POST" class="input">
         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
         <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
             <?php
