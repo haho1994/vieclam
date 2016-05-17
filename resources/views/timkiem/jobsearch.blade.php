@@ -1,3 +1,4 @@
+
 @extends('layouts.headerfooter')
 @section('noi_dung')
 <?php 
@@ -68,7 +69,7 @@
                 </tr>
                 <tr>
                     <td style="color: #808080; ">Bằng Cấp:</td>
-                    <td style="color: #808080;"><label type="text" >{!! $job->levers !!}</label></td>
+                    <td style="color: #808080;"><label type="text" >{!! $job->levels !!}</label></td>
                 </tr>
                 <tr>
                     <td style="color: #808080; ">Số Năm Kinh Nghiệm:</td>
@@ -109,4 +110,5 @@
 </div>
     
 </div>
+
 @endsection

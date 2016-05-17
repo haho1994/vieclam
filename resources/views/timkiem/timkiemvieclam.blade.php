@@ -1,6 +1,5 @@
 @extends('layouts.headerfooter')
 @section('noi_dung')
-
 <div class="search_form" align="center">
     <h1 class='text'>Tìm Kiếm Công Việc Mơ Ước.<strong>Nâng Cao Thành Công!</strong></h1>
     <form  method="get" action="{!!route('frontend.search.search')!!}">

@@ -11,7 +11,7 @@ use App\Job;
 class JobSearchController extends Controller {
 
     public function jobsearch($id){
-        $job = \App\Job::find($id);
+        $job = Job::find($id);
         return view('timkiem.jobsearch', compact('job'));
     }
     public function savejob($id){

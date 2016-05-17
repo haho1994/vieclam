@@ -359,7 +359,7 @@ body {
   position: relative;
 }
 
- input[type=text], input[type=password] {
+.input input[type=text], input[type=password] {
   height: 44px;
   font-size: 16px;
   width: 100%;
@@ -452,6 +452,7 @@ body {
     height: 230px;
     background: #FF9933;
     margin-left: 130px;
+    margin-top: 100px;
 }
 .text1{
     margin-top: 100px;
@@ -463,6 +464,7 @@ body {
     width:825px;
     font-size: 13px;
     height: 35px;
+    margin-bottom: 10px;
 }
 .tim{
     margin-top: 30px;
@@ -474,7 +476,19 @@ body {
     width: 100%;
     height: 330px;  
 }
-
+.ketqua{
+    background: #f9f2f4;
+}
+.htkqua{
+    height: 50%;
+    background:#FFF;
+    width: 70%;
+    border: 1px;
+    margin-left: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px #ddd solid;
+}
 .search_form h1{
     font-size: 30px;
     font-weight: 300;
@@ -486,9 +500,10 @@ body {
 
 .search_form .text[type="text"]{
     
-    width:250px;
+    width:350px;
     font-size: 13px;
     margin-bottom: 100px;
+    border: 1px #a0a0a0 solid;
     height: 35px;
 }
 
@@ -663,6 +678,7 @@ font-weight: bold;
     height: 90%;
     border: 1px;
     margin-left: 200px;
+    margin-top: 20px;
     border: 1px #ddd solid;
    
     
@@ -842,4 +858,92 @@ font-weight: bold;
     padding: 0 15px 5px 15px;
     border-bottom: 1px solid #e8e8e8;
     background:url(../images/1.PNG) no-repeat;
+}
+.form_nhatuyendung{
+    background: #f9f2f4;
+}
+.tdungdoipass{
+    background:#FFF;
+    width: 50%;
+    height: 65%;
+    border: 1px;
+    margin-left: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px #ddd solid;
+}
+.form_tdpass{
+    margin-left: 10%;
+}
+#input_td{
+    width: 300px;
+}
+.showttcn{
+    background: #f9f2f4; 
+}
+.ttcn_xem{
+    width: 700px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px #ddd solid;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 200px;
+  
+}
+.ttcn_xem1{
+    margin-left: 100px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.ntdtimkiem1{
+    width:400px;
+    font-size: 13px;
+    height: 35px;
+    border: 1px #b9b9b9 solid;
+   
+    margin-bottom: 20px;
+}
+.form_ntdtimkiem{
+    background: #f9f2f4;
+}
+.form_ntdtimkiem2{
+    width: 1050px;
+    height: 250px;
+    margin-left: 170px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border: 1px #ddd solid;
+    background: #FFF;
+}
+.form_ntdtimkiem3{
+    margin-top: 20px;
+    
+}
+.form_ntdtimkiem_text{
+    margin-top: 10px;
+    border-bottom: 1px dotted #ccc;
+    height: 30px;
+}
+.form_ntdtimkiem_text1{
+    margin-left: 10px;
+}
+.input_ntdtk{
+    width:180px;
+    font-size: 13px;
+    height: 35px;
+    border: 1px #ddd solid;
+
+    margin-bottom: 20px;
+    background: #357ae8;
+    color: #FFF;
+}
+.kq_tkhoso{
+    width: 1050px;
+    height: 250px;
+    margin-left: 170px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border: 1px #ddd solid;
+    background: #FFF; 
 }

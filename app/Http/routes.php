@@ -93,6 +93,7 @@ Route::get('timkiem/congviec/{id}', [
     'as' => 'frontend.congviec.timkiem1',
     'uses' => 'JobSearchController@jobsearch'
 ]);
+
 Route::get('congviec/{id}', [
     'as' => 'frontend.congviec.timkiem',
     'uses' => 'JobSearchController@jobsearch'
@@ -251,25 +252,59 @@ Route::get('admin/logout', function() {
 });
 
 Route::group(['middleware' => 'auth'], function() {
-
+    //nhatuyendung _doimatkhau
+    Route::get('nhatuyendung/taikhoan/doimatkhau', [
+        'as' => 'nhatuyendung_doimatkhau',
+        'uses' => 'TaiKhoanController@tuyendungdoimatkhau'
+    ]);
+    Route::post('nhatuyendung/taikhoan/doimatkhau', [
+        'as' => 'xuly.nhatuyendung_doimatkhau',
+        'uses' => 'TaiKhoanController@xuLytuyendungdoimatkhau'
+    ]);
     //doimatkhau
     Route::get('taikhoan/doimatkhau', [
         'as' => 'doimatkhau',
         'uses' => 'TaiKhoanController@doiMatKhau'
     ]);
-    Route::post('taikhoan/doimatkhau', [
-        'as' => 'xuly.doimatkhau',
+    
+    Route::post('taikhoan/doimatkhau',[
+       'as' => 'doimatkhau_xuly',
         'uses' => 'TaiKhoanController@xuLyDoiMatKhau'
     ]);
 
     //suathongtincanhan
-    Route::get('taikhoan/capnhapthongtincanhan/{id}', [
+    Route::get('taikhoan/capnhapthongtincanhan', [
         'as' => 'taikhoan_suathongtincanhan',
         'uses' => 'TaiKhoanController@suathongtincanhan'
     ]);
-    Route::post('taikhoan/capnhapthongtincanhan/{id}', [
+    Route::post('taikhoan/capnhapthongtincanhan', [
         'as' => 'xuly.taikhoan_suathongtincanhan',
         'uses' => 'TaiKhoanController@xulysuathongtincanhan'
+    ]);
+    
+    Route::get('taikhoan/xemthongtincanhan', [
+        'as' => 'taikhoan_xemthongtincanhan',
+        'uses' => 'TaiKhoanController@xemttcn'
+    ]);
+   //doi email
+    Route::get('taikhoan/email', [
+        'as' => 'doiEmail',
+        'uses' => 'TaiKhoanController@doiEmail'
+    ]);
+    Route::post('taikhoan/doimatkhau', [
+        'as' => 'xuly.email',
+        'uses' => 'TaiKhoanController@xulyemail'
+    ]);
+    
+    //timkiemhoso
+    Route::get('nhatuyendung/timkiemhoso',[
+       'as' => 'timhoso',
+        'uses' => 'NhaTuyenDungController@timHoSo'
+    ]);
+    
+    Route::get('nhatuyendung/timkiemhoso/hoso',[
+       'as' => 'timhoso_xuly',
+        'uses' => 'NhaTuyenDungController@xulytimHoSo'
     ]);
     
     Route::get('password/reset', array(

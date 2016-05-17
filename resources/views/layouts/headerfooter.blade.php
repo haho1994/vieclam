@@ -11,7 +11,9 @@
                 <div class="logo">
                     <div class="logo_text">
                         <!-- class="logo_colour", allows you to change the colour of the text -->
+
                         <h1><a href='{!! route("frontend.search.get") !!}'>ViecLam<span class="logo_colour">.Me</span></a></h1>
+
                         <h2>Tìm Kiếm Công Việc!!</h2>
 
                     </div>
@@ -19,6 +21,7 @@
 
                         <ul id="menu" >
                             <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->	 
+
                             <div class="btn-group">
                                 <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
                              </div>
@@ -43,9 +46,12 @@
                             </div>
          
                         </ul>
-                        <ul id="menu1">
+                      
+                        <ul id="menu1"> 
+
                             <li>
-                                <a href='{!! route("frontend.search.search") !!}'>
+                                <a href='{!! route("frontend.search.get1") !!}'>
+
                                     <span class="anhkiem"></span>
                                 </a>
                             </li>
