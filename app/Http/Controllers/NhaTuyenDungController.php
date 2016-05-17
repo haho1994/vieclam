@@ -62,18 +62,18 @@ class NhaTuyenDungController extends Controller {
         $categories = Category::all();
         $locations = Location::all();
         if (request()->has('keyword')) {
-            $job = Curriculumvita::where('name', 'like', '%' . request()->get('keyword') . '%');
+            $job = Curriculumvita::where('recent_category_id', 'like', '%' . request()->get('keyword') . '%');
             
             if (request()->has('category_id') && !empty(request()->get('category_id'))) {
                 $job->where('id_category', '=', request()->get('category_id'));
             }
             
-//            if (request()->has('expected_position_id') && !empty(request()->get('expected_position_id'))) {
-//                $job->where('expected_position_id', '=', request()->get('expected_position_id'));
-//            }
-            if(request()->has('keyword1')){
-            $job = Curriculumvita::where('name', 'like', '%' . request()->get('keyword1') . '%');
+            if (request()->has('expected_position_id') && !empty(request()->get('expected_position_id'))) {
+                $job->where('expected_position_id', '=', request()->get('expected_position_id'));
             }
+//            if(request()->has('keyword1')){
+//            $job = Curriculumvita::where('name', 'like', '%' . request()->get('keyword1') . '%');
+//            }
             
             if (request()->has('highes_edu') && !empty(request()->get('highes_edu'))) {
                 $job->where('highes_edu', '=', request()->get('highes_edu'));
@@ -87,8 +87,12 @@ class NhaTuyenDungController extends Controller {
                 $job->where('experience', '=', request()->get('experience'));
             }
             $jobs = $job->get();
-            return view('timkiem.timkiemhoso', compact('jobs', 'categories', 'locations'));
+            return view('timkiem.hosoketqua', compact('jobs', 'categories', 'locations'));
         }
+    }
+     public function xemchitiet($id){
+        $job = Job::find($id);
+        return view('timkiem.xemchitiethoso', compact('job'));
     }
 }
     

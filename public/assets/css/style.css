@@ -861,3 +861,10 @@ a#tooltip span
     border: 1px #ddd solid;
     background: #FFF; 
 }
+.dnngdung{
+    width: 274px;
+    height: 44px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px #ddd solid;
+}

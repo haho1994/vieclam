@@ -303,6 +303,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'NhaTuyenDungController@xulytimHoSo'
     ]);
     
+    Route::get('nhatuyendung/timkiemhoso/{id}', [
+    'as' => 'timhoso_xemchitiet',
+    'uses' => 'NhaTuyenDungController@xemchitiet'
+]);
+    
     Route::get('password/reset', array(
         'uses' => 'PasswordController@remind',
         'as' => 'password.remind'

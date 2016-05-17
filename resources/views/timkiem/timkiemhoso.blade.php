@@ -20,17 +20,15 @@
                                 <option value="{!! $category->id !!}">{!! $category->name !!}</option>
                                 @endforeach
                             </select >
-<!--                            <select name="expected_position_id" class="ntdtimkiem1">
+                            <select name="expected_position_id" class="ntdtimkiem1">
                                 <option>Chọn vị trí</option>
                                 <option>Nhân viên</option>
                                 <option>Trưởng phòng</option>
                                 <option>Nhân viên lập trình</option>
                                 <option>Tester</option>
                                 <option>Thực tập sinh</option>
-                            </select>-->
-                             <input type="text" class="ntdtimkiem1" name='keyword1' value="Nhập vị trí..." onFocus="this.value = '';" onBlur="if (this.value == '') {
-                                        this.value = 'Enter Keyword(s)';
-                                    }">
+                                <option>Chuyên viên kinh doanh</option>
+                            </select>
                         </div>
                         <div class="center_tk" style="width: 39%;display: inline-block">
                             <select name="highes_edu" class="ntdtimkiem1">
