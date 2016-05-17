@@ -15,11 +15,10 @@ class JobSearchController extends Controller {
         return view('timkiem.jobsearch', compact('job'));
     }
     public function savejob($id){
-        $users = User::id();
-        $job = Job::id();
-        $user = auth()->user()->id;
-        $job =auth()->job()->id;
-        $job_favourite->save();
-        return redirect()->back();
+          $user = auth()->user(); 
+          $user->favouriteJob->attach($job);
+          \Session::flash('sauccess', 'Sua thanh cong');
+          
     }
+    
 }

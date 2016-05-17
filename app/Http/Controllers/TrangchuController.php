@@ -43,6 +43,18 @@ class TrangchuController extends Controller {
 public function LienHe() {
         return view('layouts.lienhe');
     }
+    public function ThoaThuan() {
+        return view('layouts.thoathuan');
+    }
+    public function QuyDinh() {
+        return view('layouts.quydinh');
+    }
+     public function nopdon() {
+         $user->auth()->user();
+         $job->auth()->job();
+         $jobcv = \App\Job_cv_user::all();
+        return view('thongtin.nopdon', compact('$user','$job'));
+    }
     public function xuLyDangKyViecLam() {
         $dulieu = request()->all();
 
@@ -200,10 +212,13 @@ public function LienHe() {
                 return redirect()->route('admin_login');
             }
             return redirect()->route('frontend.search.get');
+            
+//        return DB::table('users')->where('full_name','=',$full_name)->first();
         }
         //Nếu đăng nhập sai
         return redirect()->route('dangnhap');
     }
+    
        
     }
    

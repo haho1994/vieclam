@@ -6,7 +6,7 @@
         @if($jobs->isEmpty())
         Không tìm thấy kết quả nào
         @else
-        <a href="{!! route('frontend.congviec.timkiem', ['id' => $job->id]) !!}">
+        <a href="{!! route('frontend.congviec.timkiem1', ['id' => $job->id]) !!}">
         @foreach($jobs as $job)
         {!!$job->name!!}<br/>
         @endforeach

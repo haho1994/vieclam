@@ -38,7 +38,7 @@
                
                 <div class='job-content' style="width: 49%; display: inline-block" >
                     <div class="hot">HOT</div>
-                    <a class="chitiet" href="{!! route('frontend.congviec.timkiem', ['id' => $job->id]) !!}"><b>{!!$job->name!!}</b></a>
+                    <a class="chitiet" href="{!! route('frontend.congviec.timkiem', ['id' => $job->id]) !!}" target="_blank"><b>{!!$job->name!!}</b></a>
                     @if($job->company)
                     <em>{!!$job->company->name!!}</em>
                     @endif
