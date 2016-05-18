@@ -1,86 +1,108 @@
 @extends('layouts.headerfooter')
 @section('noi_dung')
-<div class="showjob">
-    <div class="dua">
+<div class="xemchitiethoso">
+    <div class="xem" align="center">
         <form>
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" >
-            <table>
-                <tr>
-                    <td style="color: #3079ed; font: normal 150% 'trebuchet ms', arial, sans-serif;"><label type="text" >{!! $job->name !!}</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>
-                            @if($job->company)
-                            <em style="color: #808080;">{!!$job->company->name!!}</em>
-                            @endif
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Nơi Làm Việc:</td>
-                    <td style="color:#3079ed;">
-                        <label>
-                            @if($job->location)
-                            {!!$job->location->name!!}
-                            @endif
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Kỹ Năng:</td>
-                    <td style="color: #808080;">
-                        <label>
-                            @if($job->skill)
-                            {!!$job->skill->name!!}
-                            @endif
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Mức Lương:</td>
-                    <td style="color: #808080;"><label >{!! $job->salary !!}</label></td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Thể Loại:</td>
-                    <td style="color: #808080;">
-                        <label>
-                            @if($job->category)
-                            {!!$job->category->name!!}
-                            @endif
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Ngôn Ngữ::</td>
-                    <td style="color: #808080;">
-                        <label>
-                            @if($job->language)
-                            {!!$job->language->name!!}
-                            @endif
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Bằng Cấp:</td>
-                    <td style="color: #808080;"><label type="text" >{!! $job->levels !!}</label></td>
-                </tr>
-                <tr>
-                    <td style="color: #808080; ">Số Năm Kinh Nghiệm:</td>
-                    <td style="color: #808080;"><label type="text" >{!! $job->experience !!}</label></td>
-                </tr>
+            <div style="height: 80px;">
+            <div >
+                <label style="color: #5e5e5e;font-size: 30px;" type="text" >
+                    {!! $cv->recent_category_id !!}
+                </label>
 
+            </div>
+            <div>
+                <label type="text" >Cập nhật ngày: {!! $cv->updated_at !!}</label>
+            </div>
+            </div>
+            <div style="color: #5e5e5e;border-bottom: 1px dotted #ccc;border-top:1px dotted #ccc; height: 40px;font-size: 20px ">
+                <label>Thông Tin Chung </label>  
+            </div>
+            <table >
+                <tr style="height: 30px">
+                    <td style="width: 300px ">
+                        Trình độ
+                    </td>
+                    <td style="color: #204d74">
+                        <label type="text" >{!! $cv->highes_edu !!}</label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Tổng số năm kinh nghiệm
+                    </td>
+                    <td style="color: #204d74">
+                        <label type="text" >{!! $cv->year_experience !!}</label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Công việc gần đây nhất
+                    </td>
+                    <td style="color: #204d74">
+                        <label>
+                            @if($cv->category)
+                            {!!$cv->category->name!!}</em>
+                            @endif
+                        </label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Công ty gần đây nhất
+                    </td>
+                    <td style="color: #204d74">
+                        <label>
+                            @if($cv->company)
+                            {!!$cv->company->name!!}</em>
+                            @endif
+                        </label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Cấp bậc hiện tại
+                    </td>
+                    <td style="color: #204d74">
+                        <label type="text" >{!! $cv->recent_position_id !!}</label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Vị trí mong muốn
+                    </td>
+                    <td style="color: #204d74">
+                        <label type="text" >{!! $cv->expected_position_id !!}</label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Nơi làm việc
+                    </td>
+                    <td style="color: #204d74">
+                        <label >
+                            @if($cv->location)
+                            {!!$cv->location->name!!}</em>
+                            @endif
+                        </label>
+                    </td>
+                </tr>
+                <tr style="height: 30px">
+                    <td style="width: 300px;">
+                        Mức lương
+                    </td>
+                    <td style="color: #204d74">
+                        <label type="text" >{!! $cv->expected_salary !!}</label>
+                    </td>
+                </tr>
             </table>
+            <div>
+                <label style="" >
+                    <a href='{!! route("admin.download.cv", ["filename" => "02367f29-a86d-4578-8172-e32ce154ffa0.docx"]) !!}'>
+                        {!! $cv->filename!!}
+                </label>
+            </div>
         </form>
-        <div class="dua2">
-                        <button type="button" class="btn btn-default"> 
-                            <span class="glyphicon glyphicon-star" aria-pressed="false" aria-label="Lưu" role="button"></span>
-                        </button>
-                        <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-envelope"></span> 
-                        </button>
-                        
-        </div>
     </div>
 </div>
 @endsection

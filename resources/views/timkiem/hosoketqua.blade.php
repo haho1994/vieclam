@@ -7,10 +7,17 @@
         @if($jobs->isEmpty())
         Không tìm thấy kết quả nào
         @else
+        
             @foreach($jobs as $job)
+            @if(empty($job->recent_category_id))
+            <a href="{!! route('timhoso_xemchitiet', ['id' => $job->id]) !!}">
+            {!!$job->user->full_name!!}<br/>
+            </a>
+            @else
             <a href="{!! route('timhoso_xemchitiet', ['id' => $job->id]) !!}">
             {!!$job->category->name!!}<br/>
             </a>
+            @endif
             @endforeach
         @endif
     </h2>

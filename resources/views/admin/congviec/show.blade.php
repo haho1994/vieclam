@@ -96,6 +96,14 @@
             <td><label type="text">{!! $job->experience !!}</label></td>
         </tr>
         <tr>
+            <td><label>Trạng thái</label></td>
+            <td><label type="text">{!! $job->status !!}</label></td>
+        </tr>
+        <tr>
+            <td><label>Mô tả</label></td>
+            <td><label type="text">{!! $job->description !!}</label></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <input type="submit" value="Trở về" />
             </td>

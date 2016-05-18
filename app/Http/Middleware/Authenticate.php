@@ -18,7 +18,7 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->guest()) {
-            return response()->route('admin_login');
+            return redirect()->route('admin_login');
         }
         //cho vao trang admin
         return $next($request);

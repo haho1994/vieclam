@@ -165,6 +165,37 @@
                 ?>
             </td>
         </tr>
+         <tr>
+            <td><label>Trang thai</label></td>
+            <td>
+                <select name="status">
+                    <option value="">Chon trang thai</option>
+                    <?php
+                        $check1 = "";
+                        $check2 = "";
+                        if ($job->status) {
+                            $check2 = 'selected';
+                        }
+                        if (!$job->status) {
+                            $check1 = 'selected';
+                        }
+                    ?>
+                    <option {!! $check1 !!} value="0">Chua duyet</option>
+                    <option {!! $check2 !!} value="1">Duyet</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Mô tả</label></td>
+            <td>
+                <input type="text" value="{!! $job->description !!}" name="description" />
+                <?php
+                if ($errors->has('description')) {
+                    echo $errors->first('description');
+                }
+                ?>
+            </td>
+        </tr>
         <tr>
             <td colspan="2">
                 <input type="submit" value="Sửa" />

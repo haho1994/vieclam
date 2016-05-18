@@ -14,6 +14,7 @@
         <th>Tên công việc</th>
         <th>Địa điểm</th>
         <th>Kinh nghiệm</th>
+        <th>Trang thai</th>
         <th>Thao tác</th>
     </tr>
     @foreach($jobs as $item)
@@ -25,7 +26,14 @@
             {!! $item->location->name !!}
             @endif
         </td>
-        <td>{!! $item->experience !!}</td> 
+        <td>{!! $item->experience !!}</td>
+        <td>
+            @if($item->status)
+                Da duyet
+            @else
+                Chua duyet
+            @endif
+        </td> 
         <td>
             <a href='{!! route("admin.quanly_jobs.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly_jobs.sua", array("id" => $item->id)) !!}'>Sua</a>

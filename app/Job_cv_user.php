@@ -4,15 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Job;
+use App\User;
+use App\Company;
 
-class job_favourite extends Model {
+class Job_cv_user extends Model {
     
     use SoftDeletes;
     
-    protected $table = 'job_favourites';
+    protected $table = 'job_cv_users';
     protected $fillable = [
         'id_job',
-        'id_user'
+        'id_user',
+        'filename',
+        'id_company'
     ];
     public function job()
     {
@@ -22,9 +27,9 @@ class job_favourite extends Model {
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
-//    public function favourite(){
-//        return $this-> belongtoMany(job_favourite::class, 'i_user', 'id');
-//    } 
+    public function company(){
+        return $this-> belongtoMany(Company::class, 'id_company', 'id');
+    } 
 
 }
 

@@ -119,18 +119,6 @@
             </td>
         </tr>
         <tr>
-            <td><label>Giới tính</label></td>
-            <td>
-                <input   name="gender" type="radio"  value="">Nam<br>
-                <input   name="gender" type="radio"  value="">Nữ<br>
-                <?php
-                if ($errors->has('gender')) {
-                    echo $errors->first('gender');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
             <td><label>Trình độ</label></td>
             <td>
                 <input type="text" value="" name="levels" />
@@ -148,6 +136,17 @@
                 <?php
                 if ($errors->has('experience')) {
                     echo $errors->first('experience');
+                }
+                ?>
+            </td>
+        </tr> 
+        <tr>
+            <td><label>Mô tả</label></td>
+            <td>
+                <input type="text" value="" name="description" />
+                <?php
+                if ($errors->has('description')) {
+                    echo $errors->first('description');
                 }
                 ?>
             </td>

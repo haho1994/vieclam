@@ -20,15 +20,14 @@
                                 <option value="{!! $category->id !!}">{!! $category->name !!}</option>
                                 @endforeach
                             </select >
-                            <select name="expected_position_id" class="ntdtimkiem1">
-                                <option>Chọn vị trí</option>
+                            <select name="recent_position_id" class="ntdtimkiem1">
+                                <option>Cấp bậc</option>
+                                <option>Mới tốt nghiệp</option>
                                 <option>Nhân viên</option>
                                 <option>Trưởng phòng</option>
-                                <option>Nhân viên lập trình</option>
-                                <option>Tester</option>
-                                <option>Thực tập sinh</option>
-                                <option>Chuyên viên kinh doanh</option>
+                                <option>Giám đốc và cấp cao hơn</option>
                             </select>
+                            
                         </div>
                         <div class="center_tk" style="width: 39%;display: inline-block">
                             <select name="highes_edu" class="ntdtimkiem1">

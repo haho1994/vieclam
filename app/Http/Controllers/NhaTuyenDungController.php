@@ -9,6 +9,10 @@ use App\User;
 use App\Category;
 use App\Location;
 use App\Curriculumvita;
+use App\Job;
+use App\Company;
+use App\Skill;
+use App\Language;
 
 class NhaTuyenDungController extends Controller {
     public function tuyendungdoimatkhau() {
@@ -62,14 +66,14 @@ class NhaTuyenDungController extends Controller {
         $categories = Category::all();
         $locations = Location::all();
         if (request()->has('keyword')) {
-            $job = Curriculumvita::where('recent_category_id', 'like', '%' . request()->get('keyword') . '%');
+            $job = Curriculumvita::where('expected_position_id', 'like', '%' . request()->get('keyword') . '%');
             
             if (request()->has('category_id') && !empty(request()->get('category_id'))) {
                 $job->where('id_category', '=', request()->get('category_id'));
             }
             
-            if (request()->has('expected_position_id') && !empty(request()->get('expected_position_id'))) {
-                $job->where('expected_position_id', '=', request()->get('expected_position_id'));
+            if (request()->has('recent_position_id') && !empty(request()->get('recent_position_id'))) {
+                $job->where('recent_position_id', '=', request()->get('recent_position_id'));
             }
 //            if(request()->has('keyword1')){
 //            $job = Curriculumvita::where('name', 'like', '%' . request()->get('keyword1') . '%');
@@ -91,8 +95,23 @@ class NhaTuyenDungController extends Controller {
         }
     }
      public function xemchitiet($id){
-        $job = Job::find($id);
-        return view('timkiem.xemchitiethoso', compact('job'));
+        $cv = Curriculumvita::find($id);
+        $language = Curriculumvita::all();
+        return view('timkiem.xemchitiethoso', compact('cv','language'));
+    }
+    public function dangtin(){
+        $users = auth()->user();
+        $users = User::all();
+        $job = Job::all();
+        $companies = Company::all();
+        $locations = Location::all();
+        $skills = Skill::all();
+        $categories = Category::all();
+        $languages = Language::all();
+        return view('dangtintuyendung.dangtin',compact('users','job','companies','locations','skills','categories','languages'));
+    }
+    public function xulydangtin(){
+        
     }
 }
     

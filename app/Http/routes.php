@@ -16,9 +16,17 @@ Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
 ]);
- Route::get('lienhe', [
+ Route::get('/lienhe', [
     'as' => 'lien-he',
     'uses' => 'TrangchuController@LienHe'
+]);
+ Route::get('/thoathuansudung', [
+    'as' => 'thoathuan-sudung',
+    'uses' => 'TrangchuController@ThoaThuan'
+]);
+ Route::get('/quydinh', [
+    'as' => 'quydinh-baomat',
+    'uses' => 'TrangchuController@QuyDinh'
 ]);
 Route::get('dangky-tuyendung', [
     'as' => 'dangky_tuyendung',
@@ -82,14 +90,15 @@ Route::get('timkiem2', [
 ]);
 
 Route::get('timkiem/congviec/{id}', [
+    'as' => 'frontend.congviec.timkiem1',
+    'uses' => 'JobSearchController@jobsearch'
+]);
+
+Route::get('congviec/{id}', [
     'as' => 'frontend.congviec.timkiem',
     'uses' => 'JobSearchController@jobsearch'
 ]);
 
-//Route::get('congviec/{id}', [
-//    'as' => 'frontend.congviec.timkiem',
-//    'uses' => 'JobSearchController@jobsearch'
-//]);
 //admin
 Route::get('admin/login', [
     'as' => 'admin_login',
@@ -101,11 +110,6 @@ Route::post('admin/login', [
     'uses' => 'AdminQuanlyDanhMuc@xuLyLogin'
 ]);
 
-
-Route::get('xemchitiet/{id}', [
-    'as' => 'thongtin.chitiet.xem',
-    'uses' => 'ChiTietController@index'
-]);
 //doipass
 //Route::get('doi-mat-khau',[
 //   'as'  => 'doimatkhau',
@@ -306,7 +310,18 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('nhatuyendung/timkiemhoso/{id}', [
     'as' => 'timhoso_xemchitiet',
     'uses' => 'NhaTuyenDungController@xemchitiet'
-]);
+    ]);
+    
+    //dangtintuyendung
+    Route::get('nhatuyendung/dangtin', [
+        'as' => 'dangtin',
+        'uses' => 'NhaTuyenDungController@dangtin'
+    ]);
+
+    Route::post('nhatuyendung/dangtin', [
+        'as' => 'xuly_dangtin',
+        'uses' => 'NhaTuyenDungController@xulydangtin'
+    ]);
     
     Route::get('password/reset', array(
         'uses' => 'PasswordController@remind',
@@ -316,7 +331,12 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'PasswordController@request',
         'as' => 'password.request'
     ));
-
+    
+    
+    Route::get('congviec/luu/{id}', [
+    'as' => 'congviec.luu',
+    'uses' => 'JobSearchController@savejob'
+]);
     //danh muc
 
     Route::get('admin/quanly-danhmuc', [
@@ -621,7 +641,10 @@ Route::get('tai-cv/{filename}', [
     'as' => 'admin.download.cv',
     'uses' => 'DownloadController@downloadCV'
 ]);
-
+Route::get('/nopdon', [
+    'as' => 'nopdonungtuyen',
+    'uses' => 'TrangchuController@nopdon'
+]);
 //quan ly user
 Route::get('admin/quanly-user', [
     'as' => 'admin.quanly_user',
