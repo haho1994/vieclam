@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Request\Login;
 use App\User;
 use App\Job;
+use App\Job_cv_user;
 class TrangchuController extends Controller {
 
 //    public function index() {
@@ -49,12 +50,19 @@ public function LienHe() {
     public function QuyDinh() {
         return view('layouts.quydinh');
     }
-     public function nopdon() {
-         $user->auth()->user();
-         $job->auth()->job();
-         $jobcv = \App\Job_cv_user::all();
-        return view('thongtin.nopdon', compact('$user','$job'));
+     public function NgheNghiep() {
+        return view('thongtin.quanlyNN');
     }
+     public function HoSo() {
+        return view('thongtin.hoso');
+    }
+    public function TuyenDung() {
+        return view('layouts.tuyendung');
+    }
+    public function getLogout() {
+   Auth::logout();
+   return redirect(\URL::previous());
+}
     public function xuLyDangKyViecLam() {
         $dulieu = request()->all();
 
@@ -218,7 +226,22 @@ public function LienHe() {
         //Nếu đăng nhập sai
         return redirect()->route('dangnhap');
     }
-    
+     public function xuLyDangNhap1() {
+        $email = request()->get('email');
+        $password = request()->get('password');
+        //'is_admin' =1;
+        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Nếu đăng nhập đúng
+            if (\Auth::attempt(['email' => $email, 'password' => $password, 'type' => 2])) {
+                return redirect()->route('admin_login');
+            }
+            return redirect()->route('tuyendung.trangtin');
+            
+//        return DB::table('users')->where('full_name','=',$full_name)->first();
+        }
+        //Nếu đăng nhập sai
+        return redirect()->route('dangnhap.nhatuyendung');
+    }
        
     }
    

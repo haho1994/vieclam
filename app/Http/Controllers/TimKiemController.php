@@ -44,4 +44,11 @@ class TimKiemController extends Controller {
             return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills'));
         }
     }
+//    public function hoso($id){
+//        $cv = \App\Curriculumvita::find($id);
+//        return view('thongtin.hoso', compact('curriculumvitaes'));
+//    }
+    public function HoSo() {
+        return view('thongtin.hoso');
+    }
 }

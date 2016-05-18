@@ -4,7 +4,6 @@
     <div class="dua">
         <form>
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
-            <t
             <table>
                 <tr>
                     <td><label>Tuyển Dụng Công Việc</label></td>

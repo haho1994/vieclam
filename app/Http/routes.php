@@ -6,7 +6,14 @@ Route::get('/', function () {
 
 
 
-
+Route::get('hoso-cuatoi', [
+    'as' => 'hoso',
+    'uses' => 'JobSearchController@index'
+]);
+Route::get('vieclam-cuatoi', [
+    'as' => 'vieclam.cuatoi',
+    'uses' => 'JobSearchController@vieclam'
+]);
 Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'
@@ -16,6 +23,7 @@ Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
 ]);
+
  Route::get('/lienhe', [
     'as' => 'lien-he',
     'uses' => 'TrangchuController@LienHe'
@@ -27,6 +35,10 @@ Route::post('dangky-vieclam', [
  Route::get('/quydinh', [
     'as' => 'quydinh-baomat',
     'uses' => 'TrangchuController@QuyDinh'
+]);
+  Route::get('/quanly-nghenghiep', [
+    'as' => 'quanlyNN',
+    'uses' => 'TrangchuController@NgheNghiep'
 ]);
 Route::get('dangky-tuyendung', [
     'as' => 'dangky_tuyendung',
@@ -60,6 +72,14 @@ Route::get('dangnhap', [
 Route::post('dangnhap', [
     'as' => 'xuly.dangnhap',
     'uses' => 'TrangchuController@xuLyDangNhap'
+]);
+Route::get('dangnhapnhatuyendung', [
+    'as' => 'dangnhap.nhatuyendung',
+    'uses' => 'TrangchuController@dangNhapTaiKhoan'
+]);
+Route::post('dangnhapnhatuyendung', [
+    'as' => 'xuly.dangnhap.nhatuyendung',
+    'uses' => 'TrangchuController@xuLyDangNhap1'
 ]);
 Route::post('ngonngu', [
     'as' => 'ngongu',
@@ -250,7 +270,14 @@ Route::get('admin/logout', function() {
     Auth::logout();
     return redirect()->route('admin_login');
 });
-
+Route::get('logout', function() {
+    Auth::logout();
+    return redirect()->back();
+});
+Route::get('nhatuyendung', [
+        'as' => 'tuyendung.trangtin',
+        'uses' => 'TrangchuController@TuyenDung'
+    ]);
 Route::group(['middleware' => 'auth'], function() {
     //nhatuyendung _doimatkhau
     Route::get('nhatuyendung/taikhoan/doimatkhau', [
@@ -627,7 +654,7 @@ Route::get('tai-cv/{filename}', [
 ]);
 Route::get('/nopdon', [
     'as' => 'nopdonungtuyen',
-    'uses' => 'TrangchuController@nopdon'
+    'uses' => 'JobSearchController@nopdon'
 ]);
 //quan ly user
 Route::get('admin/quanly-user', [

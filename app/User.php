@@ -38,6 +38,7 @@ class User extends Authenticatable implements CanResetPassword {
 //    } 
     public function favouriteJob()
     {
-        return $this->belongsToMany(Job::class, ' job_favourites', 'id_user', 'id_job');
+        return $this->belongsToMany(Job::class, 'job_favourites', 'id_user', 'id_job');
     }
+
 }

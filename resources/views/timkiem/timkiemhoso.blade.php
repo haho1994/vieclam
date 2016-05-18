@@ -1,5 +1,5 @@
-@extends('layouts.headerfooter')
-@section('noi_dung')
+@extends('layouts.tuyendung')
+@section('noidung')
 <div class="form_ntdtimkiem">
     <div class="form_ntdtimkiem1">
         <div class="form_ntdtimkiem2" >
