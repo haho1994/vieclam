@@ -53,7 +53,7 @@
                         <tr>
                             <td><label>Ngày Sinh</label></td>
                             <td>
-                                <input class="suatt_canhan_input" type="date" value="{!! $users->brithday !!}" name="brithday" />
+                                <input class="suatt_canhan_input" type="date" value="{!! date('Y-m-d', strtotime($users->brithday)) !!}" name="brithday" />
                                 <?php
                                 if ($errors->has('brithday')) {
                                     echo $errors->first('brithday');

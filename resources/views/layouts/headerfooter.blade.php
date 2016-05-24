@@ -27,8 +27,6 @@
                                 @if(auth()->check())
                                 <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
                                     <ul class="dropdown-menu" role="menu">
-
-                                        <li><a href='{!! route("quanlyNN") !!}'>Quản Lý Nghề Nghiệp</a></li>
                                         <li><a href='{!! route("hoso") !!}'>Hồ Sơ Của Tôi</a></li>
                                         <li><a href='{!! route("vieclam.cuatoi") !!}'> Việc Làm Của Tôi</a></li>
                                         <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>

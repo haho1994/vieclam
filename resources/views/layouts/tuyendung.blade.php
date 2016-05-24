@@ -44,6 +44,10 @@
                         <a href="#" style=" font-size: 14px;">Đăng Ký
                         </a>
                     </li>
+                     <li>
+                        <a href="#" style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!--/. NAV TOP  -->

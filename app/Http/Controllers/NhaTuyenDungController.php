@@ -146,6 +146,7 @@ class NhaTuyenDungController extends Controller {
 
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['id_user'] = auth()->user()->id;
+        $dulieu['id_company'] = auth()->user()->company->id;
 //        $user = auth()->user();
         Job::create($dulieu);
 
@@ -213,7 +214,7 @@ class NhaTuyenDungController extends Controller {
     }
     public function suathongtincongty(){
         $users = auth()->user();
-        $company = Company::all();
+        $company = Company::where('user_id', $users->id)->first();
         $locations = Location::all();
         return view('dangtintuyendung.suathongtincongty')->with([
                     'users' => $users,
@@ -264,6 +265,7 @@ class NhaTuyenDungController extends Controller {
             ]);
         } 
         //$user->update($xuly);
+        $user->fill($dulieu);
         $user->password = \Hash::make($dulieu['password']);
         $user->save();
         \Session::flash('success', 'Cập nhập thành công');

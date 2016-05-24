@@ -3,9 +3,7 @@
 <div class="search_form" align="center">
     <h1 class='text'>Tìm Kiếm Công Việc Mơ Ước.<strong>Nâng Cao Thành Công!</strong></h1>
     <form  method="get" action="{!!route('frontend.search.search')!!}">
-        <input type="text" class="text" name='keyword'  value="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
-                    this.value = 'Enter Keyword(s)';
-                }">
+        <input type="text" class="text" name='keyword'  placeholder="Nhập chức danh, vị trí, kỹ năng..." >
         <select name="category_id" class="option1" >
             <option value="" >Chọn nghành nghề</option>
                     @foreach($categories as $category)
@@ -20,7 +18,7 @@
         </select>
         <input id="input" type="submit" class="login login-submit" value="Tìm Kiếm">
     </form>
- <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>
+<!-- <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>-->
 </form>
 </div>
 <div>

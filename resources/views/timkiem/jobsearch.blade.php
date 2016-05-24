@@ -77,7 +77,7 @@
                 </tr>
 
             </table>
-        </form>
+        </form> 
 <div class="icon">
         <div class="icon1">
             <h4>Bạn Có Muốn</h4>
@@ -109,6 +109,16 @@
     </div>
 </div>
     
-</div>
 
+    <div class="lienhe" style="width: 1210px">
+    <div class="lienhe1">
+        <h2>
+                            @if($job->company)
+                            {!!$job->company->name!!}
+                            @endif
+        </h2>
+        <p>{!! $job->description !!}</p>
+    </div>
+</div>
+    </div>
 @endsection

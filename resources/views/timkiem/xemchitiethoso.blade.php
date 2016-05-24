@@ -104,8 +104,11 @@
             </table>
             <div style="margin-top: 40px;">
                 <label style="" >
-                    <a href='{!! route("admin.download.cv", ["filename" => "02367f29-a86d-4578-8172-e32ce154ffa0.docx"]) !!}'>
-                        {!! $cv->id!!}
+                    @if(!empty($cv->filename))
+                    <a href='{!! route("admin.download.cv", ["filename" => $cv->filename]) !!}'>
+                        Tai ho so tai day
+                    </a>
+                    @endif
                 </label>
             </div>
         </form>

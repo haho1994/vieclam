@@ -3,7 +3,7 @@
 
 <div class="login-card">
     <h1>Đổi mật khẩu</h1><br>
-    <form action="{!! route('doimatkhau.xuly') !!}" method="POST"  >
+    <form action="{!! route('doimatkhau') !!}" method="POST"  >
         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
         <table>
             <tr>

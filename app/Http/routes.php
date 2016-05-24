@@ -8,17 +8,36 @@ Route::get('/', function () {
 
 Route::get('hoso-cuatoi', [
     'as' => 'hoso',
-    'uses' => 'JobSearchController@index'
+    'uses' => 'HoSoController@index'
 ]);
+//viec lam cua toi
 Route::get('vieclam-cuatoi', [
     'as' => 'vieclam.cuatoi',
     'uses' => 'JobSearchController@vieclam'
+]);
+// xoa viec lam yeu thich
+Route::get('vieclam-cuatoi/xoa/{id}', [
+    'as' => 'vieclam.cuatoi.xoa',
+    'uses' => 'JobControllers@destroy'
 ]);
 Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'
 ]);
-
+//xem hồ sơ
+Route::get('hoso-cuatoi/xem/{id}', [
+        'as' => 'xem',
+        'uses' => 'JobSearchController@Showhoso'
+    ]);
+//sua ho so
+Route::get('hoso-cuatoi/sua/{id}', [
+        'as' => 'sua',
+        'uses' => 'HoSoController@suahoso'
+    ]);
+Route::post('hoso-cuatoi/luu/{id}', [
+    'as' => 'luu',
+    'uses' => 'HoSoController@update'
+]);
 Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
@@ -61,6 +80,90 @@ Route::post('dangky-tuyendung', [
 //]);
 //
 //dn user
+
+
+Route::group(['middleware' => 'auth_ntd'], function() {
+    //nhatuyendung _doimatkhau
+    Route::get('nhatuyendung/taikhoan/doimatkhau', [
+        'as' => 'nhatuyendung_doimatkhau',
+        'uses' => 'TaiKhoanController@tuyendungdoimatkhau'
+    ]);
+    Route::post('nhatuyendung/taikhoan/doimatkhau', [
+        'as' => 'xuly.nhatuyendung_doimatkhau',
+        'uses' => 'TaiKhoanController@xuLytuyendungdoimatkhau'
+    ]);
+     //timkiemhoso
+    Route::get('nhatuyendung/timkiemhoso',[
+       'as' => 'timhoso',
+        'uses' => 'NhaTuyenDungController@timHoSo'
+    ]);
+    
+    Route::get('nhatuyendung/timkiemhoso/hoso',[
+       'as' => 'timhoso_xuly',
+        'uses' => 'NhaTuyenDungController@xulytimHoSo'
+    ]);
+    
+    Route::get('nhatuyendung/timkiemhoso/{id}', [
+    'as' => 'timhoso_xemchitiet',
+    'uses' => 'NhaTuyenDungController@xemchitiet'
+    ]);
+    
+    //dangtintuyendung
+    Route::get('nhatuyendung/dangtin', [
+        'as' => 'dangtin',
+        'uses' => 'NhaTuyenDungController@dangtin'
+    ]);
+
+    Route::post('nhatuyendung/dangtin', [
+        'as' => 'xuly_dangtin',
+        'uses' => 'NhaTuyenDungController@xulydangtin'
+    ]);
+    
+    //congty_nhatuyendung
+    Route::get('nhatuyendung/congty/dangkycongty', [
+        'as' => 'ntd_congty',
+        'uses' => 'NhaTuyenDungController@taocongty'
+    ]);
+    Route::post('nhatuyendung/congty', [
+        'as' => 'xuly.ntd_congty',
+        'uses' => 'NhaTuyenDungController@xulytaocongty'
+    ]);
+    
+    Route::get('nhatuyendung/congty/thongtincongty', [
+        'as' => 'ntd_congty_sua',
+        'uses' => 'NhaTuyenDungController@suathongtincongty'
+    ]);
+    Route::post('nhatuyendung/congty/thongtincongty', [
+        'as' => 'xuly.ntd_congty_sua',
+        'uses' => 'NhaTuyenDungController@xulysuathongtincongty'
+    ]);
+    
+    //thongtinnhatuyendung
+    Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung', [
+        'as' => 'nhatuyendung_taikhoan_suathongtinnhatuyendung',
+        'uses' => 'NhaTuyenDungController@suathongtinnhatuyendung'
+    ]);
+    Route::post('nhatuyendung/taikhoan/thongtinnhatuynedung', [
+        'as' => 'xuly.nhatuyendung_taikhoan_suathongtinnhatuyendung',
+        'uses' => 'NhaTuyenDungController@xulysuathongtinnhatuyendung'
+    ]);
+    
+    Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung/xem', [
+        'as' => 'taikhoan.nhatuyendung_xemthongtinnhatuyendung',
+        'uses' => 'NhaTuyenDungController@xemttntd'
+    ]);
+    
+    //quanlyvieclam
+    Route::get('nhatuyendung/quanlyvieclam', [
+        'as' => 'ntdquanlyvieclam',
+        'uses' => 'NhaTuyenDungController@quanlyviec'
+    ]);
+    
+    Route::get('nhatuyendung/quanlyvieclam/hosotuyendung/{id}', [
+        'as' => 'ntdvieclam_hoso',
+        'uses' => 'NhaTuyenDungController@xemhosotuyendung'
+    ]);
+});
 Route::get('admin', [
     'as' => 'admin',
     'uses' => 'TrangchuController@trangAdmin'
@@ -89,9 +192,6 @@ Route::post('ngonngu', [
     'as' => 'ngongu',
     'uses' => 'TrangchuController@trangNgonNgu2'
 ]);
-
-
-
 Route::get('/', [
     'as' => 'frontend.search.get',
     'uses' => 'SearchController@index'
@@ -284,15 +384,7 @@ Route::get('admin/trangchu', [
         'uses' => 'AdminQuanLyDanhMuc@trangchu'
     ]);
 Route::group(['middleware' => 'auth'], function() {
-    //nhatuyendung _doimatkhau
-    Route::get('nhatuyendung/taikhoan/doimatkhau', [
-        'as' => 'nhatuyendung_doimatkhau',
-        'uses' => 'TaiKhoanController@tuyendungdoimatkhau'
-    ]);
-    Route::post('nhatuyendung/taikhoan/doimatkhau', [
-        'as' => 'xuly.nhatuyendung_doimatkhau',
-        'uses' => 'TaiKhoanController@xuLytuyendungdoimatkhau'
-    ]);
+    
     //doimatkhau
     Route::get('taikhoan/doimatkhau', [
         'as' => 'doimatkhau',
@@ -300,7 +392,7 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
     
     Route::post('taikhoan/doimatkhau',[
-       'as' => 'doimatkhau.xuly',
+        'as' => 'doimatkhau',
         'uses' => 'TaiKhoanController@xuLyDoiMatKhau'
     ]);
 
@@ -328,77 +420,7 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'TaiKhoanController@xulyemail'
     ]);
     
-    //timkiemhoso
-    Route::get('nhatuyendung/timkiemhoso',[
-       'as' => 'timhoso',
-        'uses' => 'NhaTuyenDungController@timHoSo'
-    ]);
-    
-    Route::get('nhatuyendung/timkiemhoso/hoso',[
-       'as' => 'timhoso_xuly',
-        'uses' => 'NhaTuyenDungController@xulytimHoSo'
-    ]);
-    
-    Route::get('nhatuyendung/timkiemhoso/{id}', [
-    'as' => 'timhoso_xemchitiet',
-    'uses' => 'NhaTuyenDungController@xemchitiet'
-    ]);
-    
-    //dangtintuyendung
-    Route::get('nhatuyendung/dangtin', [
-        'as' => 'dangtin',
-        'uses' => 'NhaTuyenDungController@dangtin'
-    ]);
-
-    Route::post('nhatuyendung/dangtin', [
-        'as' => 'xuly_dangtin',
-        'uses' => 'NhaTuyenDungController@xulydangtin'
-    ]);
-    
-    //congty_nhatuyendung
-    Route::get('nhatuyendung/congty/dangkycongty', [
-        'as' => 'ntd_congty',
-        'uses' => 'NhaTuyenDungController@taocongty'
-    ]);
-    Route::post('nhatuyendung/congty', [
-        'as' => 'xuly.ntd_congty',
-        'uses' => 'NhaTuyenDungController@xulytaocongty'
-    ]);
-    
-    Route::get('nhatuyendung/congty/thongtincongty', [
-        'as' => 'ntd_congty_sua',
-        'uses' => 'NhaTuyenDungController@suathongtincongty'
-    ]);
-    Route::post('nhatuyendung/congty/thongtincongty', [
-        'as' => 'xuly.ntd_congty_sua',
-        'uses' => 'NhaTuyenDungController@xulysuathongtincongty'
-    ]);
-    
-    //thongtinnhatuyendung
-    Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung', [
-        'as' => 'nhatuyendung_taikhoan_suathongtinnhatuyendung',
-        'uses' => 'NhaTuyenDungController@suathongtinnhatuyendung'
-    ]);
-    Route::post('nhatuyendung/taikhoan/thongtinnhatuynedung', [
-        'as' => 'xuly.nhatuyendung_taikhoan_suathongtinnhatuyendung',
-        'uses' => 'NhaTuyenDungController@xulysuathongtinnhatuyendung'
-    ]);
-    
-    Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung/xem', [
-        'as' => 'taikhoan.nhatuyendung_xemthongtinnhatuyendung',
-        'uses' => 'NhaTuyenDungController@xemttntd'
-    ]);
-    
-    //quanlyvieclam
-    Route::get('nhatuyendung/quanlyvieclam', [
-        'as' => 'ntdquanlyvieclam',
-        'uses' => 'NhaTuyenDungController@quanlyviec'
-    ]);
-    
-    Route::get('nhatuyendung/quanlyvieclam/hosotuyendung/{id}', [
-        'as' => 'ntdvieclam_hoso',
-        'uses' => 'NhaTuyenDungController@xemhosotuyendung'
-    ]);
+   
     
     Route::get('password/reset', array(
         'uses' => 'PasswordController@remind',
@@ -718,6 +740,12 @@ Route::get('tai-cv/{filename}', [
     'as' => 'admin.download.cv',
     'uses' => 'DownloadController@downloadCV'
 ]);
+
+Route::post('/nop-don/upload/{id}',  [
+    'as' => 'nopdoncv',
+    'uses' => 'JobSearchController@nopdonCV'
+]);
+
 Route::get('/nopdon', [
     'as' => 'nopdonungtuyen',
     'uses' => 'JobSearchController@nopdon'
