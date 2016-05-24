@@ -30,7 +30,8 @@ class SearchController extends Controller {
         $categories = Category::all();
         $locations = Location::all();
         $skills = Skill::all();
-        if (request()->has('keyword')) {
+        $company = \App\Company::all();
+//        if (request()->has('keyword')) {
             $job = Job::where('name', 'like', '%' . request()->get('keyword') . '%');
 
             if (request()->has('category_id') && !empty(request()->get('category_id'))) {
@@ -44,8 +45,8 @@ class SearchController extends Controller {
                 $job->where('id_skill', '=', request()->get('skill_id'));
             }
             $jobs = $job->get();
-            return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills'));
+            return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills','company'));
         }
-    }
+    
 
 }

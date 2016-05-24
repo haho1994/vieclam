@@ -1,10 +1,13 @@
-@extends('layouts.headerfooter')
-@section('noi_dung')
+@extends('layouts.tuyendung')
+@section('noidung1')
 <div class="form_ntdtimkiem">
+    <div style="width: 89%;height: 50px;border: 1px #ddd solid;background: #FFF;margin-bottom: 30px;font-size: 20px;margin-left: 170px;">
+        <label style="margin-top: 10px;margin-left: 20px;">Tìm Kiếm Hồ Sơ</label>
+    </div>
     <div class="form_ntdtimkiem1">
         <div class="form_ntdtimkiem2" >
             <div class="form_ntdtimkiem_text">
-                <strong class="form_ntdtimkiem_text1">Tìm Hồ Sơ</strong>
+                <p class="form_ntdtimkiem_text1">Tìm Hồ Sơ</p>
             </div>
             <div class="form_ntdtimkiem3" style="width: 100%">
                 <form class="form_ntdtimkiem4" action="{!!route('timhoso_xuly')!!}"  method="get" >
@@ -32,6 +35,7 @@
                         <div class="center_tk" style="width: 39%;display: inline-block">
                             <select name="highes_edu" class="ntdtimkiem1">
                                 <option >Trình độ</option>
+                                <option ></option>
                                 <option>Đại học</option>
                                 <option>Cao đẳng</option>
                                 <option>Trung cấp</option>

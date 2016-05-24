@@ -1,19 +1,25 @@
-@extends('layouts.headerfooter')
-@section('noi_dung')
-<div class="xemchitiethoso">
-    <div class="xem" align="center">
+@extends('layouts.tuyendung')
+@section('noidung1')
+<div class="">
+    <div style="width: 104%;height: 50px;border: 1px #ddd solid;background: #FFF;margin-bottom: 30px;font-size: 20px;margin-left: 0px;">
+        <label style="margin-top: 10px;margin-left: 20px;">Tìm Kiếm Hồ Sơ</label>
+    </div>
+    <div class="xemhs" align="center">
         <form>
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" >
             <div style="height: 80px;">
-            <div >
-                <label style="color: #5e5e5e;font-size: 30px;" type="text" >
-                    {!! $cv->recent_category_id !!}
-                </label>
+                <div >
+                    <label style="color: #5e5e5e;font-size: 30px;" type="text" >
+<!--                        {!! $cv->recent_category_id !!}-->
+                        @if($cv->category)
+                        {!!$cv->category->name!!}</em>
+                        @endif
+                    </label>
 
-            </div>
-            <div>
-                <label type="text" >Cập nhật ngày: {!! $cv->updated_at !!}</label>
-            </div>
+                </div>
+                <div>
+                    <label type="text" >Cập nhật ngày: {!! $cv->updated_at !!}</label>
+                </div>
             </div>
             <div style="color: #5e5e5e;border-bottom: 1px dotted #ccc;border-top:1px dotted #ccc; height: 40px;font-size: 20px ">
                 <label>Thông Tin Chung </label>  
@@ -96,10 +102,10 @@
                     </td>
                 </tr>
             </table>
-            <div>
+            <div style="margin-top: 40px;">
                 <label style="" >
                     <a href='{!! route("admin.download.cv", ["filename" => "02367f29-a86d-4578-8172-e32ce154ffa0.docx"]) !!}'>
-                        {!! $cv->filename!!}
+                        {!! $cv->id!!}
                 </label>
             </div>
         </form>

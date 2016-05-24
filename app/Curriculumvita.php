@@ -22,7 +22,8 @@ class  Curriculumvita extends Model {
         'current_job_level',
         'expected_job_level',
         'expected_job_category',
-        'is_negotiable'
+        'is_negotiable',
+        'updated_at'
     ];
     
     public function user()

@@ -1,15 +1,20 @@
-@extends('layouts.headerfooter')
-@section('noi_dung')
+@extends('layouts.tuyendung')
+@section('noidung1')
 <div class="form_nhatuyendung">
+    <div class="dangtintuyendung_text">
+        <label style="margin-top: 10px;margin-left: 20px;">Tài Khoản</label>
+    </div>
     <div class="tdungdoipass">
         <div class="form_tdpass">
-            <h1>Thay đổi mật khẩu</h1><br>
+            <div style="height: 50px;margin-top: 10px;margin-left: 80px;">
+            <strong style="font-size: 20px;">Thay đổi mật khẩu</strong><br>
+            </div>
             <form action="{!! route('xuly.nhatuyendung_doimatkhau') !!}" method="POST"  >
                 <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                 <table>
             <tr>
                 <td>
-                    <input style="width: 320px;height: 44px; border-radius: 5px;margin-bottom: 10px; border: 1px solid #d9d9d9" type="text" value="{!! $users->email !!}" name="email" disabled />
+                    <input style="width: 558px;height: 44px; border-radius: 5px;margin-bottom: 10px; border: 1px solid #d9d9d9" type="text" value="{!! $users->email !!}" name="email" disabled />
                 </td>
             </tr>
             <tr>
@@ -44,7 +49,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="submit" name="login" class="login login-submit" value="Lưu"/>
+                    <input type="submit" name="login" class="login login-submit" style="margin-left: 150px;" value="Lưu"/>
                 </td>
             </tr>
         </table>

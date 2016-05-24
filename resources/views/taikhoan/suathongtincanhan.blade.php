@@ -23,13 +23,13 @@
                 <tr>
                     <td><label>Email</label></td>
                 <td>
-                    <input type="text" value="{!! $users->email !!}" name="email" disabled placeholder="Nhập email"/>
+                    <input class="suatt_canhan_input" type="text" value="{!! $users->email !!}" name="email" disabled placeholder="Nhập email"/>
                 </td>
             </tr>
             <tr>
                 <td><label>Mật khẩu hiện tại</label></td>
                 <td>
-                    <input type="password" value="" name="password" placeholder="Mật khẩu hiện tại"/>
+                    <input class="suatt_canhan_input" type="password" value="" name="password" placeholder="Mật khẩu hiện tại"/>
                     <?php
                     if ($errors->has('password')) {
                         echo $errors->first('password');
@@ -40,7 +40,7 @@
                 <tr>
                     <td><label>Họ Tên</label></td>
                     <td>
-                        <input type="text" value="{!! $users->full_name !!}" name="full_name" />
+                        <input class="suatt_canhan_input" type="text" value="{!! $users->full_name !!}" name="full_name" />
                         <?php
                         if ($errors->has('name')) {
                             echo $errors->first('name');
@@ -51,7 +51,7 @@
                 <tr>
                     <td><label>Ngày Sinh</label></td>
                     <td>
-                        <input style="width:558px;height: 44px;border-radius: 5px;border: 1px solid #d9d9d9;margin-bottom: 10px;" type="date" value="{!! $users->brithday !!}" name="brithday" />
+                        <input class="suatt_canhan_input" type="date" value="{!! $users->brithday !!}" name="brithday" />
                         <?php
                         if ($errors->has('brithday')) {
                             echo $errors->first('brithday');
@@ -63,7 +63,7 @@
                 <tr>
                     <td><label>Số điện thoại</label></td>
                     <td>
-                         <input type="text" value="{!! $users->phone !!}" name="phone" />
+                         <input class="suatt_canhan_input" type="text" value="{!! $users->phone !!}" name="phone" />
                         <?php
                         if ($errors->has('phone')) {
                             echo $errors->first('phone');
@@ -74,7 +74,7 @@
                 <tr>
                     <td><label>Địa Chỉ</label></td>
                     <td>
-                         <input type="text" value="{!! $users->address !!}" name="address" />
+                         <input class="suatt_canhan_input" type="text" value="{!! $users->address !!}" name="address" />
                         <?php
                         if ($errors->has('address')) {
                             echo $errors->first('address');

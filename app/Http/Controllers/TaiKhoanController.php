@@ -46,7 +46,7 @@ class TaiKhoanController extends Controller {
         
         $user->password = \Hash::make($dulieu['password_confirmation']);
         $user->save();
-        return redirect()->route('dangnhap');
+        return redirect()->route('dangnhap.nhatuyendung');
         //\Session::flash('sauccess', 'Sua thanh cong');
 
         //return redirect()->back();

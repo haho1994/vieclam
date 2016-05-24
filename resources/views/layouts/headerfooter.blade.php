@@ -3,7 +3,7 @@
         <title>Tìm kiếm việc làm!!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="<?php echo asset('/assets/css/style.css') ?>">
-       
+
     </head>
     <body>
         <div class="wrapper">
@@ -23,36 +23,36 @@
                             <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->	 
 
                             <div class="btn-group">
-                                <li>
-                                    @if(auth()->check())
-                                        {{auth()->user()->full_name}}
+
+                                @if(auth()->check())
+                                <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <li><a href='{!! route("quanlyNN") !!}'>Quản Lý Nghề Nghiệp</a></li>
+                                        <li><a href='{!! route("hoso") !!}'>Hồ Sơ Của Tôi</a></li>
+                                        <li><a href='{!! route("vieclam.cuatoi") !!}'> Việc Làm Của Tôi</a></li>
+                                        <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>
+                                        <li><a href='{!! route("doiEmail") !!}'>Đổi Email</a></li>
+                                        <li><a>Đổi Mật Khẩu</a></li>
+                                        <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
+                                        <li><a href="{{url('logout')}}">Thoát</a></li>
+                                    </ul> 
                                     @else
-                                    <a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a>
-                                    @endif
-                                </li>
-                             </div>
-                            <div class="btn-group">
-                                <li><a style="font: normal 100% arial, sans-serif;"><b>Tài Khoản</b></a><span class="caret"></span>
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li><a>Đổi Mật Khẩu</a></li>
-                                    <li><a>Thông Tin Cá Nhân</a></li>
-                                </ul>
-
+                                <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
+                                @endif
+                             
                             </div>
                             
                             <div class="btn-group">
-                                <li><a style="font: normal 100% arial, sans-serif;"href='{!! route("dangky") !!}'><b>Đăng Ký</b></a><span class="caret"></span>
-                                <ul class="dropdown-menu" role="menu">
-
-                                    <li><a>Người Dùng</a></li>
-                                    <li><a>Nhà Tuyển Dụng</a></li>
-                                </ul>
-
+                                <li><a style="font: normal 100% arial, sans-serif;"href='{!! route("dangky") !!}'><b>Đăng Ký</b></a></span>
                             </div>
-         
+
+                            <div class="btn-group">
+                                <li><a style="font: normal 100% arial, sans-serif;" href='{!! route("tuyendung.trangtin") !!}'><b>Nhà Tuyển Dụng</b></a></span>
+                            </div>
+
                         </ul>
-                      
+
                         <ul id="menu1"> 
 
                             <li>

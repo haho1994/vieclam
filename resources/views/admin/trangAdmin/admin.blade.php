@@ -1,4 +1,4 @@
- <html>
+<html>
 
     <head>
         <title>Trang quản trị</title>
@@ -17,14 +17,26 @@
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right">
+                    <div class="btn-group" >
+
+                        @if(auth()->check())
+                        <li><a class="tenht" style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
+                                <li><a href="{{url('logout')}}">Thoát</a></li>
+                            </ul> 
+                            @else
+                        <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
+                        @endif
+
+                    </div>
                     <li>
                         <a href="#">Thông Báo
                         </a>
                     </li>
-                    <li>
-                        <a  href='{!! route("admin.login") !!}' aria-expanded="false" >Đăng Nhập
-                        </a>
-                    </li>
+                    <!--                    <li>
+                                            <a  href='{!! route("admin.login") !!}' aria-expanded="false" >Đăng Nhập</a>
+                                        </li>-->
                 </ul>
             </nav>
             <!--/. NAV TOP  -->
@@ -33,7 +45,7 @@
                     <ul class="nav" id="main-menu">
 
                         <li>
-                            <a class="active-menu" href="">Trang Chủ</a>
+                            <a class="active-menu" href='{!! route("admin_trangchu") !!}'>Trang Chủ</a>
                         </li>
                         <li>
                             <a href='{!! route("admin.quanly_user") !!}'>Người Sử Dụng</a>
@@ -77,7 +89,7 @@
                 <div id="page-inner">
                     @yield('noidung')
                     @yield('dangnhap')
-                    
+
                 </div>
             </div>
         </div>

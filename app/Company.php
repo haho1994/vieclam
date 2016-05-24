@@ -12,9 +12,12 @@ class Company extends Model {
     protected $table = 'companies';
     protected $fillable = [
         'name',
+        'user_id',
         'address',
         'email',
-        'phone'
+        'phone',
+        'description',
+        'status'
     ];
     
     public function user()

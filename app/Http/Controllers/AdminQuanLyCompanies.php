@@ -16,7 +16,8 @@ class AdminQuanlyCompanies extends Controller {
 
     //create
     public function create() {
-        return view('admin.congty.create');
+        $company = Company::all();
+        return view('admin.congty.create',  compact('company'));
     }
 
     public function store() {

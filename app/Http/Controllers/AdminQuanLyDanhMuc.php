@@ -7,6 +7,11 @@ use \App\Category;
 
 class AdminQuanLyDanhMuc extends Controller {
     
+    
+    public function trangchu(){
+        return view('admin.trangAdmin.admin');
+    }
+
     //login
     public function login() {
         return view('admin.dangnhap_admin.login');
@@ -17,7 +22,7 @@ class AdminQuanLyDanhMuc extends Controller {
         $password = request()->get('password');
         if (\Auth::attempt(['email' => $email, 'password' => $password, 'is_admin' => 1])) {
             // Nếu đăng nhập đúng
-            return redirect()->route('admin.quanly_danhmuc');
+            return redirect()->route('admin_trangchu');
            // echo 'dang nhap hanh cong';
         }
         //Nếu đăng nhập sai

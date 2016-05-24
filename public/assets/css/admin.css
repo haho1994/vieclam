@@ -6121,7 +6121,7 @@ background: #172D44;
 margin-right: 2px;
 }
 .top-navbar .navbar-brand:hover { 
-color:#fff;
+color:#2EA7EB;
 
 }
 .dropdown-user li {
@@ -6420,3 +6420,24 @@ input[type=text]{
 
 
 /*# sourceMappingURL=bootstrap.css.map */
+.navbar-side .sidebar-collapse ul li:hover{
+    background: #225081;
+}
+.ntd_taocongty a:hover{
+    text-decoration: none;
+}
+.sidebar-collapse{
+    position: relative;
+    //display: inline-block;
+    vertical-align: middle;
+}
+.ntd_taocongty{
+    position: absolute;
+    display: none;
+    background: #09192A;
+}
+.sidebar-collapse .ntd_taocongty {
+ position: absolute;
+ left: 225px;
+ top: 0;
+}

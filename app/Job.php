@@ -19,6 +19,7 @@ class Job extends Model {
         'gender',
         'levels',
         'experience',
+        'description',
         'status'
     ];
     public function user()

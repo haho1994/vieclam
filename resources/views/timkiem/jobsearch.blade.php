@@ -98,7 +98,7 @@
             <div class="icon2-3">     
             </div>
             <div class="icon2-2"  >
-                <a href='{!! route("nopdonungtuyen") !!}'> 
+                <a  href="{!! route('nopdonungtuyen', ['id' => $job->id]) !!}"> 
                     <p>Nộp Đơn</p>
                 </a>
                 

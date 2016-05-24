@@ -16,6 +16,7 @@
         <th>Người tạo</th>
         <th>Email</th> 
         <th>Số điện thoại</th>
+        <th>Trạng thái</th>
         <th>Thao tác</th>
         
     </tr>
@@ -27,6 +28,13 @@
         <td>{!! $item->user->full_name !!}</td>
         <td>{!! $item->email !!}</td> 
         <td>{!! $item->phone !!}</td>
+        <td>
+            @if($item->status)
+                Da duyet
+            @else
+                Chua duyet
+            @endif
+        </td>
         <td>
             <a href='{!! route("admin.quanly_companies.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly_companies.sua", array("id" => $item->id)) !!}'>Sua</a>

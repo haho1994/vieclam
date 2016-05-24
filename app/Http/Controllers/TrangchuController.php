@@ -6,36 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Request\Login;
 use App\User;
 use App\Job;
+use App\Job_cv_user;
 class TrangchuController extends Controller {
 
-//    public function index() {
-//        $category = "CNTT";
-//        
-//        //lay tat ca
-//        $danhmuc = \App\Category::all();
-//        
-//        //lay theo id
-//        $danhmucId = \App\Category::find('1120000001');
-//        
-//        //llay theo where
-//        $danhmucWhere1 = \App\Category::where('description', 'da la mo ta')->first()->toArray(); //record dau tien
-//        
-//        $danhmucWhere2 = \App\Category::where('description', 'da la mo ta')->get()->toArray();  // lay nhieu
-//        
-//        
-//        dd($danhmucWhere2);
-//        
-//        return view('home.trangchu')->with([
-//            'vidu' => $category,
-//            'danhmuc' => $danhmuc,
-//            'danhmucId' => $danhmucId
-//        ]);
-//    }
-//    
-//    public function dangky()
-//    {
-//        return view('home.dangky');
-//    }
 
     public function dangKyViecLam() {
         return view('dangky.dangkyvieclam');
@@ -49,12 +22,19 @@ public function LienHe() {
     public function QuyDinh() {
         return view('layouts.quydinh');
     }
-     public function nopdon() {
-         $user->auth()->user();
-         $job->auth()->job();
-         $jobcv = \App\Job_cv_user::all();
-        return view('thongtin.nopdon', compact('$user','$job'));
+     public function NgheNghiep() {
+        return view('thongtin.quanlyNN');
     }
+     public function HoSo() {
+        return view('thongtin.hoso');
+    }
+    public function TuyenDung() {
+        return view('layouts.tuyendung');
+    }
+    public function getLogout() {
+   Auth::logout();
+   return redirect(\URL::previous());
+}
     public function xuLyDangKyViecLam() {
         $dulieu = request()->all();
 
@@ -166,25 +146,6 @@ public function LienHe() {
         ]);
     }
 
-//    public function danhSachTaiKhoan()
-//    {
-//        $users = \App\User::all();
-//        
-//        return view('dangky.danhsach_taikhoan')->with([
-//            'users' => $users
-//        ]);
-//    }
-//    
-//    public function xuLyXoa($userId)
-//    {
-//        $user = \App\User::find($userId);
-//        $user->delete();
-//        
-//        return redirect()->route('danhsach.taikhoan');
-//    }
-//    public function trangAdmin(){
-//        return view('admin.trangAdmin.admin');
-//    }
 
     public function trangNgonNgu() {
         return view('ngonngu.create');
@@ -206,20 +167,34 @@ public function LienHe() {
         $email = request()->get('email');
         $password = request()->get('password');
         //'is_admin' =1;
-        if (\Auth::attempt(['email' => $email, 'password' => $password])) {
+        //if (\Auth::attempt(['email' => $email, 'password' => $password])) {
             // Nếu đăng nhập đúng
-            if (\Auth::attempt(['email' => $email, 'password' => $password, 'type' => 2])) {
-                return redirect()->route('admin_login');
+            if (\Auth::attempt(['email' => $email, 'password' => $password, 'type' => 1])) {
+                return redirect()->route('frontend.search.get');
             }
-            return redirect()->route('frontend.search.get');
+            return redirect()->route('dangnhap');
             
 //        return DB::table('users')->where('full_name','=',$full_name)->first();
-        }
+        
         //Nếu đăng nhập sai
-        return redirect()->route('dangnhap');
+//        return redirect()->route('dangnhap');
+    }
+    public function nhatuyendungdnhap() {
+        return view('dangnhap.login_ntd');
     }
     
-       
+     public function xuLyDangNhapntd() {
+        $email = request()->get('email');
+        $password = request()->get('password');
+        //'is_admin' =1;
+        
+            // Nếu đăng nhập đúng
+            if (\Auth::attempt(['email' => $email, 'password' => $password, 'type' => 2])) {
+                return redirect()->route('tuyendung.trangtin');
+            }
+            return redirect()->route('dangnhap.nhatuyendung');  
+//        return DB::table('users')->where('full_name','=',$full_name)->first();
+        }
     }
    
 

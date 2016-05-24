@@ -22,6 +22,7 @@ class AdminQuanlyJobs extends Controller {
 
     //create
     public function create() {
+        $jobs = Job::all();
         $companies = Company::all();
         $locations = Location::all();
         $skills = Skill::all();
@@ -32,7 +33,8 @@ class AdminQuanlyJobs extends Controller {
             'locations' => $locations,
             'skills' => $skills,
             'categories' => $categories,
-            'languages' => $languages
+            'languages' => $languages,
+            'jobs' => $jobs
             
         ]);
     }

@@ -1,16 +1,16 @@
 @extends('admin.trangAdmin.admin')
 @section('noidung')
 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                             <small>Jobs/ Thêm</small>
-                        </h1>
-                    </div>
+    <div class="col-md-12">
+        <h1 class="page-header">
+            <small>Jobs/ Thêm</small>
+        </h1>
+    </div>
 </div>
-<?php 
-    if (Session::has('success')) {
-        echo \Session::get('success');
-    }
+<?php
+if (Session::has('success')) {
+    echo \Session::get('success');
+}
 ?>
 
 <form action="{!! route('admin.quanly_jobs.xuly') !!}" method="post">
@@ -31,10 +31,10 @@
             <td><label>Công ty</label></td>
             <td>
                 <select name="id_company" >
-                <option value="" >Chọn công ty</option>
-                @foreach($companies as $company)
-                <option value="{!! $company->id !!}">{!! $company->name !!}</option>
-                @endforeach
+                    <option value="" >Chọn công ty</option>
+                    @foreach($companies as $company)
+                    <option value="{!! $company->id !!}">{!! $company->name !!}</option>
+                    @endforeach
                 </select>
                 <?php
                 if ($errors->has('id_company')) {
@@ -46,11 +46,11 @@
         <tr>
             <td><label>Địa điểm</label></td>
             <td>
-                 <select name="id_location" >
-                <option value="" >Chọn địa điểm</option>
-                @foreach($locations as $location)
-                <option value="{!! $location->id !!}">{!! $location->name !!}</option>
-                @endforeach
+                <select name="id_location" >
+                    <option value="" >Chọn địa điểm</option>
+                    @foreach($locations as $location)
+                    <option value="{!! $location->id !!}">{!! $location->name !!}</option>
+                    @endforeach
                 </select>
                 <?php
                 if ($errors->has('id_location')) {
@@ -121,7 +121,14 @@
         <tr>
             <td><label>Trình độ</label></td>
             <td>
-                <input type="text" value="" name="levels" />
+                <select name="levels" >
+                    <option value="" >Chọn trình độ</option> 
+                    <option></option>
+                    <option>Đại học</option>
+                    <option>Cao đẳng</option>
+                    <option>Trung cấp</option>
+                    <option>Tốt nghiệp phổ thông</option>
+                </select>
                 <?php
                 if ($errors->has('levels')) {
                     echo $errors->first('levels');
@@ -140,6 +147,16 @@
                 ?>
             </td>
         </tr> 
+        <tr>
+            <td><label>Trang thai</label></td>
+            <td>
+                <select name="status">
+                   <option  value="">Chọn trạng thái</option>  
+                    <option  value="0">Chua duyet</option>
+                    <option value="1">Duyet</option>
+                </select>
+            </td>
+        </tr>
         <tr>
             <td><label>Mô tả</label></td>
             <td>
