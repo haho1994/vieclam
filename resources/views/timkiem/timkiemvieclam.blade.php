@@ -20,7 +20,7 @@
         </select>
         <input id="input" type="submit" class="login login-submit" value="Tìm Kiếm">
     </form>
- <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>
+<!-- <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>-->
 </form>
 </div>
 <div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Job;
 use App\User;
 use App\Company;
+use App\Job_cv_user;
 
 class Job_cv_user extends Model {
     
@@ -17,7 +18,7 @@ class Job_cv_user extends Model {
         'id_job',
         'id_user',
         'filename',
-        'id_company'
+      
     ];
     public function job()
     {

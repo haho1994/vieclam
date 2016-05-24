@@ -8,17 +8,36 @@ Route::get('/', function () {
 
 Route::get('hoso-cuatoi', [
     'as' => 'hoso',
-    'uses' => 'JobSearchController@index'
+    'uses' => 'HoSoController@index'
 ]);
+//viec lam cua toi
 Route::get('vieclam-cuatoi', [
     'as' => 'vieclam.cuatoi',
     'uses' => 'JobSearchController@vieclam'
+]);
+// xoa viec lam yeu thich
+Route::get('vieclam-cuatoi/xoa/{id}', [
+    'as' => 'vieclam.cuatoi.xoa',
+    'uses' => 'JobControllers@destroy'
 ]);
 Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'
 ]);
-
+//xem hồ sơ
+Route::get('hoso-cuatoi/xem/{id}', [
+        'as' => 'xem',
+        'uses' => 'JobSearchController@Showhoso'
+    ]);
+//sua ho so
+Route::get('hoso-cuatoi/sua/{id}', [
+        'as' => 'sua',
+        'uses' => 'HoSoController@suahoso'
+    ]);
+Route::post('hoso-cuatoi/luu/{id}', [
+    'as' => 'luu',
+    'uses' => 'HoSoController@update'
+]);
 Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
@@ -89,9 +108,6 @@ Route::post('ngonngu', [
     'as' => 'ngongu',
     'uses' => 'TrangchuController@trangNgonNgu2'
 ]);
-
-
-
 Route::get('/', [
     'as' => 'frontend.search.get',
     'uses' => 'SearchController@index'

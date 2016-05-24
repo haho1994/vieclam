@@ -6,6 +6,17 @@
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
             <table>
                 <tr>
+                    <td>
+                        <label>{!! $user->full_name !!}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Địa Chỉ Email</label></td>
+                    <td>
+                        <label>{!! $user->email !!}</label>
+                    </td>
+                </tr>
+                <tr>
                     <td><label>Tuyển Dụng Công Việc</label></td>
                     <td>
                         <label>
@@ -29,14 +40,17 @@
                     <td style="color: #808080; ">Hồ Sơ Ứng Tuyển</td>
                     <td style="color:#3079ed;">
                         <label>
-                            <input type="radio" name="resumeApply"value="newAttachment">
+                            
+<!--                            <input type="radio" name="resumeApply"value="newAttachment">
                             <span class="upload-button">
                                 <input class="editable" type="file" name="resumeFile" id="fileAttach" value="Đính kèm hồ sơ" tabindex="8">
-                            </span>
+                            </span>-->
+                            <a class="upload" href='{!! "/upload-cv" !!}' type='hidden' name='_token' value="<?php echo csrf_token() ?>" /><strong>Tải Hồ Sơ</strong></a>-->
                             <span class="small gray-light pull-left">Hỗ trợ định dạng .doc, .docx, .pdf, nhỏ hơn 2048KB</span><br>
                         </label>
                     </td>
                 </tr>
+            </table>
         </form>
     </div>
 </div>

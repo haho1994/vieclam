@@ -10,17 +10,21 @@
                     <dt class="hoso1" style="width: 100%">
                         <span class="vieclam">Tên Việc Làm</span>
                         <span class="vieclam1">Ngày Lưu</span>
+                        <span class="vieclam3">Tình Trạng</span>
                         <br class="clear">
                     </dt>
                     @foreach($job_favourites as $item)
                     <dd class="hoso2" style="width: 100%">
-                        <span class="hoso2-1">
+                        <span class="vieclam">
                              @if($item->job)
                             <strong>{!! $item->job->name !!}</strong>
                             @endif
                         </span>
-                        <span class="vieclam2">
+                        <span class="vieclam1">
                             {!! $item->updated_at !!}
+                        </span>
+                        <span class="vieclam3">
+                            <a>Nộp Đơn</a> | <a href='{!! route("vieclam.cuatoi.xoa", array("id" => $item->id)) !!}'>Xóa</a>
                         </span>
                     </dd>
                     @endforeach

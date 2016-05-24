@@ -1,42 +1,88 @@
 @extends('layouts.headerfooter')
 @section('noi_dung')
 <div class="wap">
-<div class="lienhe">
-    <div class="lienhe1">
-        <h3>Hồ Sơ Của Tôi</h3>
-        <form>
-            <div>
-                <dl class="hoso">
-                    <dt class="hoso1" style="width: 100%">
-                        <span class="hoso1-1">HỒ SƠ</span>
-                        <span class="hoso1-2">NGÀY CẬP NHẬT</span>
-                        <span class="hoso1-3">THAO TÁC</span>
-                        <br class="clear">
-                    </dt>
-                    @foreach($curriculumvitae as $item)
-                    <dd class="hoso2" style="width: 100%">
-                        <span class="hoso2-1">
-                            @if($item->user)
-                            <strong>{!! $item->user->full_name !!}</strong>
-                            @endif
-                        </span>
-                        <span class="hoso2-2">
-                            
-                            {!! $item->updated_at !!}
-                        </span>
-                        <span class="hoso2-3">
-                            <a title="Xem Thông Tin Hồ Sơ">Xem</a>
-                            |
-                            <a title="Cập Nhật Thông Tin Hồ Sơ">Cập Nhật</a>
-                            |
-                            <a title="Xóa Thông Tin Hồ Sơ">Xóa</a>
-                        </span>
-                    </dd>
-                    @endforeach
-                </dl>
+
+    <div class="lienhe">
+        <h2>Hồ Sơ Của Tôi</h2>
+        <a>Sửa Hồ Sơ</a>
+        <div class="lienhe1">
+
+
+            <form style="width: 100%" class="ttht" method="post" >
+                    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+                <div class="row" style="width: 100%">
+                    <div class="avatar">
+                    </div>
+                    <div class="qlnn1" style=" width: 38.5%;">
+                        <div class="qlnn1-1"> 
+                            <i class="user"></i>
+                            <span><strong>{!! $user->full_name !!}</strong></span>
+                        </div>
+                        <div class="qlnn1-1"> 
+                            <i class="mail"></i>
+                            <span><strong>{!! $user->email !!}</strong></span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="lienhe">  
+            <div class="lienhe1">
+                <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
+                <form style="width: 100%" class="ttht" method="post" >
+                    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+                    <div  style="width: 48%; float: left">
+                        <table>
+                            <tr class="qlnn1-4"  >
+                                <td ><label><b>Số Năm Kinh Nghiệm:</b></label></td>
+                                <td><label >{!! $curriculumvitaes->year_experience !!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Bằng Cấp:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->highes_edu !!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Công Ty Gần Đây Nhất:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->recent_company_id !!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Nghành Nghề Gần Đây Nhất:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->recent_category_id !!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Vị Trí Mong Muốn:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->expected_position_id!!}</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="width: 50%; float: left">
+                        <table>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Địa Điểm Mong Muốn:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->expected_location_id!!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Mức Lương Mong Muốn:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->expected_salary!!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Mức Độ Công Việc Hiện Tại:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->current_job_level!!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Mức Độ Công Việc Dự Kiến:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->expected_job_level!!}</label></td>
+                            </tr>
+                            <tr class="qlnn1-4">
+                                <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
+                                <td><label>{!! $curriculumvitaes->expected_job_category!!}</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 </div>
 @endsection
