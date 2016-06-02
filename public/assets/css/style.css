@@ -94,9 +94,9 @@ ol li
     margin-top: 10px;
 
 } 
-#menu{
+/*#menu{
     margin-left: -30px;
-}
+}*/
 ul#menu, ul#menu li
 { 
     margin: 0; 
@@ -879,7 +879,7 @@ a:hover
     background:url(../images/1.PNG) no-repeat;
 }
 .form_nhatuyendung{
-    //background: #f9f2f4;
+  
 }
 .tdungdoipass{
     background:#FFF;
@@ -1094,7 +1094,8 @@ element.style {
     font: normal normal normal 14px/1 FontAwesome;
 }
 .qlnn1-4{
-    margin: 15px 5;
+   height: 30px;
+  
 }
 .divider{
     height: 1px;
@@ -1103,12 +1104,12 @@ element.style {
     background-color: #e5e5e5;
 }
 .hoso{
-    outline: none;
-    padding: 5px 0 0 0;
-    margin: 0;
-    display: block;
-    margin-top: 50px;
-
+    height: 44px;
+  
+    margin-bottom: 10px;
+   
+    padding: 0 8px;
+    box-sizing: border-box;
 }
 dl {
     margin-bottom: 18px;
@@ -1275,4 +1276,40 @@ dl {
 .day{
     margin-left: 30px;
 }
+.taohoso{
+        max-width: 100%;
+    background-color: transparent;
+        border-spacing: 0;
+    border-collapse: collapse;
+        white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    color: -webkit-text;
+    margin-left: 300px;
 
+}
+.taohoso1{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.taohoso2{
+    height: 44px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.nopdon{
+    height: 30px;
+}
+.nopdon1{
+   margin-left: 50px;
+   width: 350px;
+}

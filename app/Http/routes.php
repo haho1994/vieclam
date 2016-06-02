@@ -24,18 +24,22 @@ Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'
 ]);
-//xem hồ sơ
-Route::get('hoso-cuatoi/xem/{id}', [
-        'as' => 'xem',
-        'uses' => 'JobSearchController@Showhoso'
-    ]);
-//sua ho so
+//tao ho so
+Route::get('hoso-cuatoi/tao', [
+    'as' => 'hoso.tao',
+    'uses' => 'HoSoController@create'
+]);
+Route::post('hoso-cuatoi/tao', [
+    'as' => 'hoso.xuly',
+    'uses' => 'HoSoController@store'
+]);
 Route::get('hoso-cuatoi/sua/{id}', [
-        'as' => 'sua',
-        'uses' => 'HoSoController@suahoso'
-    ]);
+    'as' => 'hoso.sua',
+    'uses' => 'HoSoController@edit'
+]);
+
 Route::post('hoso-cuatoi/luu/{id}', [
-    'as' => 'luu',
+    'as' => 'hoso.luu',
     'uses' => 'HoSoController@update'
 ]);
 Route::post('dangky-vieclam', [
@@ -43,19 +47,19 @@ Route::post('dangky-vieclam', [
     'uses' => 'TrangchuController@xuLyDangKyViecLam'
 ]);
 
- Route::get('/lienhe', [
+Route::get('/lienhe', [
     'as' => 'lien-he',
     'uses' => 'TrangchuController@LienHe'
 ]);
- Route::get('/thoathuansudung', [
+Route::get('/thoathuansudung', [
     'as' => 'thoathuan-sudung',
     'uses' => 'TrangchuController@ThoaThuan'
 ]);
- Route::get('/quydinh', [
+Route::get('/quydinh', [
     'as' => 'quydinh-baomat',
     'uses' => 'TrangchuController@QuyDinh'
 ]);
-  Route::get('/quanly-nghenghiep', [
+Route::get('/quanly-nghenghiep', [
     'as' => 'quanlyNN',
     'uses' => 'TrangchuController@NgheNghiep'
 ]);
@@ -67,7 +71,6 @@ Route::get('dangky-tuyendung', [
 Route::post('dangky-tuyendung', [
     'as' => 'xuly.dangky_tuyendung',
     'uses' => 'TrangchuController@xuLyDangKyTuyenDung'
-
 ]);
 //Route::get('danhsach-taikhoan', [
 //    'as' => 'danhsach.taikhoan',
@@ -81,8 +84,21 @@ Route::post('dangky-tuyendung', [
 //
 //dn user
 
+Route::group(['middleware' => 'auth_uv'], function() {
+    //nop don
 
+    Route::post('/nop-don/upload/{id}', [
+        'as' => 'nopdoncv',
+        'uses' => 'JobSearchController@nopdonCV'
+    ]);
+
+    Route::get('/nopdon', [
+        'as' => 'nopdonungtuyen',
+        'uses' => 'JobSearchController@nopdon'
+    ]);
+});
 Route::group(['middleware' => 'auth_ntd'], function() {
+
     //nhatuyendung _doimatkhau
     Route::get('nhatuyendung/taikhoan/doimatkhau', [
         'as' => 'nhatuyendung_doimatkhau',
@@ -92,22 +108,22 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly.nhatuyendung_doimatkhau',
         'uses' => 'TaiKhoanController@xuLytuyendungdoimatkhau'
     ]);
-     //timkiemhoso
-    Route::get('nhatuyendung/timkiemhoso',[
-       'as' => 'timhoso',
+    //timkiemhoso
+    Route::get('nhatuyendung/timkiemhoso', [
+        'as' => 'timhoso',
         'uses' => 'NhaTuyenDungController@timHoSo'
     ]);
-    
-    Route::get('nhatuyendung/timkiemhoso/hoso',[
-       'as' => 'timhoso_xuly',
+
+    Route::get('nhatuyendung/timkiemhoso/hoso', [
+        'as' => 'timhoso_xuly',
         'uses' => 'NhaTuyenDungController@xulytimHoSo'
     ]);
-    
+
     Route::get('nhatuyendung/timkiemhoso/{id}', [
-    'as' => 'timhoso_xemchitiet',
-    'uses' => 'NhaTuyenDungController@xemchitiet'
+        'as' => 'timhoso_xemchitiet',
+        'uses' => 'NhaTuyenDungController@xemchitiet'
     ]);
-    
+
     //dangtintuyendung
     Route::get('nhatuyendung/dangtin', [
         'as' => 'dangtin',
@@ -118,7 +134,7 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly_dangtin',
         'uses' => 'NhaTuyenDungController@xulydangtin'
     ]);
-    
+
     //congty_nhatuyendung
     Route::get('nhatuyendung/congty/dangkycongty', [
         'as' => 'ntd_congty',
@@ -128,7 +144,7 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly.ntd_congty',
         'uses' => 'NhaTuyenDungController@xulytaocongty'
     ]);
-    
+
     Route::get('nhatuyendung/congty/thongtincongty', [
         'as' => 'ntd_congty_sua',
         'uses' => 'NhaTuyenDungController@suathongtincongty'
@@ -137,7 +153,7 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly.ntd_congty_sua',
         'uses' => 'NhaTuyenDungController@xulysuathongtincongty'
     ]);
-    
+
     //thongtinnhatuyendung
     Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung', [
         'as' => 'nhatuyendung_taikhoan_suathongtinnhatuyendung',
@@ -147,18 +163,18 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly.nhatuyendung_taikhoan_suathongtinnhatuyendung',
         'uses' => 'NhaTuyenDungController@xulysuathongtinnhatuyendung'
     ]);
-    
+
     Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung/xem', [
         'as' => 'taikhoan.nhatuyendung_xemthongtinnhatuyendung',
         'uses' => 'NhaTuyenDungController@xemttntd'
     ]);
-    
+
     //quanlyvieclam
     Route::get('nhatuyendung/quanlyvieclam', [
         'as' => 'ntdquanlyvieclam',
         'uses' => 'NhaTuyenDungController@quanlyviec'
     ]);
-    
+
     Route::get('nhatuyendung/quanlyvieclam/hosotuyendung/{id}', [
         'as' => 'ntdvieclam_hoso',
         'uses' => 'NhaTuyenDungController@xemhosotuyendung'
@@ -239,7 +255,6 @@ Route::post('admin/login', [
 //   'as' => 'xuly_doimatkhau',
 //    'uses' => 'TrangchuController@xuLyDoiMatKhau'
 //]);
-
 //location
 Route::get('admin/locations', [
     'as' => 'admin.diadiem',
@@ -319,13 +334,12 @@ Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 
 Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
 Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
 
-Route::get('/test1', function()
-{
-    Mail::send('home', ['user' => ''], function ($m)  {
-            $m->from('hello@app.com', 'Your Application');
+Route::get('/test1', function() {
+    Mail::send('home', ['user' => ''], function ($m) {
+        $m->from('hello@app.com', 'Your Application');
 
-            $m->to('haho906@gmail.com', '$user->name')->subject('Your Reminder!');
-        });
+        $m->to('haho906@gmail.com', '$user->name')->subject('Your Reminder!');
+    });
 });
 
 
@@ -354,15 +368,15 @@ Route::get('/test1', function()
 
 
 Route::get('/test', function() {
-    
+
     $user = App\User::findOrFail(2);
 
-        Mail::send('welcome', ['user' => $user], function ($m) use ($user) {
-            //$m->from('viethung090@gmail.com', 'Your Application');
+    Mail::send('welcome', ['user' => $user], function ($m) use ($user) {
+        //$m->from('viethung090@gmail.com', 'Your Application');
 
-            $m->to($user->email, $user->full_name)->subject('Your Reminder!');
-        });
-    
+        $m->to($user->email, $user->full_name)->subject('Your Reminder!');
+    });
+
     dd(App\User::class);
 });
 
@@ -375,23 +389,23 @@ Route::get('logout', function() {
     return redirect()->back();
 });
 Route::get('nhatuyendung', [
-        'as' => 'tuyendung.trangtin',
-        'uses' => 'TrangchuController@TuyenDung'
-    ]);
+    'as' => 'tuyendung.trangtin',
+    'uses' => 'TrangchuController@TuyenDung'
+]);
 
 Route::get('admin/trangchu', [
-        'as' => 'admin_trangchu',
-        'uses' => 'AdminQuanLyDanhMuc@trangchu'
-    ]);
+    'as' => 'admin_trangchu',
+    'uses' => 'AdminQuanLyDanhMuc@trangchu'
+]);
 Route::group(['middleware' => 'auth'], function() {
-    
+
     //doimatkhau
     Route::get('taikhoan/doimatkhau', [
         'as' => 'doimatkhau',
         'uses' => 'TaiKhoanController@doiMatKhau'
     ]);
-    
-    Route::post('taikhoan/doimatkhau',[
+
+    Route::post('taikhoan/doimatkhau', [
         'as' => 'doimatkhau',
         'uses' => 'TaiKhoanController@xuLyDoiMatKhau'
     ]);
@@ -405,12 +419,12 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'xuly.taikhoan_suathongtincanhan',
         'uses' => 'TaiKhoanController@xulysuathongtincanhan'
     ]);
-    
+
     Route::get('taikhoan/xemthongtincanhan', [
         'as' => 'taikhoan_xemthongtincanhan',
         'uses' => 'TaiKhoanController@xemttcn'
     ]);
-   //doi email
+    //doi email
     Route::get('taikhoan/email', [
         'as' => 'doiEmail',
         'uses' => 'TaiKhoanController@doiEmail'
@@ -419,9 +433,9 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'xuly.email',
         'uses' => 'TaiKhoanController@xulyemail'
     ]);
-    
-   
-    
+
+
+
     Route::get('password/reset', array(
         'uses' => 'PasswordController@remind',
         'as' => 'password.remind'
@@ -430,12 +444,12 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'PasswordController@request',
         'as' => 'password.request'
     ));
-    
-    
+
+
     Route::get('congviec/luu/{id}', [
-    'as' => 'congviec.luu',
-    'uses' => 'JobSearchController@savejob'
-]);
+        'as' => 'congviec.luu',
+        'uses' => 'JobSearchController@savejob'
+    ]);
     //danh muc
 
     Route::get('admin/quanly-danhmuc', [
@@ -741,15 +755,6 @@ Route::get('tai-cv/{filename}', [
     'uses' => 'DownloadController@downloadCV'
 ]);
 
-Route::post('/nop-don/upload/{id}',  [
-    'as' => 'nopdoncv',
-    'uses' => 'JobSearchController@nopdonCV'
-]);
-
-Route::get('/nopdon', [
-    'as' => 'nopdonungtuyen',
-    'uses' => 'JobSearchController@nopdon'
-]);
 //quan ly user
 Route::get('admin/quanly-user', [
     'as' => 'admin.quanly_user',

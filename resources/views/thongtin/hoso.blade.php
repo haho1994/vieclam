@@ -4,7 +4,7 @@
 
     <div class="lienhe">
         <h2>Hồ Sơ Của Tôi</h2>
-        <a>Sửa Hồ Sơ</a>
+        <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
         <div class="lienhe1">
 
 
@@ -31,21 +31,21 @@
         <div class="lienhe">  
             <div class="lienhe1">
                 <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
-                <form style="width: 100%" class="ttht" method="post" >
+                <form style="width: 100%" class="ttht" method="post">
                     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                     <div  style="width: 48%; float: left">
                         <table>
                             <tr class="qlnn1-4"  >
                                 <td ><label><b>Số Năm Kinh Nghiệm:</b></label></td>
-                                <td><label >{!! $cv->year_experience !!}</label></td>
+                                <td><label class="hoso">{!! $cv->year_experience !!}</label></td>
                             </tr>
                             <tr class="qlnn1-4">
                                 <td><label><b>Bằng Cấp:</b></label></td>
-                                <td><label>{!! $cv->highes_edu !!}</label></td>
+                                <td><label class="hoso">{!! $cv->highes_edu !!}</label></td>
                             </tr>
                             <tr class="qlnn1-4">
                                 <td><label><b>Công Ty Gần Đây Nhất:</b></label></td>
-                                <td><label>{!! $cv->recent_company_id !!}</label></td>
+                                <td><label class="hoso">{!! $cv->recent_company_id !!}</label></td>
                             </tr>
                             <tr class="qlnn1-4">
                                 <td><label><b>Nghành Nghề Gần Đây Nhất:</b></label></td>
@@ -80,6 +80,9 @@
                                 <td><label>{!! $cv->expected_job_category!!}</label></td>
                             </tr>
                         </table>
+                    </div>
+                    <div>
+                        <input type="submit" value="Sửa" style="height: 30px; width: 40px;"  href='{!! route("hoso.sua", array("id" => $cv->id)) !!}'/>
                     </div>
                 </form>
             </div>

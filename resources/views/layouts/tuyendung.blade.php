@@ -14,7 +14,7 @@
                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
               
                      </button>-->
-                    <a class="navbar-brand" style=" font-size: 20px;" >Nhà Tuyển Dụng</a>
+                    <a class="navbar-brand" style=" font-size: 20px;" href='{!! route("tuyendung.trangtin") !!}'>Nhà Tuyển Dụng</a>
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right">
@@ -36,17 +36,22 @@
                                             <li><a href='{!! route("dangnhap.nhatuyendung") !!}'><b>Đăng Nhập</b></a></li>
                                             @endif
                                         </div>-->
+                    @if(auth()->check())
+                    <li>
+                        <a style=" font-size: 14px;"><b>{{auth()->user()->full_name}}</b>
+                        </a>
+                    </li>
+                    @else
                     <li>
                         <a  href='{!! route("dangnhap.nhatuyendung")!!}' aria-expanded="false" style=" font-size: 14px;">Đăng Nhập
                         </a>
                     </li>
+                    @endif
                     <li>
-                        <a href="#" style=" font-size: 14px;">Đăng Ký
-                        </a>
+                        <a href="#" style=" font-size: 14px;">Đăng Ký</a>
                     </li>
-                     <li>
-                        <a href="#" style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
-                        </a>
+                    <li>
+                        <a style=" font-size: 14px;" href='{!! route("frontend.search.get") !!}'>Người Sử Dụng</a>
                     </li>
                 </ul>
             </nav>
