@@ -14,9 +14,7 @@
 
                     <div style="width: 100%">
                         <div class="left_tk" style="width: 39%;display: inline-block">
-                            <input type="text" class="ntdtimkiem1" name='keyword' value="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
-                                        this.value = 'Enter Keyword(s)';
-                                    }">
+                            <input type="text" class="ntdtimkiem1" name='keyword'  placeholder="Nhập chức danh, vị trí, kỹ năng..." >
                             <select name="expected_job_category" class="ntdtimkiem1" >
                                 <option value="" >Chọn nghành nghề</option>
                                 @foreach($categories as $category)
@@ -24,8 +22,8 @@
                                 @endforeach
                             </select >
                             <select name="recent_position_id" class="ntdtimkiem1">
-                                <option>Cấp bậc</option>
-                                <option>Mới tốt nghiệp</option>
+                                <option value="">Cấp bậc</option>
+                                <option value="Mới tốt nghiệp">Mới tốt nghiệp</option>
                                 <option>Nhân viên</option>
                                 <option>Trưởng phòng</option>
                                 <option>Giám đốc và cấp cao hơn</option>
@@ -34,7 +32,7 @@
                         </div>
                         <div class="center_tk" style="width: 39%;display: inline-block">
                             <select name="highes_edu" class="ntdtimkiem1">
-                                <option >Trình độ</option>
+                                <option value="" >Trình độ</option>
                                 <option ></option>
                                 <option>Đại học</option>
                                 <option>Cao đẳng</option>
@@ -48,7 +46,7 @@
                                 @endforeach
                             </select>
                             <select name="year_experience" class="ntdtimkiem1">
-                                <option >Năm kinh nghiệm</option>
+                                <option value="" >Năm kinh nghiệm</option>
                                 <option>Không yêu cầu kinh nghiệm</option>
                                 <option>1 năm</option>
                                 <option>1-2 năm</option>

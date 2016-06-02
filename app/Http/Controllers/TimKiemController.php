@@ -25,7 +25,7 @@ class TimKiemController extends Controller {
         $locations = Location::all();
         $skills = Skill::all();
         $company = \App\Company::all();
-        if (request()->has('keyword')) {
+        //if (request()->has('keyword')) {
             $job = Job::where('name', 'like', '%' . request()->get('keyword') . '%');
             
             if (request()->has('category_id') && !empty(request()->get('category_id'))) {
@@ -43,7 +43,7 @@ class TimKiemController extends Controller {
             }
             $jobs = $job->get();
             return view('timkiem.show', compact('jobs', 'categories', 'locations', 'skills','company'));
-        }
+        
     }
 //    public function hoso($id){
 //        $cv = \App\Curriculumvita::find($id);

@@ -75,10 +75,12 @@
                                 @yield('upload')
                                 @yield('chitiet')-->
             </div>
-            <div id="footer">
-                Copyright &copy; Địa Chỉ: 02 Thanh Sơn | <a href='{!! route("thoathuan-sudung") !!}'>Thỏa Thuận Sử Dụng</a> | <a href='{!! route("lien-he") !!}'>Liên Hệ</a> | <a href='{!! route("quydinh-baomat") !!}'>Quy Định Bảo Mật</a>
-            </div>
+            
+            
         </div>
+        <div id="footer" >
+                Copyright &copy; Địa Chỉ: 02 Thanh Sơn | <a href='{!! route("thoathuan-sudung") !!}'>Thỏa Thuận Sử Dụng</a> | <a href='{!! route("lien-he") !!}'>Liên Hệ</a> | <a href='{!! route("quydinh-baomat") !!}'>Quy Định Bảo Mật</a>
+         </div>
     </body>
 </html>
 

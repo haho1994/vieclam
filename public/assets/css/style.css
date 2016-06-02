@@ -250,11 +250,11 @@ li:hover li {
     min-height: 100%; /* Fix cho firefox */
     height: auto !important;
     height: 100%;
-    background: #e8e8e8;
+    background: #f4f4f4;
 }
 
 #footer
-{ width: 100%;
+{ width: 120%;
   font: normal 100% 'lucida sans unicode', arial, sans-serif;
   height: 60px;
   padding: 24px 0 5px 0;
@@ -263,7 +263,10 @@ li:hover li {
   color: #333;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: bold;}
+  font-weight: bold;
+  margin-left: -220px;
+  
+}
 
 #search_wrapper1{
     margin-top:3em;
@@ -337,13 +340,13 @@ body {
 
 .login-card {
     padding: 40px;
-    width: 274px;
+    width: 350px;
     background-color: #F7F7F7;
     margin: 0 auto 10px;
     border-radius: 2px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    margin-top: 10px;
+   
 }
 
 .login-card h1 {
@@ -425,6 +428,8 @@ body {
 }
 .cao{
     height: 350px;
+    background: #f4f4f4;
+     margin-top: 70px;
 }
 .login-card a:hover {
     opacity: 1;
@@ -1275,4 +1280,28 @@ dl {
 .day{
     margin-left: 30px;
 }
-
+.input1 input[type="text"],input[type="password"]{
+    width: 274px;
+    height: 44px;
+    size: 16px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+}
+.dkntd_form input[type="text"],input[type="password"]{
+    width: 274px;
+    height: 44px;
+    size: 16px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+}
+.dnusers input[type="text"],input[type="password"]{
+    width: 100%
+}
+.dnntd input[type="password"],input[type="text"]{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+}

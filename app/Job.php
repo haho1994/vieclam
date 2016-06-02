@@ -46,5 +46,9 @@ class Job extends Model {
     {
         return $this->belongsTo(Language::class, 'id_language', 'id');
     }
+    public function jobcv()
+    {
+        return $this->hasMany(Job_cv_user::class, 'id_job', 'id');
+    }
 }
 

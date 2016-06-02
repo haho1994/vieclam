@@ -14,13 +14,13 @@
             @else
 
             @foreach($jobs as $job)
-            @if(empty($job->recent_category_id))
+            @if(empty($job->expected_position_id))
             <a href="{!! route('timhoso_xemchitiet', ['id' => $job->id]) !!}">
                 {!!$job->user->full_name!!}<br/>
             </a>
             @else
             <a href="{!! route('timhoso_xemchitiet', ['id' => $job->id]) !!}">
-                {!!$job->category->name!!}<br/>
+                {!!$job->expected_position_id!!}<br/>
             </a>
             @endif
             @endforeach

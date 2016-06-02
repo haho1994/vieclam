@@ -20,10 +20,7 @@ Route::get('vieclam-cuatoi/xoa/{id}', [
     'as' => 'vieclam.cuatoi.xoa',
     'uses' => 'JobControllers@destroy'
 ]);
-Route::get('dangky-vieclam', [
-    'as' => 'dangky',
-    'uses' => 'TrangchuController@dangKyViecLam'
-]);
+
 //xem hồ sơ
 Route::get('hoso-cuatoi/xem/{id}', [
         'as' => 'xem',
@@ -37,6 +34,10 @@ Route::get('hoso-cuatoi/sua/{id}', [
 Route::post('hoso-cuatoi/luu/{id}', [
     'as' => 'luu',
     'uses' => 'HoSoController@update'
+]);
+Route::get('dangky-vieclam', [
+    'as' => 'dangky',
+    'uses' => 'TrangchuController@dangKyViecLam'
 ]);
 Route::post('dangky-vieclam', [
     'as' => 'xuly.dangky',
@@ -83,6 +84,11 @@ Route::post('dangky-tuyendung', [
 
 
 Route::group(['middleware' => 'auth_ntd'], function() {
+    Route::get('nhatuyendung', [
+        'as' => 'tuyendung.trangtin',
+        'uses' => 'TrangchuController@TuyenDung'
+    ]);
+
     //nhatuyendung _doimatkhau
     Route::get('nhatuyendung/taikhoan/doimatkhau', [
         'as' => 'nhatuyendung_doimatkhau',
@@ -321,10 +327,11 @@ Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\Pa
 
 Route::get('/test1', function()
 {
-    Mail::send('home', ['user' => ''], function ($m)  {
-            $m->from('hello@app.com', 'Your Application');
+    $data = [];
+    $job  = \App\Job::all();
+    Mail::send('home', $job, function ($m) use($data,$data,$job) {
 
-            $m->to('haho906@gmail.com', '$user->name')->subject('Your Reminder!');
+            $m->to('haho906@gmail.com', '$user->name')->subject($job);
         });
 });
 
@@ -374,10 +381,6 @@ Route::get('logout', function() {
     Auth::logout();
     return redirect()->back();
 });
-Route::get('nhatuyendung', [
-        'as' => 'tuyendung.trangtin',
-        'uses' => 'TrangchuController@TuyenDung'
-    ]);
 
 Route::get('admin/trangchu', [
         'as' => 'admin_trangchu',

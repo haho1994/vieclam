@@ -10,10 +10,8 @@ use App\Job_cv_user;
 class TrangchuController extends Controller {
 
 
-    public function dangKyViecLam() {
-        return view('dangky.dangkyvieclam');
-    }
-public function LienHe() {
+    
+    public function LienHe() {
         return view('layouts.lienhe');
     }
     public function ThoaThuan() {
@@ -35,6 +33,9 @@ public function LienHe() {
    Auth::logout();
    return redirect(\URL::previous());
 }
+    public function dangKyViecLam() {
+        return view('dangky.dangkyvieclam');
+    }
     public function xuLyDangKyViecLam() {
         $dulieu = request()->all();
 
