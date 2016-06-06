@@ -1,8 +1,8 @@
-@extends('layouts.headerfooter')
-@section('noi_dung')
+@extends('layouts.tuyendung')
+@section('noidung1')
 <div class="login-card">
-    <h1>Đăng Kí Nhà Tuyển Dụng</h1>
-    <form action="<?php echo route('xuly.dangky_tuyendung'); ?>" method="POST" >
+    <h1 style="font-size: 25px">Đăng Kí Nhà Tuyển Dụng</h1>
+    <form action="<?php echo route('xuly.dangky_tuyendung'); ?>" method="POST" class="dkntd_form" >
         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
         <div class="{!! $errors->has('full_name') ? 'has-error' : '' !!}">
             <?php

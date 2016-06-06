@@ -23,7 +23,8 @@ class  Curriculumvita extends Model {
         'expected_job_level',
         'expected_job_category',
         'is_negotiable',
-        'updated_at'
+        'updated_at',
+        'filename'
     ];
     
     public function user()
@@ -48,6 +49,10 @@ class  Curriculumvita extends Model {
     public function languages()
     {
         return $this->belongsToMany(Language::class, 'curriculumvitaes_languages', 'id_curriculum_vitae', 'id_language');
+    }
+    public function usercv()
+    {
+        return $this->hasMany(Curriculumvita::class, 'user_id', 'id');
     }
 }
 

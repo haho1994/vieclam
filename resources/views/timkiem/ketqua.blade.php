@@ -8,7 +8,7 @@
                 <form class="tim" method="get" action="{!!route('frontend.search.search1')!!}">
                     <div style="width: 100%">
                         <div class="top_tk" style=" width: 79%">
-                            <input type="text" class="text2" name='keyword' value="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
+                            <input type="text" class="text2" name='keyword' placeholder="Nhập chức danh, vị trí, kỹ năng..." onFocus="this.value = '';" onBlur="if (this.value == '') {
                                         this.value = 'Enter Keyword(s)';
                                     }">
                         </div>

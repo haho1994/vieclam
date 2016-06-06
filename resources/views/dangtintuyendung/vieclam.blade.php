@@ -13,10 +13,10 @@
                         <span class="qlvieclam">Tên Việc Làm</span>
                         <span class="qlvieclam">Ngày Cập Nhập</span>
                         <span class="qlvieclam">Hồ Sơ Ứng Tuyển</span>
+<!--                        <span class="qlvieclam">Trạng Thái</span>-->
                         <br class="clear">
                         </dt>
-                        @foreach($jobs as $job)
-                        @if(!empty($job ->status))
+                        @forelse($jobs as $job)
                         <dd class="hoso2" style="width: 100%">
                             <span class="qlvl_ten">
                                 <strong>{!! $job->name !!}</strong>
@@ -27,12 +27,17 @@
                             <span class="qlvl_ten2">
                                 <a href='{!! route("ntdvieclam_hoso", array("id" => $job->id)) !!}'>Xem</a>
                             </span>
+                            <span class="qlvl_ten2">
+                                @if($job->status)
+                                Duyet
+                                @else
+                                Chua duyet
+                                @endif
+                            </span>
                         </dd>
-                        @endif
-                        @endforeach
-<!--                        <div style="margin-left: 320px;margin-top: 20px;font-size: 13px">
-                        <em>Hiện tại chưa có việc làm nào!</em>
-                        </div>-->
+                        @empty
+                            Hien tai khong co cong viec duoc tim thay
+                        @endforelse
                     </dl>
                 </div>
             </form>

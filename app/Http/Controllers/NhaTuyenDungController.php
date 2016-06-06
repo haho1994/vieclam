@@ -66,7 +66,7 @@ class NhaTuyenDungController extends Controller {
     public function xulytimHoSo() {
         $categories = Category::all();
         $locations = Location::all();
-        if (request()->has('keyword')) {
+        //if (request()->has('keyword')) {
             $job = Curriculumvita::where('expected_position_id', 'like', '%' . request()->get('keyword') . '%');
 
             if (request()->has('category_id') && !empty(request()->get('category_id'))) {
@@ -93,7 +93,7 @@ class NhaTuyenDungController extends Controller {
             }
             $jobs = $job->get();
             return view('timkiem.hosoketqua', compact('jobs', 'categories', 'locations'));
-        }
+        
     }
 
     public function xemchitiet($id) {
@@ -200,17 +200,15 @@ class NhaTuyenDungController extends Controller {
 
     public function quanlyviec() {
         $user = auth()->user();
-        $jobs = Job::all();
-//        $status = request()->get('status');
-//        if (['status' => 1]) {
-            return view('dangtintuyendung.vieclam', compact('jobs', 'user'));
-//        }
-//        return view('dangtintuyendung.dangtin');
+        $jobs = Job::where('id_user', $user->id)->get();
+        return view('dangtintuyendung.vieclam', compact('jobs', 'user'));
     }
     public function xemhosotuyendung($id){
+        $user = auth()->user();
         $job = Job::find($id);
-//        Job::select([id,name])->join('job_cv_users','id_job','=','jobs.id')->where ('job_cv_users.filename','like','id')->get();
-        return view('dangtintuyendung.xemhosotuyendung', compact('job'));
+        $jobCv = $job->jobcv;
+        //$jobcvuser = \App\Job_cv_user::find($id);
+        return view('dangtintuyendung.xemhosotuyendung', compact('user','job','jobCv'));
     }
     public function suathongtincongty(){
         $users = auth()->user();

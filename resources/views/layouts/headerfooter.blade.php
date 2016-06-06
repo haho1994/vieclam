@@ -30,7 +30,6 @@
                                         <li><a href='{!! route("hoso") !!}'>Hồ Sơ Của Tôi</a></li>
                                         <li><a href='{!! route("vieclam.cuatoi") !!}'> Việc Làm Của Tôi</a></li>
                                         <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>
-                                        <li><a href='{!! route("doiEmail") !!}'>Đổi Email</a></li>
                                         <li><a>Đổi Mật Khẩu</a></li>
                                         <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
                                         <li><a href="{{url('logout')}}">Thoát</a></li>
@@ -75,10 +74,12 @@
                                 @yield('upload')
                                 @yield('chitiet')-->
             </div>
-            <div id="footer">
-                Copyright &copy; Địa Chỉ: 02 Thanh Sơn | <a href='{!! route("thoathuan-sudung") !!}'>Thỏa Thuận Sử Dụng</a> | <a href='{!! route("lien-he") !!}'>Liên Hệ</a> | <a href='{!! route("quydinh-baomat") !!}'>Quy Định Bảo Mật</a>
-            </div>
+            
+            
         </div>
+        <div id="footer" >
+                Copyright &copy; Địa Chỉ: 02 Thanh Sơn | <a href='{!! route("thoathuan-sudung") !!}'>Thỏa Thuận Sử Dụng</a> | <a href='{!! route("lien-he") !!}'>Liên Hệ</a> | <a href='{!! route("quydinh-baomat") !!}'>Quy Định Bảo Mật</a>
+         </div>
     </body>
 </html>
 

@@ -138,5 +138,21 @@ class HoSoController extends Controller {
 
         return redirect()->back();
     }
+    public function taiCV($userId) {
+        $user = auth()->user();
+        $file = request()->file('cv');
+
+        $director = public_path('upload/cv/' . $userId . $user->id);
+        //move_uploaded_file($file->getPathName(), $director.'/abc.doc');
+
+        \File::makeDirectory($director, $mode = 0777, true, true);
+        $fileName = gen_uuid();
+        $file->move($director, $fileName . '.' . $file->getClientOriginalExtension());
+        
+        $userCv = $user->UserCv()->attach($userId, [
+            'filename' => $fileName . '.' .$file->getClientOriginalExtension()
+        ]);
+        return redirect()->back();
+    }
 
 }

@@ -18,43 +18,30 @@
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right">
-                    <!--                    <div class="dnnhatuyendung">
-                                            @if(auth()->check())
-                                            <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span></li>
-                                            <ul class="dropdown-menu" role="menu">
-                    
-                                                <li><a href='{!! route("quanlyNN") !!}'>Quản Lý Nghề Nghiệp</a></li>
-                                                <li><a href='{!! route("hoso") !!}'>Hồ Sơ Của Tôi</a></li>
-                                                <li><a href='{!! route("vieclam.cuatoi") !!}'> Việc Làm Của Tôi</a></li>
-                                                <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>
-                                                <li><a href='{!! route("doiEmail") !!}'>Đổi Email</a></li>
-                                                <li><a>Đổi Mật Khẩu</a></li>
-                                                <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
-                                                <li><a href="{{url('logout')}}">Thoát</a></li>
-                                            </ul> 
-                                            @else
-                                            <li><a href='{!! route("dangnhap.nhatuyendung") !!}'><b>Đăng Nhập</b></a></li>
-                                            @endif
-                                        </div>-->
                     @if(auth()->check())
-                    <li>
-                        <a style=" font-size: 14px;"><b>{{auth()->user()->full_name}}</b>
-                        </a>
+                    <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a>Đổi Mật Khẩu</a></li>
+                            <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
+                            <li><a href="{{url('logout')}}">Thoát</a></li>
+                        </ul> 
                     </li>
                     @else
                     <li>
-                        <a  href='{!! route("dangnhap.nhatuyendung")!!}' aria-expanded="false" style=" font-size: 14px;">Đăng Nhập
-                        </a>
-                    </li>
+                        <a href='{!! route("dangnhap.nhatuyendung") !!}' style=" font-size: 14px;">Đăng Nhập</a></li>
                     @endif
                     <li>
-                        <a href="#" style=" font-size: 14px;">Đăng Ký</a>
+                        <a href='{!! route("dangky_tuyendung") !!}' style=" font-size: 14px;">Đăng Ký
+                        </a>
                     </li>
                     <li>
-                        <a style=" font-size: 14px;" href='{!! route("frontend.search.get") !!}'>Người Sử Dụng</a>
+                        <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
+                        </a>
+
                     </li>
                 </ul>
             </nav>
+
             <!--/. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
@@ -72,9 +59,10 @@
                         <li>
                             <a href='' style=" font-size: 14px;">Công Ty</a>
                             <ul class="ntd_taocongty">
+                                @if(empty(auth()->user()->company->id))
                                 <li>
-                                    <div style="width: 216px;height: 28px;font-size: 14px;color: #000033;margin-top: 20px;">
-                                        <a href='{!! route("ntd_congty") !!}'>Đăng Ký Công Ty</a>
+                                    <div style="width: 216px;height: 28px;font-size: 14px;color: #000033;margin-top: 20px;">    
+                                        <a href='{!! route("ntd_congty") !!}'>Đăng Ký Công Ty</a>  
                                     </div>
                                 </li>
                                 <li>
@@ -82,6 +70,13 @@
                                         <a href='{!! route("ntd_congty_sua") !!}'>Thông Tin Công Ty</a>
                                     </div>
                                 </li>
+                                @else
+                                <li>
+                                    <div style="width: 216px;height: 28px;font-size: 14px;color: #000033;margin-top: 20px;">
+                                        <a href='{!! route("ntd_congty_sua") !!}'>Thông Tin Công Ty</a>
+                                    </div>
+                                </li>
+                                @endif
                             </ul>
                         </li>
                         <li>
@@ -98,6 +93,9 @@
                                     </div>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href='{!! route("ntdquanlyvieclam") !!}' style=" font-size: 14px;">Quản Lý Việc Làm</a>
                         </li>
                     </ul>
 

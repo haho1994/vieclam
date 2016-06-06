@@ -4,12 +4,12 @@
 
     <div class="lienhe">
         <h2>Hồ Sơ Của Tôi</h2>
-        <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
+
         <div class="lienhe1">
 
 
             <form style="width: 100%" class="ttht" method="post" >
-                    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+                <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                 <div class="row" style="width: 100%">
                     <div class="avatar">
                     </div>
@@ -22,71 +22,104 @@
                             <i class="mail"></i>
                             <span><strong>{!! $user->email !!}</strong></span>
                         </div>
-                      
+
                     </div>
                 </div>
             </form>
         </div>
-        @if(!empty($cv))
-        <div class="lienhe">  
-            <div class="lienhe1">
-                <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
-                <form style="width: 100%" class="ttht" method="post">
-                    <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
-                    <div  style="width: 48%; float: left">
-                        <table>
-                            <tr class="qlnn1-4"  >
-                                <td ><label><b>Số Năm Kinh Nghiệm:</b></label></td>
-                                <td><label class="hoso">{!! $cv->year_experience !!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Bằng Cấp:</b></label></td>
-                                <td><label class="hoso">{!! $cv->highes_edu !!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Công Ty Gần Đây Nhất:</b></label></td>
-                                <td><label class="hoso">{!! $cv->recent_company_id !!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Nghành Nghề Gần Đây Nhất:</b></label></td>
-                                <td><label>{!! $cv->recent_category_id !!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Vị Trí Mong Muốn:</b></label></td>
-                                <td><label>{!! $cv->expected_position_id!!}</label></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div style="width: 50%; float: left">
-                        <table>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Địa Điểm Mong Muốn:</b></label></td>
-                                <td><label>{!! $cv->expected_location_id!!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Mức Lương Mong Muốn:</b></label></td>
-                                <td><label>{!! $cv->expected_salary!!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Mức Độ Công Việc Hiện Tại:</b></label></td>
-                                <td><label>{!! $cv->current_job_level!!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Mức Độ Công Việc Dự Kiến:</b></label></td>
-                                <td><label>{!! $cv->expected_job_level!!}</label></td>
-                            </tr>
-                            <tr class="qlnn1-4">
-                                <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
-                                <td><label>{!! $cv->expected_job_category!!}</label></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <input type="submit" value="Sửa" style="height: 30px; width: 40px;"  href='{!! route("hoso.sua", array("id" => $cv->id)) !!}'/>
-                    </div>
-                </form>
+        @if(empty(auth()->user()->curriculumvita->id))
+        <div>
+            @if(!empty ($cv))
+            <div class="lienhe">  
+                <div class="lienhe1">
+                    <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
+                    <form style="width: 100%" class="ttht" method="post" >
+                        <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+                        <div  style="width: 55%; float: left">
+                            <table>
+                                <tr class="qlnn1-4"  >
+                                    <td><label><b>Số Năm Kinh Nghiệm:</b></label></td>
+                                    <td><label class="hoso">{!! $cv->year_experience !!}</label></td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Bằng Cấp:</b></label></td>
+                                    <td><label class="hoso">{!! $cv->highes_edu !!}</label></td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Công Ty Gần Đây Nhất:</b></label></td>
+                                    <td>
+                                        <label class="hoso">
+                                            @if($cv->company)
+                                            {!!$cv->company->name!!}
+                                            @endif
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Nghành Nghề Gần Đây Nhất:</b></label></td>
+                                    <td>
+                                        <label>
+                                            @if($cv->category)
+                                            {!!$cv->category->name!!}
+                                            @endif
+                                         </label>
+                                    </td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Vị Trí Mong Muốn:</b></label></td>
+                                    <td><label>{!! $cv->expected_position_id!!}</label></td>
+                                </tr>
+<!--                                <tr>
+                                    <td><label><b>Ngôn ngữ</b></label></td>
+                                    <td><label>{!! $cv->expected_position_id!!}</label></td>
+                                </tr>-->
+                            </table>
+                        </div>
+                        <div style="width: 45%; float: left">
+                            <table>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Địa Điểm Mong Muốn:</b></label></td>
+                                    <td>
+                                        <label>
+                                            @if($cv->location)
+                                            {!!$cv->location->name!!}
+                                            @endif
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Mức Lương Mong Muốn:</b></label></td>
+                                    <td><label>{!! $cv->expected_salary!!}</label></td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Mức Độ Công Việc Hiện Tại:</b></label></td>
+                                    <td><label>{!! $cv->current_job_level!!}</label></td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Mức Độ Công Việc Dự Kiến:</b></label></td>
+                                    <td><label>{!! $cv->expected_job_level!!}</label></td>
+                                </tr>
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
+                                    <td><label>{!! $cv->expected_job_category!!}</label></td>
+                                </tr>
+
+                                <tr class="qlnn1-4">
+                                    <td><label><b>Hồ Sơ:</b></label></td>
+                                    <td><label>{!! $cv->filename!!}</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <input type="submit" value="Sửa" style="height: 30px; width: 40px;"  href='{!! route("hoso.sua", array("id" => $cv->id)) !!}'/>
+                        </div>
+                    </form>
+                </div>
             </div>
+            @endif
         </div>
+        @else
+        <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
         @endif
     </div>
 </div>

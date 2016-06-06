@@ -152,6 +152,7 @@ class TaiKhoanController extends Controller {
             ]);
         } 
         //$user->update($xuly);
+        $user->fill($dulieu);
         $user->password = \Hash::make($dulieu['password']);
         $user->save();
         \Session::flash('success', 'Cập nhập thành công');
