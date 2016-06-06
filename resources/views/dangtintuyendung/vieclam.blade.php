@@ -13,7 +13,8 @@
                         <span class="qlvieclam">Tên Việc Làm</span>
                         <span class="qlvieclam">Ngày Cập Nhập</span>
                         <span class="qlvieclam">Hồ Sơ Ứng Tuyển</span>
-<!--                        <span class="qlvieclam">Trạng Thái</span>-->
+                        <span class="qlvieclam">Trạng Thái</span>
+                        <span class="qlvieclam">Thao Tác</span>
                         <br class="clear">
                         </dt>
                         @forelse($jobs as $job)
@@ -27,16 +28,23 @@
                             <span class="qlvl_ten2">
                                 <a href='{!! route("ntdvieclam_hoso", array("id" => $job->id)) !!}'>Xem</a>
                             </span>
-                            <span class="qlvl_ten2">
+                            <span class="qlvl_ten3">
                                 @if($job->status)
-                                Duyet
+                                Duyệt
                                 @else
-                                Chua duyet
+                                Chưa duyệt
                                 @endif
+                            </span>
+                            <span class="qlvl_ten4">
+                                <a href='{!! route("ntdquanlyvieclam.xem", array("id" => $job->id)) !!}'>Xem</a>
+                                <a href='{!! route("ntdquanlyvieclam.sua", array("id" => $job->id)) !!}'>Sửa</a>
+                                <a href='{!! route("ntdquanlyvieclam.xoa", array("id" => $job->id)) !!}'>Xóa</a>
                             </span>
                         </dd>
                         @empty
-                            Hien tai khong co cong viec duoc tim thay
+                        <div style="margin-left: 350px;margin-top: 30px;font-size: 13px">
+                        <em>Hiện tại không có công việc nào!!!</em>
+                        </div>
                         @endforelse
                     </dl>
                 </div>

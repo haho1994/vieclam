@@ -27,9 +27,6 @@ class User extends Authenticatable implements CanResetPassword {
     public function location(){
         return $this->belongsTo(Location::class, 'id_location' , 'id');
     }
-
-    
-    
      public function category(){
         return $this->belongsTo(Category::class, 'id_category' , 'id');
     }

@@ -19,7 +19,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Tên công việc</label></td>
             <td>
-                <input type="text" value="" name="name" />
+                <input style="width: 70%;" type="text" value="" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');
@@ -30,7 +30,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Công ty</label></td>
             <td>
-                <select name="id_company" >
+                <select style="width: 70%;" name="id_company" >
                     <option value="" >Chọn công ty</option>
                     @foreach($companies as $company)
                     <option value="{!! $company->id !!}">{!! $company->name !!}</option>
@@ -46,7 +46,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Địa điểm</label></td>
             <td>
-                <select name="id_location" >
+                <select style="width: 70%;" name="id_location" >
                     <option value="" >Chọn địa điểm</option>
                     @foreach($locations as $location)
                     <option value="{!! $location->id !!}">{!! $location->name !!}</option>
@@ -62,7 +62,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Kỹ năng</label></td>
             <td>
-                <select name="id_skill" >
+                <select style="width: 70%;" name="id_skill" >
                     <option value="" >Chọn</option>
                     @foreach($skills as $skill)
                     <option value="{!! $skill->id !!}">{!! $skill->name !!}</option>
@@ -78,7 +78,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Mức lương</label></td>
             <td>
-                <input type="text" value="" name="salary" />
+                <input style="width: 70%;" type="text" value="" name="salary" />
                 <?php
                 if ($errors->has('salary')) {
                     echo $errors->first('salary');
@@ -89,7 +89,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Nghành nghề</label></td>
             <td>
-                <select name="id_category" >
+                <select style="width: 70%;" name="id_category" >
                     <option value="" >Chọn nghành nghề</option>
                     @foreach($categories as $category)
                     <option value="{!! $category->id !!}">{!! $category->name !!}</option>
@@ -105,7 +105,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Yêu cầu ngôn ngữ</label></td>
             <td>
-                <select name="id_language" >
+                <select style="width: 70%;" name="id_language" >
                     <option value="" >Chọn ngôn ngữ</option>
                     @foreach($languages as $language)
                     <option value="{!! $language->id !!}">{!! $language->name !!}</option>
@@ -121,7 +121,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Trình độ</label></td>
             <td>
-                <select name="levels" >
+                <select style="width: 70%;" name="levels" >
                     <option value="" >Chọn trình độ</option> 
                     <option></option>
                     <option>Đại học</option>
@@ -139,7 +139,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Kinh nghiệm</label></td>
             <td>
-                <input type="text" value="" name="experience" />
+                <input style="width: 70%;" type="text" value="" name="experience" />
                 <?php
                 if ($errors->has('experience')) {
                     echo $errors->first('experience');
@@ -150,7 +150,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Trang thai</label></td>
             <td>
-                <select name="status">
+                <select style="width: 70%;" name="status">
                    <option  value="">Chọn trạng thái</option>  
                     <option  value="0">Chua duyet</option>
                     <option value="1">Duyet</option>
@@ -160,7 +160,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Mô tả</label></td>
             <td>
-                <input type="text" value="" name="description" />
+                <input style="width: 70%;" type="text" value="" name="description" />
                 <?php
                 if ($errors->has('description')) {
                     echo $errors->first('description');

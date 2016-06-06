@@ -4,11 +4,11 @@
     <div class="dangtintuyendung_text">
         <label style="margin-top: 10px;margin-left: 20px;">Tài Khoản</label>
     </div>
-    <div class="ttcn_xem" style="">     
+    <div class="ttcn_xem" style="margin-left: 80px;">     
         <form>
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
             <div style="margin-left: 20px;border-bottom: 1px #000033 dotted;height: 40px;">
-                        <p style="margin-top: 10px;">Thông Tin Công Ty</p>
+                        <p style="margin-top: 10px;">Thông Tin Nhà Tuyển Dụng</p>
                     </div>
             <table class="ttcn_xem1">
                 <tr>

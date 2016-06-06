@@ -7,7 +7,7 @@ if (Session::has('success')) {
 ?>
 <div class="dangtintuyendung" >
     <div class="dangtintuyendung_text">
-        <label style="margin-top: 10px;margin-left: 20px;">Công Ty</label>
+        <label style="margin-top: 10px;margin-left: 20px;">Quản Lý Công Ty</label>
     </div>
     <div class="tuyendung_conty">
         <div class="tuyendung_form">

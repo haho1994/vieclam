@@ -19,7 +19,7 @@
         <tr>
             <td><label>Tên công viêc</label></td>
             <td>
-                <input type="text" value="{!! $job->name !!}" name="year_experience" />
+                <input style="width: 70%;" type="text" value="{!! $job->name !!}" name="year_experience" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');
@@ -30,7 +30,7 @@
         <tr>
             <td><label>Công ty</label></td>
             <td>
-                <select name="id_company" >
+                <select style="width: 70%;" name="id_company" >
                     @foreach($companies as $company)
                     <?php
                         $selected = '';
@@ -51,7 +51,7 @@
         <tr>
             <td><label>Địa điểm</label></td>
             <td>
-                <select name="id_location" >
+                <select style="width: 70%;" name="id_location" >
                     @foreach($locations as $location)
                     <?php
                         $selected = '';
@@ -72,7 +72,7 @@
         <tr>
             <td><label>Kỹ năng</label></td>
             <td>
-                <select name="id_skill" >
+                <select style="width: 70%;" name="id_skill" >
                     @foreach($skills as $skill)
                     <?php
                         $selected = '';
@@ -93,7 +93,7 @@
         <tr>
             <td><label>Mức lương</label></td>
             <td>
-                <input type="text" value="{!! $job->salary !!}" name="salary" />
+                <input style="width: 70%;" type="text" value="{!! $job->salary !!}" name="salary" />
                 <?php
                 if ($errors->has('salary')) {
                     echo $errors->first('salary');
@@ -104,7 +104,7 @@
         <tr>
             <td><label>Nghành nghề</label></td>
             <td>
-                <select name="id_category" >
+                <select style="width: 70%;" name="id_category" >
                     @foreach($categories as $category)
                     <?php
                         $selected = '';
@@ -125,7 +125,7 @@
         <tr>
             <td><label>Ngôn ngữ</label></td>
             <td>
-                <select name="id_language" >
+                <select style="width: 70%;" name="id_language" >
                     @foreach($languages as $language)
                     <?php
                         $selected = '';
@@ -146,7 +146,7 @@
         <tr>
             <td><label>Trình độ</label></td>
             <td>
-                <input type="text" value="{!! $job->levels !!}" name="expected_salary" />
+                <input style="width: 70%;" type="text" value="{!! $job->levels !!}" name="expected_salary" />
                 <?php
                 if ($errors->has('levels')) {
                     echo $errors->first('levels');
@@ -157,7 +157,7 @@
         <tr>
             <td><label>Kinh nghiệm</label></td>
             <td>
-                <input type="text" value="{!! $job->experience !!}" name="experience" />
+                <input style="width: 70%;" type="text" value="{!! $job->experience !!}" name="experience" />
                 <?php
                 if ($errors->has('experience')) {
                     echo $errors->first('experience');
@@ -168,7 +168,7 @@
          <tr>
             <td><label>Trang thai</label></td>
             <td>
-                <select name="status">
+                <select style="width: 70%;" name="status">
                     <option value="">Chon trang thai</option>
                     <?php
                         $check1 = "";
@@ -188,7 +188,7 @@
         <tr>
             <td><label>Mô tả</label></td>
             <td>
-                <input type="text" value="{!! $job->description !!}" name="description" />
+                <input style="width: 70%;" type="text" value="{!! $job->description !!}" name="description" />
                 <?php
                 if ($errors->has('description')) {
                     echo $errors->first('description');

@@ -19,7 +19,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Họ Và Tên</label></td>
             <td>
-                <input type="text" value="" name="name" />
+                <input style="width: 70%;" type="text" value="" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');
@@ -30,7 +30,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Ngày Sinh</label></td>
             <td>
-                <input type="text" value="" name="brithday" />
+                <input style="width: 70%;" type="text" value="" name="brithday" />
                 <?php
                 if ($errors->has('brithday')) {
                     echo $errors->first('brithday');
@@ -41,7 +41,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Email</label></td>
             <td>
-                <input type="text" value="" name="email" />
+                <input style="width: 70%;" type="text" value="" name="email" />
                 <?php
                 if ($errors->has('email')) {
                     echo $errors->first('email');
@@ -52,7 +52,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Số điện thoại</label></td>
             <td>
-                <input type="text" value="" name="phone" />
+                <input style="width: 70%;" type="text" value="" name="phone" />
                 <?php
                 if ($errors->has('phone')) {
                     echo $errors->first('phone');
@@ -63,7 +63,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Địa Chỉ</label></td>
             <td>
-                <input type="text" value="" name="address" />
+                <input style="width: 70%;" type="text" value="" name="address" />
                 <?php
                 if ($errors->has('address')) {
                     echo $errors->first('address');
@@ -74,7 +74,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Hình Thức</label></td>
             <td>
-                <select name="id_category" >
+                <select name="id_category" style="width: 70%;">
                     <option value="" >Chọn hình thức</option>
                     @foreach($categories as $category)
                     <?php
@@ -96,7 +96,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Lương</label></td>
             <td>
-                <input type="text" value="" name="salary" />
+                <input style="width: 70%;" type="text" value="" name="salary" />
                 <?php
                 if ($errors->has('salary')) {
                     echo $errors->first('salary');
@@ -107,7 +107,7 @@ if (Session::has('success')) {
         <tr>
             <td><label>Mô Tả</label></td>
             <td>
-                <textarea value="" name="description">
+                <textarea value="" name="description" style="width: 70%;">
                 <?php
                 if ($errors->has('description')) {
                     echo $errors->first('description');

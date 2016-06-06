@@ -4,7 +4,7 @@
     <div class="dangtintuyendung_text">
         <label style="margin-top: 10px;margin-left: 20px;">Tài Khoản</label>     
     </div>
-    <div>
+    <div style="font-size: 13px;margin-left: 50px;">
         <?php
         if (Session::has('success')) {
             echo \Session::get('success');

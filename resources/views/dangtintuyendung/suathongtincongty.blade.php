@@ -1,13 +1,16 @@
 @extends('layouts.tuyendung')
 @section('noidung1')
-<?php
-if (Session::has('success')) {
-    echo \Session::get('success');
-}
-?>
+
 <div class="dangtintuyendung" >
     <div class="dangtintuyendung_text">
-        <label style="margin-top: 10px;margin-left: 20px;">Công Ty</label>
+        <label style="margin-top: 10px;margin-left: 20px;">Quản Lý Công Ty</label>
+    </div>
+    <div style="font-size: 13px;margin-left: 50px;">
+        <?php
+        if (Session::has('success')) {
+            echo \Session::get('success');
+        }
+        ?>
     </div>
     <div class="tuyendung_conty">
         <div class="tuyendung_form">
@@ -15,11 +18,12 @@ if (Session::has('success')) {
                 <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                 <div >
                     <div class="tuyendung_text">
+                        <a style="margin-left: 730px;font-size: 15px;" href='{!! route("congty_xemthongtincongty") !!}'>Xem</a>
                         <p style="margin-top: 10px;">Thông Tin Công Ty</p>
                     </div>
                     <table style="margin-top: 20px;">
                         <tr>
-                            <td><label>Tên Công Ty</label></td>
+                            <td style="width: 200px;"><label>Tên Công Ty</label></td>
                             <td>
                                 <input class="suatt_canhan_input" type="text" value="{!! $company->name !!}" name="name"  />
                                 <?php
@@ -32,20 +36,10 @@ if (Session::has('success')) {
                         <tr>
                             <td><label>Địa Chỉ Công Ty</label></td>
                             <td>
-                                <select name="id_location" >
-                                    @foreach($locations as $location)
-                                    <?php
-                                    $selected = '';
-                                    if ($location->id == $company->id_location) {
-                                        $selected = 'selected';
-                                    }
-                                    ?>
-                                    <option value="{!! $location->id !!}" {!!$selected!!} >{!! $location->name !!}</option>
-                                    @endforeach
-                                </select>
+                                <input class="suatt_canhan_input" type="text" value="{!! $company->address !!}" name="address"  />
                                 <?php
-                                if ($errors->has('id_location')) {
-                                    echo $errors->first('id_location');
+                                if ($errors->has('address')) {
+                                    echo $errors->first('address');
                                 }
                                 ?>
                             </td>

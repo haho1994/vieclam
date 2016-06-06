@@ -19,7 +19,7 @@
         <tr>
             <td><label>Id user</label></td>
             <td>
-                <select name="id_user" >
+                <select style="width: 70%;" name="id_user" >
                     @foreach($users as $user)
                     <?php
                         $selected = '';
@@ -40,7 +40,7 @@
         <tr>
             <td><label>Kinh nghiệm</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->year_experience !!}" name="year_experience" />
+                <input style="width: 70%;" type="text" value="{!! $curriculumvita->year_experience !!}" name="year_experience" />
                 <?php
                 if ($errors->has('year_experience')) {
                     echo $errors->first('year_experience');
@@ -51,7 +51,7 @@
         <tr>
             <td><label>Trình độ</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->highes_edu !!}" name="highes_edu" />
+                <input style="width: 70%;" type="text" value="{!! $curriculumvita->highes_edu !!}" name="highes_edu" />
                 <?php
                 if ($errors->has('highes_edu')) {
                     echo $errors->first('highes_edu');
@@ -62,7 +62,7 @@
         <tr>
             <td><label>Công ty gần đây</label></td>
             <td>
-                <select name="recent_company_id" >
+                <select style="width: 70%;" name="recent_company_id" >
                     @foreach($companies as $company)
                     <?php
                         $selected = '';
@@ -83,7 +83,7 @@
         <tr>
             <td><label>Nghành nghề gần đây</label></td>
             <td>
-                <select name="recent_category_id" >
+                <select style="width: 70%;" name="recent_category_id" >
                     @foreach($categories as $category)
                     <?php
                         $selected = '';
@@ -104,7 +104,7 @@
         <tr>
             <td><label>Vị trí công việc dự kiến</label></td>
             <td>
-                <select name="expected_position_id" >
+                <select style="width: 70%;" name="expected_position_id" >
                     @foreach($categories as $category)
                     <?php
                         $selected = '';
@@ -124,7 +124,7 @@
         <tr>
             <td><label>Đia điểm dự kiến</label></td>
             <td>
-                <select name="expected_location_id" >
+                <select style="width: 70%;" name="expected_location_id" >
                     @foreach($locations as $location)
                     <?php
                         $selected = '';
@@ -145,7 +145,7 @@
         <tr>
             <td><label>Mức lương dự kiến</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->expected_salary !!}" name="expected_salary" />
+                <input style="width: 70%;" type="text" value="{!! $curriculumvita->expected_salary !!}" name="expected_salary" />
                 <?php
                 if ($errors->has('expected_salary')) {
                     echo $errors->first('expected_salary');
@@ -156,7 +156,7 @@
         <tr>
             <td><label>Mức độ công việc hiện tại</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->current_job_level !!}" name="current_job_level" />
+                <input style="width: 70%;" type="text" value="{!! $curriculumvita->current_job_level !!}" name="current_job_level" />
                 <?php
                 if ($errors->has('current_job_level')) {
                     echo $errors->first('current_job_level');
@@ -167,7 +167,7 @@
         <tr>
             <td><label>Mức độ công việc dự kiến</label></td>
             <td>
-                <input type="text" value="{!! $curriculumvita->expected_job_level !!}" name="expected_job_level" />
+                <input style="width: 70%;" type="text" value="{!! $curriculumvita->expected_job_level !!}" name="expected_job_level" />
                 <?php
                 if ($errors->has('expected_job_level')) {
                     echo $errors->first('expected_job_level');
@@ -178,7 +178,7 @@
         <tr>
             <td><label>Loại công việc dự kiến</label></td>
             <td>
-                <select name="expected_job_category" >
+                <select style="width: 70%;" name="expected_job_category" >
                     @foreach($categories as $category)
                     <?php
                         $selected = '';
@@ -197,24 +197,32 @@
             </td>
         </tr>  
         <tr>
-            <td><label>Thương lượng</label></td>
-            <td>
-                <input type="radio" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable" />Kích hoạt<br>
-                <input type="radio" value="{!! $curriculumvita->is_negotiable !!}" name="is_negotiable">Không kích hoạt<br>
-                <?php
-                if ($errors->has('is_negotiable')) {
-                    echo $errors->first('is_negotiable');
-                }
-                ?>
-            </td>
-        </tr>
-        <tr>
             <td><label>Ngon ngu</label></td>
             <td>
-                <select multiple >
+                <select style="width: 70%;" multiple >
                     @foreach($languages as $language)
                     <option value="{!!$language->id!!}" >{!!$language->name!!}</option>
                     @endforeach
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Trạng thái</label></td>
+            <td>
+                <select style="width: 70%;" name="is_negotiable">
+                    <option value="">Chọn trạng thái</option>
+                    <?php
+                        $check1 = "";
+                        $check2 = "";
+                        if ($company->status) {
+                            $check2 = 'selected';
+                        }
+                        if (!$company->status) {
+                            $check1 = 'selected';
+                        }
+                    ?>
+                    <option {!! $check1 !!} value="0">Chua duyet</option>
+                    <option {!! $check2 !!} value="1">Duyet</option>
                 </select>
             </td>
         </tr>

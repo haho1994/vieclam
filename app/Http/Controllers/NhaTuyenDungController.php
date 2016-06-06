@@ -127,8 +127,7 @@ class NhaTuyenDungController extends Controller {
         ];
 
         $thongbao = [
-
-            'name.required.' => 'Tên không được để trống',
+            'name.required' => 'Tên không được để trống',
             'id_location.required' => 'Địa điểm không được để trống',
             'id_skill.required' => 'Kỹ năng không được để trống',
             'salary.required' => 'Mức lương không được để trống',
@@ -206,9 +205,8 @@ class NhaTuyenDungController extends Controller {
     public function xemhosotuyendung($id){
         $user = auth()->user();
         $job = Job::find($id);
-        $jobCv = $job->jobcv;
-        //$jobcvuser = \App\Job_cv_user::find($id);
-        return view('dangtintuyendung.xemhosotuyendung', compact('user','job','jobCv'));
+        $jobCvs = $job->jobcv;
+        return view('dangtintuyendung.xemhosotuyendung', compact('user','job','jobCvs'));
     }
     public function suathongtincongty(){
         $users = auth()->user();
@@ -221,8 +219,37 @@ class NhaTuyenDungController extends Controller {
         ]);
     }
     public function xulysuathongtincongty(){
-        
+        $dulieu = request()->all();
+        $quyluat = [
+            'name' => 'required',
+            'address' => 'required',
+            'email' => 'required|email',
+            'phone'=> 'required|between:10,12',
+        ];
+
+        $thongbao = [
+            'name.required' => 'Tên không được để trống',
+            'address.required' => 'Địa chỉ không được để trống',
+            'email.email' => 'Email không đúng định dạng',
+            'email.required' => 'Email bắt buộc phải nhập',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'phone.between' => 'Số điện thoại không đúng định dạng',
+        ];
+
+        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
+
+        if ($xuly->fails()) {
+            return redirect()->route('ntd_congty_sua')->withErrors($xuly);
+        }
+        $users = auth()->user();
+        $company = Company::where('user_id', $users->id)->first();
+        $company->update($dulieu);
+
+        \Session::flash('success', 'Sua thanh cong');
+
+        return redirect()->back();
     }
+    
 
     public function suathongtinnhatuyendung(){
         $users = auth()->user();
@@ -274,4 +301,77 @@ class NhaTuyenDungController extends Controller {
          $user = auth()->user();
         return view('dangtintuyendung.xemthongtinnhatuyendung',compact('user'));
     }
+    public function xemttcongty(){
+         $user = auth()->user();
+         //$company = Company::all();
+         $company = Company::where('user_id', $user->id)->first();
+        return view('dangtintuyendung.xemttcongty',compact('user','company'));
+    }
+    public function edit($id) {
+        $job = Job::find($id);
+        $companies = Company::all();
+        $locations = Location::all();
+        $skills = Skill::all();
+        $categories = Category::all();
+        $languages = Language::all();
+        return view('dangtintuyendung.suacongviec')->with([
+                    'job' => $job,
+                    'companies' => $companies,
+                    'locations' => $locations,
+                    'skills' => $skills,
+                    'categories' => $categories,
+                    'languages' => $languages
+        ]);
+    }
+
+    public function update($id) {
+        $dulieu = request()->all();
+        $quyluat = [
+            'id_company' => 'required',
+            'id_location' => 'required',
+            'id_skill'=> 'required',
+            'salary' => 'required',
+            'id_category' => 'required',
+            'id_language' => 'required',
+            'experience' => 'required'
+        ];
+
+        $thongbao = [
+            'id_company.required' => 'Tên công ty không được để trống',
+            'id_location.required' => 'Địa điểm không được để trống',
+            'id_skill.required' => 'Kỹ năng không được để trống',
+            'salary.required' => 'Mức lương không được để trống',
+            'id_category.required' => 'Nghành nghề không được để trống',
+            'id_language.required' => 'Yêu cầu ngôn ngữ không được để trống',
+            'experience.required' => 'Kinh nghiệm không được để trống'
+        ];
+
+        $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
+
+        if ($xuly->fails()) {
+            return redirect()->route('dangtin')->withErrors($xuly);
+        }
+        
+        $job = Job::find($id);
+        $job->update($dulieu);
+
+        \Session::flash('success', 'Sua thanh cong');
+
+        return redirect()->back();
+    }
+
+    public function destroy($id){
+        $job = Job::find($id);
+        $job->delete();
+        
+        return redirect()->back();
+    }
+    
+    public function show($id){
+        $job = Job::find($id);
+        return view('dangtintuyendung.xemcongviec')->with([
+                    'job' => $job,
+            ]);
+    }
+
 }

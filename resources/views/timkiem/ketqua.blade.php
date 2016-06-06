@@ -38,6 +38,7 @@
                                 @endforeach
                             </select>
                             <select name="experience" class="option4">
+                                <option value="">Kinh nghiệm</option>
                                 <option ></option>
                                 <option>Không yêu cầu kinh nghiệm</option>
                                 <option>1 năm</option>

@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>User/ Sửa</small>
+                             <small>Người Sử Dụng/ Sửa</small>
                         </h1>
                     </div>
 </div>
@@ -12,14 +12,15 @@
         echo \Session::get('success');
     }
 ?>
-
-<form action="{!! route('admin.quanly_user.luu', ['id' => $users->id]) !!}" method="post">
+<div >
+<form action="{!! route('admin.quanly_user.luu', ['id' => $users->id]) !!}" method="post" >
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
+    <div class="nsdsua">
     <table>
         <tr>
             <td><label>Họ và tên</label></td>
             <td>
-                <input type="text" value="{!! $users->full_name !!}" name="full_name" />
+                <input style="width: 70%;" type="text" value="{!! $users->full_name !!}" name="full_name" />
                 <?php
                 if ($errors->has('full_name')) {
                     echo $errors->first('full_name');
@@ -30,7 +31,7 @@
         <tr>
             <td><label>Ngày sinh</label></td>
             <td>
-                <input type="text" value="{!! $users->brithday !!}" name="brithday" />
+                <input style="width: 70%;" type="text" value="{!! $users->brithday !!}" name="brithday" />
                 <?php
                 if ($errors->has('brithday')) {
                     echo $errors->first('brithday');
@@ -41,7 +42,7 @@
         <tr>
             <td><label>Email</label></td>
             <td>
-                <input type="text" value="{!! $users->email !!}" name="email" />
+                <input style="width: 70%;" type="text" value="{!! $users->email !!}" name="email" />
                 <?php
                 if ($errors->has('email')) {
                     echo $errors->first('email');
@@ -52,7 +53,7 @@
         <tr>
             <td><label>Số điện thoại</label></td>
             <td>
-                <input type="text" value="{!! $users->phone !!}" name="phone" />
+                <input style="width: 70%;" type="text" value="{!! $users->phone !!}" name="phone" />
                 <?php
                 if ($errors->has('phone')) {
                     echo $errors->first('phone');
@@ -63,7 +64,7 @@
         <tr>
             <td><label>Địa chỉ</label></td>
             <td>
-                <input type="text" value="{!! $users->address !!}" name="address" />
+                <input style="width: 70%;" type="text" value="{!! $users->address !!}" name="address" />
                 <?php
                 if ($errors->has('address')) {
                     echo $errors->first('address');
@@ -74,7 +75,7 @@
         <tr>
             <td><label>Công việc</label></td>
             <td>
-                <select name="id_category" >
+                <select name="id_category"  style="width: 70%;">
                     @foreach($categories as $category)
                     <?php
                         $selected = '';
@@ -95,7 +96,7 @@
         <tr>
             <td><label>Mức Lương</label></td>
             <td>
-                <input type="text" value="" name="salary" />
+                <input style="width: 70%;" type="text" value="" name="salary" />
                 <?php
                 if ($errors->has('salary')) {
                     echo $errors->first('salary');
@@ -109,5 +110,7 @@
             </td>
         </tr>
     </table>
+    </div>
 </form>
+</div>
 @endsection

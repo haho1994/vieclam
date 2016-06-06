@@ -8,7 +8,7 @@
         <table>
             <tr>
                 <td>
-                    <input type="text" value="{!! $users->email !!}" name="email" disabled placeholder="Nhập email"/>
+                    <input  style="height: 44px;margin-bottom: 10px;" type="text" value="{!! $users->email !!}" name="email" disabled placeholder="Nhập email"/>
                 </td>
             </tr>
             <tr>

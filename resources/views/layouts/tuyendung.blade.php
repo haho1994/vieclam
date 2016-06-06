@@ -22,12 +22,7 @@
                         @if(auth()->check())
                         <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span></li>
                         <ul class="dropdown-menu" role="menu">
-
-                            <li><a href='{!! route("quanlyNN") !!}'>Quản Lý Nghề Nghiệp</a></li>
-                            <li><a href='{!! route("hoso") !!}'>Hồ Sơ Của Tôi</a></li>
-                            <li><a href='{!! route("vieclam.cuatoi") !!}'> Việc Làm Của Tôi</a></li>
                             <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>
-                            <li><a href='{!! route("doiEmail") !!}'>Đổi Email</a></li>
                             <li><a>Đổi Mật Khẩu</a></li>
                             <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
                             <li><a href="{{url('logout')}}">Thoát</a></li>
@@ -65,17 +60,12 @@
                             <a href='{!! route("dangtin") !!}' style=" font-size: 14px;">Đăng Tuyển Dụng</a>
                         </li>
                         <li>
-                            <a href='' style=" font-size: 14px;">Công Ty</a>
+                            <a href='' style=" font-size: 14px;">Quản Lý Công Ty</a>
                             <ul class="ntd_taocongty">
                                 @if(empty(auth()->user()->company->id))
-                                <li>
+                                <li>  
                                     <div style="width: 216px;height: 28px;font-size: 14px;color: #000033;margin-top: 20px;">    
                                         <a href='{!! route("ntd_congty") !!}'>Đăng Ký Công Ty</a>  
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style="width: 216px;height: 28px;font-size: 14px;color: #000033;margin-top: 20px;">
-                                        <a href='{!! route("ntd_congty_sua") !!}'>Thông Tin Công Ty</a>
                                     </div>
                                 </li>
                                 @else

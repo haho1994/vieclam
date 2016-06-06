@@ -9,6 +9,7 @@
             <word>eles</word>
             <word>endforeach</word>
             <word>endsection</word>
+            <word>nào</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

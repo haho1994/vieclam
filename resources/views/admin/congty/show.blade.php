@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input action="{!! route('admin.quanly_companies')!!}" type="submit" value="Trở về"  />
+                <a href='{!! route("admin.quanly_companies")!!}'>Thoát</a>
             </td>
         </tr>
     </table>

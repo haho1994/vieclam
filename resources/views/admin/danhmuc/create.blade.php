@@ -19,7 +19,7 @@
         <tr>
             <td><label>Ten</label></td>
             <td>
-                <input type="text" value="" name="name" />
+                <input style="width: 100%;" type="text" value="" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');

@@ -16,6 +16,7 @@
         <th>Trình độ</th>
         <th>Công ty gần đây</th> 
         <th>Ngành nghề gần đây</th>
+        <th>Trạng thái</th>
         <th>Thao tác</th>
         
     </tr>
@@ -37,6 +38,13 @@
         <td> @if($item->category)
            {!!$item->category->name !!}
             @endif 
+        </td>
+        <td>
+            @if($item->is_negotiable)
+                Da duyet
+            @else
+                Chua duyet
+            @endif
         </td>
         <td>
             <a href='{!! route("admin.quanly_curriculumvitaes.xem", array("id" => $item->id)) !!}'>Xem</a>

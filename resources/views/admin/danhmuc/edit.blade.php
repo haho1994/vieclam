@@ -19,7 +19,7 @@
         <tr>
             <td><label>Ten</label></td>
             <td>
-                <input type="text" value="{!! $category->name !!}" name="name" />
+                <input style="width: 100%;" type="text" value="{!! $category->name !!}" name="name" />
                 <?php
                 if ($errors->has('name')) {
                     echo $errors->first('name');

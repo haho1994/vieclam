@@ -123,7 +123,7 @@ class TrangchuController extends Controller {
 
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
         if ($xuly->fails()) {
-            return redirect()->route('dangky')->withErrors($xuly);
+            return redirect()->route('dangky_tuyendung')->withErrors($xuly);
         }
 
         $user = new User;
@@ -137,7 +137,7 @@ class TrangchuController extends Controller {
 
         $user->save();
 
-        return redirect()->route('dangnhap');
+        return redirect()->route('dangnhap.nhatuyendung');
     }
      //thông tin cong viec
   public function chitiet() {

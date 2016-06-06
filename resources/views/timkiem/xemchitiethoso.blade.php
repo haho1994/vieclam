@@ -10,10 +10,10 @@
             <div style="height: 80px;">
                 <div >
                     <label style="color: #5e5e5e;font-size: 30px;" type="text" >
-<!--                        {!! $cv->recent_category_id !!}-->
-                        @if($cv->category)
+                        {!! $cv->expected_position_id !!}
+<!--                        @if($cv->category)
                         {!!$cv->category->name!!}</em>
-                        @endif
+                        @endif-->
                     </label>
 
                 </div>
@@ -105,8 +105,8 @@
             <div style="margin-top: 40px;">
                 <label style="" >
                     @if(!empty($cv->filename))
-                    <a href='{!! route("admin.download.cv", ["filename" => $cv->filename]) !!}'>
-                        Tai ho so tai day
+                    <a href='{!! route("admin.download.cv", ["filename" => $cv->filename, "cv_id" => $cv->id]) !!}'>
+                        Tải hồ sơ tại đây!
                     </a>
                     @endif
                 </label>

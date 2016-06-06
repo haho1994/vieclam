@@ -34,6 +34,7 @@
                         <a href="#">Thông Báo
                         </a>
                     </li>
+                    
                     <!--                    <li>
                                             <a  href='{!! route("admin.login") !!}' aria-expanded="false" >Đăng Nhập</a>
                                         </li>-->
@@ -70,14 +71,7 @@
                             <a  href='{!! route("admin.quanly_jobs") !!}'>Việc Làm</a>
                         </li>
                         <li>
-                            <a>Tỉnh, T.p</a>
-                        </li>
-                        <li>
                             <a href='{!! route("admin.quanly_curriculumvitaes") !!}'>Hồ Sơ</a>
-                        </li>
-                        </li>
-                        <li>
-                            <a href='{!! route("admin.quanly_companies") !!}'>Công Việc Yêu Thích</a>
                         </li>
                     </ul>
 

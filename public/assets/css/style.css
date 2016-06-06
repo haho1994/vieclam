@@ -441,7 +441,7 @@ body {
     font-size: 12px;
 }
 .form_sum{
-    background: #e8e8e8;
+    background: #f4f4f4;
     margin-bottom: 100px;
 }
 .form{
@@ -458,6 +458,7 @@ body {
     background: #FFF;
     margin-left: 130px;
     margin-top: 100px;
+    border: 1px #CCCCCC solid;
 }
 .text1{
     margin-top: 100px;
@@ -706,7 +707,9 @@ a:hover
     border: 1px solid #d9d9d9;
     margin-bottom: 10px;
 }
-
+.tuyendung_form input[type="text"]{
+    width: 550px;
+}
 .form_ttcn{
     margin-top: 20px;
     margin-left: 5%;
@@ -907,7 +910,7 @@ a:hover
     border-radius: 5px;
 }
 .showttcn{
-    background: #e8e8e8; 
+    background:#f4f4f4; 
 }
 .ttcn_xem{
     width: 700px;
@@ -915,7 +918,7 @@ a:hover
     background: #fff;
     border: 1px #ddd solid;
     margin-top: 70px;
-    margin-bottom: 70px;
+    //margin-bottom: 70px;
     margin-left: 200px;
 
 }
@@ -1250,33 +1253,45 @@ dl {
 .qlvieclam{
     float: left;
     padding: 4px 0 6px 15px;
-    width: 25%;
+    width: 12%;
     margin-left: 70px;
 }
 .qlvl_ten{
     float: left;
     padding: 4px 0 6px 15px;
-    width: 37%;
-    margin-left: 20px;
+    width: 25%;
+    margin-left: 0px;
 }
 .qlvl_ten1{
     float: left;
     padding: 4px 0 6px 15px;
-    width: 35%;
+    width: 15%;
     margin-left: 20px;
 }
 .qlvl_ten2{
     float: left;
     padding: 4px 0 6px 15px;
-    margin-left: 20px;
+    width: 15%;
+    margin-left: 60px;
 }
-
+.qlvl_ten3{
+    float: left;
+    padding: 4px 0 6px 15px;
+    width: 15%;
+    margin-left: 25px;
+}
+.qlvl_ten4{
+    float: left;
+    padding: 4px 0 6px 15px;
+    margin-left: 50px;
+}
 .vieclam3{
     float: left;
     padding: 4px 0 6px 15px;
     text-align: center;
    width: 200px;
 }
+
 .day{
     margin-left: 30px;
 }
@@ -1304,4 +1319,14 @@ dl {
     border-radius: 5px;
     border: 1px solid #d9d9d9;
     border-top: 1px solid #c0c0c0;
+}
+.ntdsuacongviec input[type="text"]{
+    width: 500px;
+}
+.ntdsuacongviec select{
+    width: 500px;
+    border-radius: 5px;
+}
+.nsdsua input[type="text"]{
+    width: 500px;
 }
