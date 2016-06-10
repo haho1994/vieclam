@@ -20,6 +20,8 @@ class HoSoController extends Controller {
 
     public function create() {
         $user = auth()->user();
+        $cvId = request()->get('id');
+        $Cv = Curriculumvita::find($cvId);
         $companies = Company::all();
         $categories = Category::all();
         $locations = Location::all();
@@ -99,7 +101,7 @@ class HoSoController extends Controller {
     public function update($id) {
         $dulieu = request()->all();
         $quyluat = [
-              'year_experience' => 'required',
+            'year_experience' => 'required',
             'highes_edu' => 'required',
             'recent_company_id' => 'required',
             'recent_category_id' => 'required',
@@ -138,19 +140,20 @@ class HoSoController extends Controller {
 
         return redirect()->back();
     }
-    public function taiCV($userId) {
+
+    public function taiCV($cvId) {
         $user = auth()->user();
         $file = request()->file('cv');
-
-        $director = public_path('upload/cv/' . $userId . $user->id);
+        $director = public_path('upload/cv/' . $cvId . $user->id);
+        dd($cvId);
         //move_uploaded_file($file->getPathName(), $director.'/abc.doc');
 
         \File::makeDirectory($director, $mode = 0777, true, true);
         $fileName = gen_uuid();
         $file->move($director, $fileName . '.' . $file->getClientOriginalExtension());
-        
-        $userCv = $user->UserCv()->attach($userId, [
-            'filename' => $fileName . '.' .$file->getClientOriginalExtension()
+
+        $Cv = $user->UserCv()->attach($cvId, [
+            'filename' => $fileName . '.' . $file->getClientOriginalExtension()
         ]);
         return redirect()->back();
     }

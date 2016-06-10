@@ -95,7 +95,10 @@ Route::group(['middleware' => 'auth_uv'], function() {
         'as' => 'nopdoncv',
         'uses' => 'JobSearchController@nopdonCV'
     ]);
-
+Route::post('nop-don/tao', [
+        'as' => 'nopdon.xuly',
+        'uses' => 'JobSearchController@xuly'
+    ]);
     Route::get('/nopdon', [
         'as' => 'nopdonungtuyen',
         'uses' => 'JobSearchController@nopdon'

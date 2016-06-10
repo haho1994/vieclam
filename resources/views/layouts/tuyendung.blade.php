@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
+                        <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Tìm Việc
                         </a>
 
                     </li>

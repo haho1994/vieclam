@@ -27,9 +27,11 @@
                 </div>
             </form>
         </div>
-        @if(empty(auth()->user()->curriculumvita->id))
+        @if(!empty(auth()->user()->curriculumvita->id))
+        <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
+        @else
         <div>
-            @if(!empty ($cv))
+           
             <div class="lienhe">  
                 <div class="lienhe1">
                     <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
@@ -69,10 +71,7 @@
                                     <td><label><b>Vị Trí Mong Muốn:</b></label></td>
                                     <td><label>{!! $cv->expected_position_id!!}</label></td>
                                 </tr>
-<!--                                <tr>
-                                    <td><label><b>Ngôn ngữ</b></label></td>
-                                    <td><label>{!! $cv->expected_position_id!!}</label></td>
-                                </tr>-->
+                                
                             </table>
                         </div>
                         <div style="width: 45%; float: left">
@@ -103,7 +102,10 @@
                                     <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
                                     <td><label>{!! $cv->expected_job_category!!}</label></td>
                                 </tr>
-
+<tr>
+                                    <td><label><b>Ngôn ngữ</b></label></td>
+                                    <td><label>{!! $cv->expected_position_id!!}</label></td>
+                                </tr>
                                 <tr class="qlnn1-4">
                                     <td><label><b>Hồ Sơ:</b></label></td>
                                     <td><label>{!! $cv->filename!!}</label></td>
@@ -116,10 +118,9 @@
                     </form>
                 </div>
             </div>
-            @endif
+          
         </div>
-        @else
-        <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
+       
         @endif
     </div>
 </div>

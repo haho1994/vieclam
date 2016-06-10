@@ -48,7 +48,7 @@ class  Curriculumvita extends Model {
     
     public function languages()
     {
-        return $this->belongsToMany(Language::class, 'curriculumvitaes_languages', 'id_curriculum_vitae', 'id_language');
+        return $this->belongsToMany(Language::class, 'curriculumvitaes_languages', 'id_curriculum_vitae', 'id');
     }
     public function usercv()
     {

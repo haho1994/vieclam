@@ -66,9 +66,9 @@ class JobSearchController extends Controller {
         \File::makeDirectory($director, $mode = 0777, true, true);
         $fileName = gen_uuid();
         $file->move($director, $fileName . '.' . $file->getClientOriginalExtension());
-        
+
         $jobCv = $user->JobCv()->attach($jobId, [
-            'filename' => $fileName . '.' .$file->getClientOriginalExtension()
+            'filename' => $fileName . '.' . $file->getClientOriginalExtension()
         ]);
         return redirect()->back();
     }

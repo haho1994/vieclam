@@ -20,7 +20,7 @@
                 <td style="width: 300px;"><label>Tuyển Dụng Công Việc:</label></td>
                 <td>
                     <label>
-                       {!!$job->name!!}
+                       {!! $job->name !!}
                      </label>
                 </td>
             </tr>
