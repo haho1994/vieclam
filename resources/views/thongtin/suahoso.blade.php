@@ -3,7 +3,7 @@
 <div class="lienhe">  
     <div class="lienhe1">
         <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
-        <form action="{!! route('hoso.luu', ['id' => $cv->id]) !!}" method="post">
+        <form action="{!! route('hoso.luu', ['id' => $cv->id]) !!}" method="get">
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
             <div  style="width: 48%; float: left">
                 <table>
@@ -156,6 +156,7 @@
                             ?>
                         </td>
                     </tr>
+           
                     <tr class="radio">
                         <td>
                             <label>

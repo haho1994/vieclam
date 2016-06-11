@@ -9,12 +9,15 @@ use App\Company;
 use App\Category;
 use App\Location;
 use App\Language;
+use App\Curriculumvitalanguage;
 
 class HoSoController extends Controller {
 
     public function index() {
         $user = auth()->user();
         $cv = Curriculumvita::where('id_user', $user->id)->first();
+        $lg = Curriculumvitalanguage::all();
+        $languages = Language::all();
         return view('thongtin.hoso', compact('cv', 'user'));
     }
 

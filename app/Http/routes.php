@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth_uv'], function() {
         'uses' => 'HoSoController@edit'
     ]);
 
-    Route::post('hoso-cuatoi/luu/{id}', [
+    Route::get('hoso-cuatoi/luu/{id}', [
         'as' => 'hoso.luu',
         'uses' => 'HoSoController@update'
     ]);

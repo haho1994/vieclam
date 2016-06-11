@@ -31,11 +31,11 @@
         <a href="{!! route('hoso.tao') !!}">Tạo Hồ Sơ</a>
         @else
         <div>
-           
+
             <div class="lienhe">  
                 <div class="lienhe1">
                     <h3 style="margin-bottom: 20px;"><strong>Thông Tin Chung</strong></h3>
-                    <form style="width: 100%" class="ttht" method="post" >
+                    <form style="width: 100%" class="ttht" action="{!! route('hoso.sua', array('id' => $cv->id)) !!}" method="get" >
                         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                         <div  style="width: 55%; float: left">
                             <table>
@@ -64,14 +64,14 @@
                                             @if($cv->category)
                                             {!!$cv->category->name!!}
                                             @endif
-                                         </label>
+                                        </label>
                                     </td>
                                 </tr>
                                 <tr class="qlnn1-4">
                                     <td><label><b>Vị Trí Mong Muốn:</b></label></td>
                                     <td><label>{!! $cv->expected_position_id!!}</label></td>
                                 </tr>
-                                
+
                             </table>
                         </div>
                         <div style="width: 45%; float: left">
@@ -102,10 +102,12 @@
                                     <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
                                     <td><label>{!! $cv->expected_job_category!!}</label></td>
                                 </tr>
-<tr>
+                                @if(!empty($lg))    
+                                <tr>
                                     <td><label><b>Ngôn ngữ</b></label></td>
-                                    <td><label>{!! $cv->expected_position_id!!}</label></td>
+                                    <td><label>{!! $lg->id_language!!}</label></td>
                                 </tr>
+                                @endif
                                 <tr class="qlnn1-4">
                                     <td><label><b>Hồ Sơ:</b></label></td>
                                     <td><label>{!! $cv->filename!!}</label></td>
@@ -113,14 +115,14 @@
                             </table>
                         </div>
                         <div>
-                            <input type="submit" value="Sửa" style="height: 30px; width: 40px;"  href='{!! route("hoso.sua", array("id" => $cv->id)) !!}'/>
+                            <input type="submit" value="Sửa" style="height: 30px; width: 40px;"  />
                         </div>
                     </form>
                 </div>
             </div>
-          
+
         </div>
-       
+
         @endif
     </div>
 </div>

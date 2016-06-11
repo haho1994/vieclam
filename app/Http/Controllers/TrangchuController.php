@@ -137,7 +137,7 @@ class TrangchuController extends Controller {
 
         $user->save();
 
-        return redirect()->route('dangnhap');
+        return redirect()->route('dangnhap.nhatuyendung');
     }
      //thông tin cong viec
   public function chitiet() {
