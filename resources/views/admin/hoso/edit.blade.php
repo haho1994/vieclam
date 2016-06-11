@@ -199,7 +199,7 @@
         <tr>
             <td><label>Ngon ngu</label></td>
             <td>
-                <select style="width: 70%;" multiple >
+                <select style="width: 70%;"  >
                     @foreach($languages as $language)
                     <option value="{!!$language->id!!}" >{!!$language->name!!}</option>
                     @endforeach
@@ -209,15 +209,14 @@
         <tr>
             <td><label>Trạng thái</label></td>
             <td>
-                <select style="width: 70%;" name="is_negotiable">
-                    <option value="">Chọn trạng thái</option>
+                <select style="width: 500px;" name="is_negotiable">
                     <?php
                         $check1 = "";
                         $check2 = "";
-                        if ($company->status) {
+                        if ($company->is_negotiable) {
                             $check2 = 'selected';
                         }
-                        if (!$company->status) {
+                        if (!$company->is_negotiable) {
                             $check1 = 'selected';
                         }
                     ?>

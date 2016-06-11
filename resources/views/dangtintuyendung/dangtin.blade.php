@@ -1,15 +1,16 @@
 @extends('layouts.tuyendung')
 @section('noidung1')
-<div style="font-size: 10px;color: #398439">
-<?php
-if (Session::has('success')) {
-    echo \Session::get('success');
-}
-?>
-</div>
+
 <div class="dangtintuyendung" >
     <div class="dangtintuyendung_text">
         <label style="margin-top: 10px;margin-left: 20px;">Đăng Tuyển Dụng</label>
+    </div>
+    <div style="font-size: 10px;color: #398439">
+        <?php
+        if (Session::has('success')) {
+            echo \Session::get('success');
+        }
+        ?>
     </div>
     <div class="tuyendung">
         <div class="tuyendung_form">
@@ -147,8 +148,8 @@ if (Session::has('success')) {
                             <td>
                                 <input class="tuyendung_form_ipput" type="text" disabled value="{!! $users->full_name !!}" name="full_name" />
                                 <?php
-                                if ($errors->has('name')) {
-                                    echo $errors->first('name');
+                                if ($errors->has('full_name')) {
+                                    echo $errors->first('full_name');
                                 }
                                 ?>
                             </td>
@@ -170,7 +171,6 @@ if (Session::has('success')) {
                         <input class="input_ntdtk" type="submit" class="login login-submit" value="Lưu Và Tiếp Tục">
                     </div>
                 </div>
-            </form>
             </form>
         </div>
     </div>

@@ -10,7 +10,7 @@ class DownloadController extends Controller {
         $user = auth()->user();
         $director = public_path('upload/cv/'.$cvId .'/' . $filename);
         $file_extension = last(explode('.', $director));
-        dd($director);
+        //dd($director);
         switch ($file_extension) {
             case "pdf": $ctype = "application/pdf";
                 break;
@@ -41,7 +41,7 @@ class DownloadController extends Controller {
     }
     public function downloadungtuyen($filename, $jobId) {
         $user = auth()->user();
-        $director = public_path('upload/jobs/'. $jobId . '/cv/' . $user->id . '/' . $filename);
+        $director = public_path('upload/jobs/'. $jobId . '/cv/' . $filename);
         $file_extension = last(explode('.', $director));
         //dd($director);
         switch ($file_extension) {

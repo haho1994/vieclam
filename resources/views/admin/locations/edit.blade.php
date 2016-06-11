@@ -17,7 +17,7 @@
     <div>
         <label>Tên Địa Điểm</label>
         <div>
-            <input type="text" value=""  name="name">
+            <input type="text" value="{!! $locations->name !!}"  name="name">
             <?php
             if ($errors->has('name')) {
                 echo $errors->first('name');
@@ -27,7 +27,7 @@
     </div>
     <div>
         <div>
-            <input type="submit" name="" value="Thêm">
+            <input type="submit" name="" value="Sửa">
         </div>
     </div>
 </form>

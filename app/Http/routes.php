@@ -6,35 +6,15 @@ Route::get('/', function () {
 
 
 
-Route::get('hoso-cuatoi', [
-    'as' => 'hoso',
-    'uses' => 'HoSoController@index'
-]);
-//viec lam cua toi
-Route::get('vieclam-cuatoi', [
-    'as' => 'vieclam.cuatoi',
-    'uses' => 'JobSearchController@vieclam'
-]);
-// xoa viec lam yeu thich
-Route::get('vieclam-cuatoi/xoa/{id}', [
-    'as' => 'vieclam.cuatoi.xoa',
-    'uses' => 'JobControllers@destroy'
-]);
+
+
 
 //xem hồ sơ
-Route::get('hoso-cuatoi/xem/{id}', [
-    'as' => 'xem',
-    'uses' => 'JobSearchController@Showhoso'
-]);
-//sua ho so
-Route::get('hoso-cuatoi/sua/{id}', [
-    'as' => 'sua',
-    'uses' => 'HoSoController@suahoso'
-]);
-Route::post('hoso-cuatoi/luu/{id}', [
-    'as' => 'luu',
-    'uses' => 'HoSoController@update'
-]);
+//Route::get('hoso-cuatoi/xem/{id}', [
+//    'as' => 'xem',
+//    'uses' => 'JobSearchController@Showhoso'
+//]);
+
 Route::get('dangky-vieclam', [
     'as' => 'dangky',
     'uses' => 'TrangchuController@dangKyViecLam'
@@ -81,8 +61,104 @@ Route::post('dangky-tuyendung', [
 //
 //dn user
 
+Route::group(['middleware' => 'auth_uv'], function() {
 
+
+    //doimatkhau
+
+    Route::get('taikhoan/doimatkhau', [
+        'as' => 'doimatkhau',
+        'uses' => 'TaiKhoanController@doiMatKhau'
+    ]);
+
+    Route::post('taikhoan/doimatkhau', [
+        'as' => 'doimatkhau',
+        'uses' => 'TaiKhoanController@xuLyDoiMatKhau'
+    ]);
+
+    //suathongtincanhan
+    Route::get('taikhoan/capnhapthongtincanhan', [
+        'as' => 'taikhoan_suathongtincanhan',
+        'uses' => 'TaiKhoanController@suathongtincanhan'
+    ]);
+    Route::post('taikhoan/capnhapthongtincanhan', [
+        'as' => 'xuly.taikhoan_suathongtincanhan',
+        'uses' => 'TaiKhoanController@xulysuathongtincanhan'
+    ]);
+
+    Route::get('taikhoan/xemthongtincanhan', [
+        'as' => 'taikhoan_xemthongtincanhan',
+        'uses' => 'TaiKhoanController@xemttcn'
+    ]);
+
+    Route::get('hoso-cuatoi', [
+        'as' => 'hoso',
+        'uses' => 'HoSoController@index'
+    ]);
+//viec lam cua toi
+    Route::get('vieclam-cuatoi', [
+        'as' => 'vieclam.cuatoi',
+        'uses' => 'JobSearchController@vieclam'
+    ]);
+// xoa viec lam yeu thich
+    Route::get('vieclam-cuatoi/xoa/{id}', [
+        'as' => 'vieclam.cuatoi.xoa',
+        'uses' => 'JobControllers@destroy'
+    ]);
+
+//tao ho so
+    Route::get('hoso-cuatoi/tao', [
+        'as' => 'hoso.tao',
+        'uses' => 'HoSoController@create'
+    ]);
+    Route::post('hoso-cuatoi/tao', [
+        'as' => 'hoso.xuly',
+        'uses' => 'HoSoController@store'
+    ]);
+//sua ho so
+
+    Route::get('hoso-cuatoi/sua/{id}', [
+        'as' => 'hoso.sua',
+        'uses' => 'HoSoController@edit'
+    ]);
+
+    Route::post('hoso-cuatoi/luu/{id}', [
+        'as' => 'hoso.luu',
+        'uses' => 'HoSoController@update'
+    ]);
+    //nop don
+
+    Route::post('/nop-don/upload/{id}', [
+        'as' => 'nopdoncv',
+        'uses' => 'JobSearchController@nopdonCV'
+    ]);
+
+    Route::get('/nopdon/{job_id}', [
+        'as' => 'nopdonungtuyen',
+        'uses' => 'JobSearchController@nopdon'
+    ]);
+    //luu viec
+    Route::get('congviec/luu/{id}', [
+        'as' => 'congviec.luu',
+        'uses' => 'JobSearchController@savejob'
+    ]);
+    Route::post('/upload/{id}', [
+        'as' => 'taicv',
+        'uses' => 'HoSoController@taiCV'
+    ]);
+
+    Route::get('nguoidung/tai-cv/{filename}/{cv_id}', [
+        'as' => 'nguoidung.download.cv',
+        'uses' => 'DownloadController@downloadCV'
+    ]);
+});
 Route::group(['middleware' => 'auth_ntd'], function() {
+    Route::get('nhatuyendung/logout', function() {
+        Auth::nhatuyendung-logout();
+        
+        return redirect()->route('dangnhap.nhatuyendung');
+    });
+
     Route::get('tai-cv/{filename}/{cv_id}', [
         'as' => 'admin.download.cv',
         'uses' => 'DownloadController@downloadCV'
@@ -140,7 +216,7 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'uses' => 'NhaTuyenDungController@taocongty'
     ]);
     Route::post('nhatuyendung/congty', [
-        'as' => 'xuly.ntd_congty',
+        'as' => 'xuly.ntd_taocongty',
         'uses' => 'NhaTuyenDungController@xulytaocongty'
     ]);
 
@@ -152,10 +228,12 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'as' => 'xuly.ntd_congty_sua',
         'uses' => 'NhaTuyenDungController@xulysuathongtincongty'
     ]);
+
     Route::get('nhatuyendung/congty/thongtincongty/xem', [
         'as' => 'congty_xemthongtincongty',
         'uses' => 'NhaTuyenDungController@xemttcongty'
     ]);
+
 
     //thongtinnhatuyendung
     Route::get('nhatuyendung/taikhoan/thongtinnhatuynedung', [
@@ -203,10 +281,10 @@ Route::group(['middleware' => 'auth_ntd'], function() {
         'uses' => 'NhaTuyenDungController@show'
     ]);
 });
-Route::get('admin', [
-    'as' => 'admin',
-    'uses' => 'TrangchuController@trangAdmin'
-]);
+//Route::get('admin', [
+//    'as' => 'admin',
+//    'uses' => 'TrangchuController@trangAdmin'
+//]);
 Route::get('dangnhap', [
     'as' => 'dangnhap',
     'uses' => 'TrangchuController@dangNhapTaiKhoan'
@@ -281,6 +359,9 @@ Route::post('admin/login', [
 
 
 
+
+
+
 Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
 Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
 Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
@@ -341,31 +422,8 @@ Route::get('logout', function() {
     return redirect()->back();
 });
 
-//doimatkhau
-    Route::get('taikhoan/doimatkhau', [
-        'as' => 'doimatkhau',
-        'uses' => 'TaiKhoanController@doiMatKhau'
-    ]);
 
-    Route::post('taikhoan/doimatkhau', [
-        'as' => 'doimatkhau',
-        'uses' => 'TaiKhoanController@xuLyDoiMatKhau'
-    ]);
 
-    //suathongtincanhan
-    Route::get('taikhoan/capnhapthongtincanhan', [
-        'as' => 'taikhoan_suathongtincanhan',
-        'uses' => 'TaiKhoanController@suathongtincanhan'
-    ]);
-    Route::post('taikhoan/capnhapthongtincanhan', [
-        'as' => 'xuly.taikhoan_suathongtincanhan',
-        'uses' => 'TaiKhoanController@xulysuathongtincanhan'
-    ]);
-
-    Route::get('taikhoan/xemthongtincanhan', [
-        'as' => 'taikhoan_xemthongtincanhan',
-        'uses' => 'TaiKhoanController@xemttcn'
-    ]);
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('admin/trangchu', [
@@ -383,10 +441,6 @@ Route::group(['middleware' => 'auth'], function() {
     ));
 
 
-    Route::get('congviec/luu/{id}', [
-        'as' => 'congviec.luu',
-        'uses' => 'JobSearchController@savejob'
-    ]);
     //danh muc
 
     Route::get('admin/quanly-danhmuc', [
@@ -493,7 +547,76 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'AdminQuanlyCurriculumvitaes@show'
     ]);
 
+    Route::get('admin/locations', [
+        'as' => 'admin.diadiem',
+        'uses' => 'AdminQuanlyDiaDiem@index'
+    ]);
+    Route::get('admin/locations/them', [
+        'as' => 'admin.diadiem.them',
+        'uses' => 'AdminQuanlyDiaDiem@create'
+    ]);
 
+    Route::post('admin/locations/them', [
+        'as' => 'admin.diadiem.xuly',
+        'uses' => 'AdminQuanlyDiaDiem@store'
+    ]);
+
+    Route::get('admin/locations/sua/{id}', [
+        'as' => 'admin.diadiem.sua',
+        'uses' => 'AdminQuanlyDiaDiem@edit'
+    ]);
+
+    Route::post('admin/locations/luu/{id}', [
+        'as' => 'admin.diadiem.luu',
+        'uses' => 'AdminQuanlyDiaDiem@update'
+    ]);
+
+    Route::get('admin/locations/xoa/{id}', [
+        'as' => 'admin.diadiem.xoa',
+        'uses' => 'AdminQuanlyDiaDiem@destroy'
+    ]);
+    Route::get('admin/locations/xem/{id}', [
+        'as' => 'admin.diadiem.xem',
+        'uses' => 'AdminQuanlyDiaDiem@show'
+    ]);
+
+
+
+
+    //ngon ngu
+
+    Route::get('admin/ngonngu', [
+        'as' => 'admin.quanly-ngonngu',
+        'uses' => 'AdminQuanLyNgonNgu@index'
+    ]);
+    Route::get('admin/ngonngu/them', [
+        'as' => 'admin.quanly-ngonngu.them',
+        'uses' => 'AdminQuanLyNgonNgu@create'
+    ]);
+
+    Route::post('admin/ngonngu/them', [
+        'as' => 'admin.quanly-ngonngu.xuly',
+        'uses' => 'AdminQuanLyNgonNgu@store'
+    ]);
+
+    Route::get('admin/ngonngu/sua/{id}', [
+        'as' => 'admin.quanly-ngonngu.sua',
+        'uses' => 'AdminQuanLyNgonNgu@edit'
+    ]);
+
+    Route::post('admin/ngonngu/luu/{id}', [
+        'as' => 'admin.quanly-ngonngu.luu',
+        'uses' => 'AdminQuanLyNgonNgu@update'
+    ]);
+
+    Route::get('admin/ngonngu/xoa/{id}', [
+        'as' => 'admin.quanly-ngonngu.xoa',
+        'uses' => 'AdminQuanLyNgonNgu@destroy'
+    ]);
+    Route::get('admin/ngonngu/xem/{id}', [
+        'as' => 'admin.quanly-ngonngu.xem',
+        'uses' => 'AdminQuanLyNgonNgu@show'
+    ]);
 
     //hoso_ngonngu
 //     Route::get('admin/quanly-curriculumvitaes-languages', [
@@ -603,7 +726,6 @@ Route::group(['middleware' => 'auth'], function() {
 //        'as' => 'admin.quanly_news.thoat',
 //        'uses' => 'AdminQuanLyNews@thoat'
 //    ]);
-
     //image
 //    Route::get('admin/quanly-images', [
 //        'as' => 'admin.quanly_images',
@@ -667,6 +789,7 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'AdminQuanLyKyNang@show'
     ]);
 
+
     //location
     Route::get('admin/locations', [
         'as' => 'admin.diadiem',
@@ -704,42 +827,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 
-//ngon ngu
 
 
-
-    Route::get('admin/ngonngu', [
-        'as' => 'admin.quanly-ngonngu',
-        'uses' => 'AdminQuanLyNgonNgu@index'
-    ]);
-    Route::get('admin/ngonngu/them', [
-        'as' => 'admin.quanly-ngonngu.them',
-        'uses' => 'AdminQuanLyNgonNgu@create'
-    ]);
-
-    Route::post('admin/ngonngu/them', [
-        'as' => 'admin.quanly-ngonngu.xuly',
-        'uses' => 'AdminQuanLyNgonNgu@store'
-    ]);
-
-    Route::get('admin/ngonngu/sua/{id}', [
-        'as' => 'admin.quanly-ngonngu.sua',
-        'uses' => 'AdminQuanLyNgonNgu@edit'
-    ]);
-
-    Route::post('admin/ngonngu/luu/{id}', [
-        'as' => 'admin.quanly-ngonngu.luu',
-        'uses' => 'AdminQuanLyNgonNgu@update'
-    ]);
-
-    Route::get('admin/ngonngu/xoa/{id}', [
-        'as' => 'admin.quanly-ngonngu.xoa',
-        'uses' => 'AdminQuanLyNgonNgu@destroy'
-    ]);
-    Route::get('admin/ngonngu/xem/{id}', [
-        'as' => 'admin.quanly-ngonngu.xem',
-        'uses' => 'AdminQuanLyNgonNgu@show'
-    ]);
 
     //quan ly user
     Route::get('admin/quanly-user', [
@@ -809,79 +898,41 @@ Route::group(['middleware' => 'auth'], function() {
 //        'as' => 'admin.quanly_job.xem',
 //        'uses' => 'AdminQuanLyCongViecYeuThich@show'
 //    ]);
-
 //report
-    Route::get('admin/report', [
-        'as' => 'admin.quanly-report',
-        'uses' => 'AdminQuanLyReport@index'
-    ]);
-
-    Route::get('admin/report/them', [
-        'as' => 'admin.quanly-report.them',
-        'uses' => 'AdminQuanLyReport@create'
-    ]);
-
-    Route::post('admin/report/them', [
-        'as' => 'admin.quanly-report.xuly',
-        'uses' => 'AdminQuanLyReport@store'
-    ]);
-
-    Route::get('admin/report/sua/{id}', [
-        'as' => 'admin.quanly-report.sua',
-        'uses' => 'AdminQuanLyReport@edit'
-    ]);
-
-    Route::post('admin/report/luu/{id}', [
-        'as' => 'admin.quanly-report.luu',
-        'uses' => 'AdminQuanLyReport@update'
-    ]);
-
-    Route::get('admin/report/xoa/{id}', [
-        'as' => 'admin.quanly-report.xoa',
-        'uses' => 'AdminQuanLyReport@destroy'
-    ]);
-    Route::get('admin/report/xem/{id}', [
-        'as' => 'admin.quanly-report.xem',
-        'uses' => 'AdminQuanLyReport@show'
-    ]);
-
-    Route::get('admin', [
-        'as' => 'admin1',
-        'uses' => 'TrangchuController@trangAdmin'
-    ]);
+//    Route::get('admin/report', [
+//        'as' => 'admin.quanly-report',
+//        'uses' => 'AdminQuanLyReport@index'
+//    ]);
+//
+//    Route::get('admin/report/them', [
+//        'as' => 'admin.quanly-report.them',
+//        'uses' => 'AdminQuanLyReport@create'
+//    ]);
+//
+//    Route::post('admin/report/them', [
+//        'as' => 'admin.quanly-report.xuly',
+//        'uses' => 'AdminQuanLyReport@store'
+//    ]);
+//
+//    Route::get('admin/report/sua/{id}', [
+//        'as' => 'admin.quanly-report.sua',
+//        'uses' => 'AdminQuanLyReport@edit'
+//    ]);
+//
+//    Route::post('admin/report/luu/{id}', [
+//        'as' => 'admin.quanly-report.luu',
+//        'uses' => 'AdminQuanLyReport@update'
+//    ]);
+//
+//    Route::get('admin/report/xoa/{id}', [
+//        'as' => 'admin.quanly-report.xoa',
+//        'uses' => 'AdminQuanLyReport@destroy'
+//    ]);
+//    Route::get('admin/report/xem/{id}', [
+//        'as' => 'admin.quanly-report.xem',
+//        'uses' => 'AdminQuanLyReport@show'
+//    ]);
 });
-
-
-Route::get('/upload-cv', function() {
-    return view('admin.upload.index');
-});
-
-Route::post('/upload-cv', function() {
-    $user = auth()->user();
-    $file = request()->file('cv');
-
-    $director = public_path('upload/cv' . '/' . $user->id);
-    //move_uploaded_file($file->getPathName(), $director.'/abc.doc');
-
-    File::makeDirectory($director, $mode = 0777, true, true);
-    $fileName = gen_uuid();
-    $file->move($director, $fileName . '.' . $file->getClientOriginalExtension());
-
-    return view('admin.upload.index');
-});
-
-
-
-Route::post('/nop-don/upload/{id}', [
-    'as' => 'nopdoncv',
-    'uses' => 'JobSearchController@nopdonCV'
-]);
-
-Route::get('/nopdon', [
-    'as' => 'nopdonungtuyen',
-    'uses' => 'JobSearchController@nopdon'
-]);
-
 
 Route::auth();
 

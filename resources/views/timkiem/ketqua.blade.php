@@ -27,14 +27,9 @@
                             </select>
                         </div>
                         <div class="center_tk" style="width: 39%;display: inline-block">
-
-<!--                        <input type="text" class="text3" name='experence'  value="Nhập kinh nghiệm" onFocus="this.value = '';" onBlur="if (this.value == '') {
-    this.value = 'Enter Keyword(s)';
-}">-->
-                            <select name="location_id" class="option2">
-                                <option value="" >Địa điểm</option>
+                            <select name="location_id[]" multiple="multiple" id='choose-address' class="option2">
                                 @foreach($locations as $location)
-                                <option value="{!! $location->id !!}">{!! $location->name !!}</option>
+                                <option value="{!! $location->name !!}">{!! $location->name !!}</option>
                                 @endforeach
                             </select>
                             <select name="experience" class="option4">
@@ -57,4 +52,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $("#choose-address").select2({
+        tags: true  
+    })
+</script>
 @endsection

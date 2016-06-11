@@ -11,7 +11,7 @@ if (Session::has('success')) {
     </div>
     <div class="tuyendung_conty">
         <div class="tuyendung_form">
-            <form action="{!! route('xuly.ntd_congty') !!}" method="post">
+            <form action="{!! route('xuly.ntd_taocongty') !!}" method="post">
                 <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
                 <div >
                     <div class="tuyendung_text">
@@ -19,12 +19,23 @@ if (Session::has('success')) {
                     </div>
                     <table style="margin-top: 20px;">
                         <tr>
-                            <td style="width: 205px;"><label>Tên Công Việc</label></td>
+                            <td style="width: 205px;"><label>Tên Công Ty</label></td>
                             <td>
                                 <input class="tuyendung_form_ipput" type="text" value="" name="name" placeholder="Nhập tên công ty" />
                                 <?php
                                 if ($errors->has('name')) {
                                     echo $errors->first('name');
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Người Liên Hệ</label></td>
+                            <td>
+                                <input class="tuyendung_form_ipput" type="text" disabled value="{!! $users->full_name !!}" name="full_name" />
+                                <?php
+                                if ($errors->has('full_name')) {
+                                    echo $errors->first('full_name');
                                 }
                                 ?>
                             </td>

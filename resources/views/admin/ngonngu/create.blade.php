@@ -18,7 +18,7 @@ if (Session::has('success')) {
     <div>
         <label>Tên Ngôn Ngữ</label>
         <div>
-            <input type="text" value=""  name="name">
+            <input type="text" value="name"  name="name">
             <?php
             if ($errors->has('name')) {
                 echo $errors->first('name');

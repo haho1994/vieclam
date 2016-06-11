@@ -24,7 +24,7 @@
                             {!! $item->updated_at !!}
                         </span>
                         <span class="vieclam3">
-                            <a>Nộp Đơn</a> | <a href='{!! route("vieclam.cuatoi.xoa", array("id" => $item->id)) !!}'>Xóa</a>
+                            <a href='{!! route("nopdonungtuyen", $item->id_job) !!}'>Nộp Đơn</a> | <a href='{!! route("vieclam.cuatoi.xoa", array("id" => $item->id)) !!}'>Xóa</a>
                         </span>
                     </dd>
                     @endforeach

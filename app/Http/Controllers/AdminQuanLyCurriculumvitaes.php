@@ -78,7 +78,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
 
         \Session::flash('success', 'Tao thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly_curriculumvitaes');
     }
 
     //sua
@@ -136,7 +136,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
 
         \Session::flash('success', 'Sua thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly_curriculumvitaes');
     }
    
     public function destroy($id){

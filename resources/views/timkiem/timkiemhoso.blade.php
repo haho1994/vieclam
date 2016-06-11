@@ -14,7 +14,7 @@
 
                     <div style="width: 100%">
                         <div class="left_tk" style="width: 39%;display: inline-block">
-                            <input type="text" class="ntdtimkiem1" name='keyword'  placeholder="Nhập chức danh, vị trí, kỹ năng..." >
+                            <input type="text" class="ntdtimkiem1" name='keyword' style="width: 400px;height: 35px;margin-bottom: 20px;"  placeholder="Nhập chức danh, vị trí, kỹ năng..." >
                             <select name="expected_job_category" class="ntdtimkiem1" >
                                 <option value="" >Chọn nghành nghề</option>
                                 @foreach($categories as $category)

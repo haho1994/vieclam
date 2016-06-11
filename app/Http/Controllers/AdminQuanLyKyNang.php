@@ -48,7 +48,7 @@ class AdminQuanlyKyNang extends Controller {
 
         \Session::flash('success', 'Tao thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly-kynang');
     }
     
     //sua
@@ -83,7 +83,7 @@ class AdminQuanlyKyNang extends Controller {
 
         \Session::flash('success', 'Sua thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly-kynang');
     }
 
     public function destroy($id){

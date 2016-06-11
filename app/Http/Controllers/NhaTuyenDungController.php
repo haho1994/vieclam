@@ -184,11 +184,12 @@ class NhaTuyenDungController extends Controller {
         $xuly = \Validator::make($dulieu, $quyluat, $thongbao);
 
         if ($xuly->fails()) {
-            return redirect()->route('xuly.ntd_congty')->withErrors($xuly);
+            return redirect()->route('ntd_congty')->withErrors($xuly);
         }
 
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['user_id'] = auth()->user()->id;
+        //$dulieu['id_company'] = auth()->user()->company->id;
 //        $user = auth()->user();
         Company::create($dulieu);
 
@@ -367,7 +368,9 @@ class NhaTuyenDungController extends Controller {
         return redirect()->back();
     }
     
-    public function show($id){
+    
+
+        public function show($id){
         $job = Job::find($id);
         return view('dangtintuyendung.xemcongviec')->with([
                     'job' => $job,

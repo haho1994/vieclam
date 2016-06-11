@@ -44,7 +44,7 @@ class AdminQuanLyDiaDiem extends Controller {
         Location::create($dulieu);
 
         \Session::flash('success', 'Thêm thành công!!');
-        return redirect()->back();
+        return redirect()-> route('admin.diadiem');
     }
 
     //sua
@@ -79,7 +79,7 @@ class AdminQuanLyDiaDiem extends Controller {
 
         \Session::flash('success', 'Sua thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.diadiem');
     }
 
     public function destroy($id){

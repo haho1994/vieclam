@@ -94,9 +94,9 @@ ol li
     margin-top: 10px;
 
 } 
-#menu{
+/*#menu{
     margin-left: -30px;
-}
+}*/
 ul#menu, ul#menu li
 { 
     margin: 0; 
@@ -134,6 +134,24 @@ li {
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.dropdown-menu1{
+
+    background: #fff;
+    min-width: 180px;
+    display: none;
+    position: absolute;
+    position: relative;
+}
+.dn{
+    font-size: 13px; 
+}
+.dn a:hover{
+    text-decoration: none;
+}
+
+.dropdown-menu1 a:hover{
+    text-decoration: none;
 }
 .caret{
     display: inline-block;
@@ -265,7 +283,7 @@ li:hover li {
   letter-spacing: 0.1em;
   font-weight: bold;
   margin-left: -220px;
-  
+
 }
 
 #search_wrapper1{
@@ -346,7 +364,7 @@ body {
     border-radius: 2px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-   
+
 }
 
 .login-card h1 {
@@ -429,7 +447,7 @@ body {
 .cao{
     height: 350px;
     background: #f4f4f4;
-     margin-top: 70px;
+    margin-top: 70px;
 }
 .login-card a:hover {
     opacity: 1;
@@ -442,7 +460,7 @@ body {
 }
 .form_sum{
     background: #f4f4f4;
-    margin-bottom: 100px;
+    margin-bottom: 5px;
 }
 .form{
 
@@ -484,10 +502,10 @@ body {
     height: 330px;  
 }
 .ketqua{
-    background: #e8e8e8;
+    background: #f4f4f4;
 }
 .htkqua{
-    height: 50%;
+
     background:#FFF;
     width: 70%;
     border: 1px;
@@ -495,7 +513,31 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
     border: 1px #ddd solid;
+
 }
+.htkqua1{
+    height: 300px;
+    background: #f1f8fa!important;
+    width: 90%;
+    border: 1px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 2px solid #00b9f2!important;
+}
+.showtimkiem1 a{
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration:none;
+}
+.showtimkiem2 a{
+
+    color: #000;
+    font-size: 13px;
+    text-decoration:none;
+}
+
 .htkquahoso{
     height: 80%;
     background:#FFF;
@@ -554,10 +596,10 @@ a:hover
 
 }
 #scroll_box {
-    height: 200px;
+    //height: 300px;
     width: 900px; 
     margin: 1em 0;
-    overflow: auto;
+    //overflow: auto;
     border: 1px solid #e5e5e5;
     position: relative;
     top: 0;
@@ -769,18 +811,23 @@ a:hover
     width: 400px;
     height: 35px;
     border-radius: 5px;
-    margin-bottom: 60px;
+    //margin-bottom: 100px;
 }
 .option3{
     width: 400px;
     height: 35px;
     border-radius: 5px;
 }
+
+.select2-container--default .select2-selection--multiple{
+    height: 35px;
+    margin-bottom: 10px;
+}
 .center_tk .option4{
     width: 400px;
     height: 35px;
     border-radius: 5px;
-    margin-top: -50px;
+    //margin-top: -50px;
 }
 
 .text2{
@@ -887,7 +934,7 @@ a:hover
     background:url(../images/1.PNG) no-repeat;
 }
 .form_nhatuyendung{
-    //background: #f9f2f4;
+
 }
 .tdungdoipass{
     background:#FFF;
@@ -934,12 +981,8 @@ a:hover
     border: 1px #b9b9b9 solid;
     margin-bottom: 20px;
 }
-.left_tk  input[type="text"]{
-    height: 35px;
-     margin-bottom: 20px;
-}
 .form_ntdtimkiem{
-  
+
     margin-left: -206px;
 }
 .form_ntdtimkiem2{
@@ -953,7 +996,7 @@ a:hover
 }
 .form_ntdtimkiem3{
     margin-top: 20px;
-    
+
 
 }
 .form_ntdtimkiem_text{
@@ -994,7 +1037,7 @@ a:hover
     border: 1px #ddd solid;
 }
 .xemchitiethoso{
-   background: #f9f2f4; 
+    background: #f9f2f4; 
 }
 .xem{
     width: 800px;
@@ -1028,6 +1071,15 @@ a:hover
 }
 .qlnn1-1{
     margin: 9px 0;
+    height: 30px;
+}
+
+
+.suahoso{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
 }
 .qlnn2{
     float: left;
@@ -1102,7 +1154,15 @@ element.style {
     font: normal normal normal 14px/1 FontAwesome;
 }
 .qlnn1-4{
-    margin: 15px 5;
+    height: 30px;
+   
+
+}
+.qlnn1-4 td{
+  width: 220px;  
+}
+.qlnn1-4 td select{
+  width: 250px;  
 }
 .divider{
     height: 1px;
@@ -1111,23 +1171,23 @@ element.style {
     background-color: #e5e5e5;
 }
 .hoso{
-    outline: none;
-    padding: 5px 0 0 0;
-    margin: 0;
-    display: block;
-    margin-top: 50px;
+    height: 44px;
 
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 0 8px;
+    box-sizing: border-box;
 }
 dl {
     margin-bottom: 18px;
 }
 .hoso1{
-    height: 1%;
+   
     font-size: 10px;
     text-transform: uppercase;
     font-weight: bold;
     background: #dedede;
-    height: 6%;
+    height: 60%;
     font-size: 10px;
     text-transform: uppercase;
     font-weight: bold;
@@ -1153,16 +1213,16 @@ dl {
 .hoso2{
     border-left: 1px solid #dedede;
     border-right: 1px solid #dedede;
-    height: 5%;
+    height: 100%;
     display: block;
     padding: 4px 0;
     margin: 0;
     background: url(../images/line.gif) repeat-x 0 100% #ffffff;
 }
 .hoso2-1{
-     float: left;
+    float: left;
     padding: 4px 0 6px 15px;
-        width: 225px;
+    width: 225px;
     margin-left: 20px;
 }
 .hoso2-2{
@@ -1172,19 +1232,19 @@ dl {
 .hoso2-3{
     float: left;
     padding: 4px 0 6px 15px;
-        text-align: center;
-        outline: none;
+    text-align: center;
+    outline: none;
     width: 30%;
     margin-left: 50px;
 }
 .vieclam{
-     float: left;
+    float: left;
     padding: 4px 0 6px 15px;
     width: 370px;
-   
+
 }
 .vieclam1{
-   float: left;
+    float: left;
     padding: 4px 0 6px 15px;
     text-align: center;
     width: 350px;
@@ -1217,7 +1277,7 @@ dl {
     width: 750px;
     height: 70px;
     border-bottom: 1px #666 dotted; 
-   
+
 }
 .tuyendung_form_ipput{
     width: 550px;
@@ -1225,20 +1285,39 @@ dl {
 }
 .tuyendung_conty{
     width: 800px;
-    height: 500px;
+    height: 700px;
     border: 1px #ddd solid;
     background: #FFF;
     margin-left: 50px;
 }
 .showtimkiem{
-    width: 650px;
-    height: 70px;
-    background: #bce8f1;
+    overflow:hidden;
+    width:100%;
     margin-left: 150px;
+    margin: 1em 0;
     border-bottom: 1px #CCCCCC dotted;
+    /*    border: 1px solid #e5e5e5;*/
+    top: 0;
+    position: relative;
+
+    max-width: 100%;
+
 }
 .showtimkiem1{
-    margin-left: 100px;
+    overflow:hidden;
+    max-width: 100%;
+    width: 500px;
+    float: left;
+
+}
+.showtimkiem2{
+    width: 33%;
+    position: relative;
+    float: right;
+    overflow:hidden;
+    font-weight: 700;    
+    text-align: center;
+
 }
 .quanlyvieclam{
     padding: 30px 0;
@@ -1253,7 +1332,7 @@ dl {
 .qlvieclam{
     float: left;
     padding: 4px 0 6px 15px;
-    width: 12%;
+    width: 11,5%;
     margin-left: 70px;
 }
 .qlvl_ten{
@@ -1277,7 +1356,7 @@ dl {
 .qlvl_ten3{
     float: left;
     padding: 4px 0 6px 15px;
-    width: 15%;
+    width: 10%;
     margin-left: 25px;
 }
 .qlvl_ten4{
@@ -1289,14 +1368,53 @@ dl {
     float: left;
     padding: 4px 0 6px 15px;
     text-align: center;
-   width: 200px;
+    width: 200px;
 }
 
 .day{
     margin-left: 30px;
 }
+
+.taohoso{
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    color: -webkit-text;
+    margin-left: 300px;
+
+}
+.taohoso1{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.taohoso2{
+    height: 44px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.nopdon{
+    height: 30px;
+}
+.nopdon1{
+    margin-left: 50px;
+    width: 350px;
+}
+
 .input1 input[type="text"],input[type="password"]{
-    width: 274px;
+    width: 350px;
     height: 44px;
     size: 16px;
     border-radius: 5px;

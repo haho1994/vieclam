@@ -14,37 +14,42 @@
                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
               
                      </button>-->
-                    <a class="navbar-brand" style=" font-size: 20px;" >Nhà Tuyển Dụng</a>
+                    <a class="navbar-brand" style=" font-size: 20px;" href='{!! route("tuyendung.trangtin") !!}'>Nhà Tuyển Dụng</a>
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right">
-                    <div class="dnnhatuyendung">
+                    <div class="btn-group">
                         @if(auth()->check())
-                        <li><a style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span></li>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href='{!! route("taikhoan_suathongtincanhan") !!}'>Thông Tin Cá Nhân</a></li>
-                            <li><a>Đổi Mật Khẩu</a></li>
-                            <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
-                            <li><a href="{{url('logout')}}">Thoát</a></li>
-                        </ul> 
-                        @else
-                        <li><a href='{!! route("dangnhap.nhatuyendung") !!}'><b>Đăng Nhập</b></a></li>
+                        <li><a style="font: normal 100% arial, sans-serif;font-size: 13px"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
+                            <ul class="dropdown-menu1" role="menu" style="height: 100px;">
+                                <li><a style="font-size: 13px;" href='{!! route("nhatuyendung_taikhoan_suathongtinnhatuyendung") !!}'>Thông Tin Nhà Tuyển Dụng</a></li>
+                                <li><a style="font-size: 13px;" href='{!! route("nhatuyendung_doimatkhau") !!}'>Đổi Mật Khẩu</a></li>           
+                                <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
+                                
+                                <li><a style="font-size: 13px;" href="{{url('logout')}}">Thoát</a></li>
+                            </ul> 
+                            @else
+                        <li class="dn">
+                            <a  href='{!! route("dangnhap.nhatuyendung") !!}'>
+                                <b>Đăng Nhập</b>
+                            </a>
+                        </li>
                         @endif
+
                     </div>
-                    <li>
-                        <a  href='{!! route("dangnhap.nhatuyendung")!!}' aria-expanded="false" style=" font-size: 14px;">Đăng Nhập
-                        </a>
-                    </li>
+
                     <li>
                         <a href='{!! route("dangky_tuyendung") !!}' style=" font-size: 14px;">Đăng Ký
                         </a>
                     </li>
-                    <li>
+                    <li class="dn">
                         <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
                         </a>
+
                     </li>
                 </ul>
             </nav>
+
             <!--/. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
@@ -56,9 +61,11 @@
                         <li>
                             <a href='{!! route("timhoso") !!}' style=" font-size: 14px;">Tìm Kiếm Hồ Sơ</a>
                         </li>
+                        @if(!empty(auth()->user()->company->id))
                         <li>
                             <a href='{!! route("dangtin") !!}' style=" font-size: 14px;">Đăng Tuyển Dụng</a>
                         </li>
+                        @endif
                         <li>
                             <a href='' style=" font-size: 14px;">Quản Lý Công Ty</a>
                             <ul class="ntd_taocongty">

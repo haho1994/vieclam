@@ -7,7 +7,6 @@
         <input type="text" name="email" placeholder="Tên đăng nhập">
         <input type="password" name="password" placeholder="Mật khẩu">
         <input type="submit" name="login" class="login login-submit" value="Đăng Nhập">
-        <a href="{!! route('doimatkhau')!!}">Quên mật khẩu</a>
     </form>
 </div>
 @endsection

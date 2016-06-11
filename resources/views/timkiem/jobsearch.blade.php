@@ -12,7 +12,10 @@
             <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
             <table>
                 <tr>
-                    <td style="color: #3079ed; font: normal 150% 'trebuchet ms', arial, sans-serif;"><label>{!! $job->name !!}</label></td>
+                    <td style="color: #3079ed; font: normal 150% 'trebuchet ms', arial, sans-serif;"><label>{!! $job->name !!}</label> </td>
+                </tr>
+                <tr>
+                    <td><label style="font-size: 12px;color: #000;margin-left: 50px;">Ngày đăng tuyển : {!! $job->updated_at !!}</label></td>
                 </tr>
                 <tr>
                     <td>
@@ -33,6 +36,7 @@
                         </label>
                     </td>
                 </tr>
+                
                 <tr>
                     <td style="color: #808080; ">Kỹ Năng:</td>
                     <td style="color: #808080;">
@@ -75,7 +79,7 @@
                     <td style="color: #808080; ">Số Năm Kinh Nghiệm:</td>
                     <td style="color: #808080;"><label type="text" >{!! $job->experience !!}</label></td>
                 </tr>
-
+                
             </table>
         </form> 
 <div class="icon">
@@ -112,12 +116,16 @@
 
     <div class="lienhe" style="width: 1210px">
     <div class="lienhe1">
+        <div>
+        <label style="font-size: 20px;color: #1293EE;">Yêu Cầu Công Việc</label>
+        </div>
+        <p type="text" style="margin-left: 50px;" >  {!! $job->description !!}</p>
         <h2>
                             @if($job->company)
                             {!!$job->company->name!!}
                             @endif
         </h2>
-        <p>{!! $job->description !!}</p>
+                    <p style="margin-left: 50px;">{!! $job->company->description !!}</p>
     </div>
 </div>
     </div>

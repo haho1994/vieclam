@@ -73,7 +73,7 @@ class AdminQuanLyDanhMuc extends Controller {
 
         \Session::flash('success', 'Tao thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly_danhmuc');
     }
 
     //sua
@@ -114,7 +114,7 @@ class AdminQuanLyDanhMuc extends Controller {
 
         \Session::flash('success', 'Sua thanh cong');
 
-        return redirect()->back();
+        return redirect()-> route('admin.quanly_danhmuc');
     }
 
     public function destroy($id){

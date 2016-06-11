@@ -42,13 +42,12 @@ class JobSearchController extends Controller {
 
     public function vieclam() {
         $user = auth()->user();
-        $job_favourites = Job_favourite::all();
+        $job_favourites = Job_favourite::where('id_user', $user->id)->get();
         return view('thongtin.vieclam', compact('job_favourites', 'user'));
     }
 
-    public function nopdon() {
+    public function nopdon($jobId) {
         $user = auth()->user();
-        $jobId = request()->get('id');
         $job = Job::find($jobId);
         return view('thongtin.nopdon')->with([
                     'job' => $job,
@@ -60,7 +59,7 @@ class JobSearchController extends Controller {
         $user = auth()->user();
         $file = request()->file('cv');
 
-        $director = public_path('upload/jobs/' . $jobId . '/cv/' . $user->id);
+        $director = public_path('upload/jobs/' . $jobId . '/cv/' );
         //move_uploaded_file($file->getPathName(), $director.'/abc.doc');
 
         \File::makeDirectory($director, $mode = 0777, true, true);

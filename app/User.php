@@ -46,5 +46,8 @@ class User extends Authenticatable implements CanResetPassword {
     {
         return $this->hasOne(Company::class, 'user_id', 'id');
     }
-
+    public function CvLanguage()
+    {
+        return $this->belongsToMany(Job::class, 'curriculumvitaes_languages', 'id_curriculum_vitae', 'id_language');
+    }
 }

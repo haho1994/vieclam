@@ -2,39 +2,40 @@
 @section('noi_dung')
 <div class="showjob">
     <div class="dua">
+        <h2>Nộp Đơn Ứng Tuyển</h2>
         <table>
-            <tr>
-                 <td><label>Ho ten</label></td>
-                <td>
+            <tr class="nopdon">
+                <td style="width: 300px;"><label>Họ Và Tên:</label></td>
+                 <td class="nopdon1">
                     <label>{!! $user->full_name !!}</label>
                 </td>
             </tr>
-            <tr>
-                <td><label>Địa Chỉ Email</label></td>
+            <tr class="nopdon">
+                <td style="width: 300px;"><label>Địa Chỉ Email:</label></td>
                 <td>
                     <label>{!! $user->email !!}</label>
                 </td>
             </tr>
-            <tr>
-                <td><label>Tuyển Dụng Công Việc</label></td>
+            <tr class="nopdon">
+                <td style="width: 300px;"><label>Tuyển Dụng Công Việc:</label></td>
                 <td>
                     <label>
-                        <em style="color: #808080;">{!!$job->name!!}</em>
+                       {!!$job->name!!}
                      </label>
                 </td>
             </tr>
-            <tr>
-                <td><label>Công Ty Ứng Tuyển</label></td>
+            <tr class="nopdon">
+                <td style="width: 300px;"><label>Công Ty Ứng Tuyển:</label></td>
                 <td>
                     <label>
                         @if($job->company)
-                        <em style="color: #808080;">{!!$job->company->name!!}</em>
+                        {!!$job->company->name!!}
                         @endif
                     </label>
                 </td>
             </tr>
-            <tr>
-                <td style="color: #808080; ">Hồ Sơ Ứng Tuyển</td>
+            <tr class="nopdon">
+                <td style="width: 300px;">Hồ Sơ Ứng Tuyển:</td>
                 <td style="color:#3079ed;" >
                     <form action="/nop-don/upload/{!!$job->id!!}" method="post" enctype="multipart/form-data" >
                         <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />

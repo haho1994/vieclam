@@ -21,12 +21,9 @@
 
                         @if(auth()->check())
                         <li><a class="tenht" style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="divider" style="height: 1px;background-color: #e5e5e5;"></li>
-                                <li><a href="{{url('logout')}}">Thoát</a></li>
-                            </ul> 
+                            
                             @else
-                        <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
+                        <li><a href='{!! route("admin_login") !!}'><b>Đăng Nhập</b></a></li>
                         @endif
 
                     </div>
