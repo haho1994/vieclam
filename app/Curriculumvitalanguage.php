@@ -23,6 +23,7 @@ class  Curriculumvitalanguage extends Model {
     {
         return $this->belongsTo(Curriculumvita::class, 'id_curriculum_vitae', 'id');
     }
+    
 }
 
 

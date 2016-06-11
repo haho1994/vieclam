@@ -2311,6 +2311,12 @@ fieldset[disabled] .btn-link:focus {
   color: #999;
   text-decoration: none;
 }
+.menu1{
+    position: relative;
+    display: block;
+    padding: 19px 15px;
+    color: #77C0FD;
+}
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;

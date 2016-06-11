@@ -42,8 +42,8 @@
                         <a href='{!! route("dangky_tuyendung") !!}' style=" font-size: 14px;">Đăng Ký
                         </a>
                     </li>
-                    <li class="dn">
-                        <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Sử Dụng
+                    <li>
+                        <a  style=" font-size: 14px;" href='{!! route("frontend.search.get")!!}'>Người Tìm Việc
                         </a>
 
                     </li>

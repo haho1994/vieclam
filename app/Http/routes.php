@@ -122,7 +122,7 @@ Route::group(['middleware' => 'auth_uv'], function() {
         'uses' => 'HoSoController@edit'
     ]);
 
-    Route::post('hoso-cuatoi/luu/{id}', [
+    Route::get('hoso-cuatoi/luu/{id}', [
         'as' => 'hoso.luu',
         'uses' => 'HoSoController@update'
     ]);
@@ -133,7 +133,13 @@ Route::group(['middleware' => 'auth_uv'], function() {
         'uses' => 'JobSearchController@nopdonCV'
     ]);
 
-    Route::get('/nopdon/{job_id}', [
+
+ 
+    Route::post('nop-don/tao', [
+        'as' => 'nopdon.xuly',
+        'uses' => 'JobSearchController@xuly'
+    ]);
+    Route::get('/nopdon', [
         'as' => 'nopdonungtuyen',
         'uses' => 'JobSearchController@nopdon'
     ]);
@@ -866,38 +872,38 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 //Công việc yêu thích
-//    Route::get('admin/quanly-job-fa', [
-//        'as' => 'admin.quanly_job',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@index'
-//    ]);
-//    Route::get('admin/quanly-job-fa/them', [
-//        'as' => 'admin.quanly_job.them',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@create'
-//    ]);
-//
-//    Route::post('admin/quanly-job-fa/them', [
-//        'as' => 'admin.quanly_job.xuly',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@store'
-//    ]);
-//
-//    Route::get('admin/quanly-job-fa/sua/{id}', [
-//        'as' => 'admin.quanly_job.sua',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@edit'
-//    ]);
-//
-//    Route::post('admin/quanly-job-fa/luu/{id}', [
-//        'as' => 'admin.quanly_job.luu',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@update'
-//    ]);
-//
-//    Route::get('admin/quanly-job-fa/xoa/{id}', [
-//        'as' => 'admin.quanly_job.xoa',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@destroy'
-//    ]);
-//    Route::get('admin/quanly-job-fa/xem/{id}', [
-//        'as' => 'admin.quanly_job.xem',
-//        'uses' => 'AdminQuanLyCongViecYeuThich@show'
-//    ]);
+    Route::get('admin/quanly-job-fa', [
+        'as' => 'admin.quanly_job',
+        'uses' => 'AdminQuanLyCongViecYeuThich@index'
+    ]);
+    Route::get('admin/quanly-job-fa/them', [
+        'as' => 'admin.quanly_job.them',
+        'uses' => 'AdminQuanLyCongViecYeuThich@create'
+    ]);
+
+    Route::post('admin/quanly-job-fa/them', [
+        'as' => 'admin.quanly_job.xuly',
+        'uses' => 'AdminQuanLyCongViecYeuThich@store'
+    ]);
+
+    Route::get('admin/quanly-job-fa/sua/{id}', [
+        'as' => 'admin.quanly_job.sua',
+        'uses' => 'AdminQuanLyCongViecYeuThich@edit'
+    ]);
+
+    Route::post('admin/quanly-job-fa/luu/{id}', [
+        'as' => 'admin.quanly_job.luu',
+        'uses' => 'AdminQuanLyCongViecYeuThich@update'
+    ]);
+
+    Route::get('admin/quanly-job-fa/xoa/{id}', [
+        'as' => 'admin.quanly_job.xoa',
+        'uses' => 'AdminQuanLyCongViecYeuThich@destroy'
+    ]);
+    Route::get('admin/quanly-job-fa/xem/{id}', [
+        'as' => 'admin.quanly_job.xem',
+        'uses' => 'AdminQuanLyCongViecYeuThich@show'
+    ]);
 //report
 //    Route::get('admin/report', [
 //        'as' => 'admin.quanly-report',

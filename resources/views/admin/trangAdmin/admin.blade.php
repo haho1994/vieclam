@@ -13,29 +13,28 @@
                     <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
               
                      </button>-->
-                    <a class="navbar-brand">Admin</a>
+                    <a class="navbar-brand"style="font-size: 20px;">Trang Quản Trị</a>
                 </div>
 
-                <ul class="nav navbar-top-links navbar-right">
+                <ul class="nav navbar-top-links navbar-right" style="margin-right: 20px; margin-top: 16px;">
                     <div class="btn-group" >
 
                         @if(auth()->check())
-                        <li><a class="tenht" style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a><span class="caret"></span>
-                            
-                            @else
-                        <li><a href='{!! route("admin_login") !!}'><b>Đăng Nhập</b></a></li>
+                        <li class="menu1"><a  style="font: normal 100% arial, sans-serif;"><b>{{auth()->user()->full_name}}</b></a>
+
+                        </li>
+                    </div>
+                    <div  class="btn-group">
+                        <li class="menu1">
+                            <a href="{{url('admin/logout')}}">Thoát</a>
+                        </li>
+                        @else
+                        <li><a href='{!! route("dangnhap") !!}'><b>Đăng Nhập</b></a></li>
                         @endif
 
                     </div>
-                    <li>
-                        <a href="#">Thông Báo
-                        </a>
-                    </li>
-                    
-                    <!--                    <li>
-                                            <a  href='{!! route("admin.login") !!}' aria-expanded="false" >Đăng Nhập</a>
-                                        </li>-->
-                </ul>
+                   </ul>
+
             </nav>
             <!--/. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
@@ -68,7 +67,14 @@
                             <a  href='{!! route("admin.quanly_jobs") !!}'>Việc Làm</a>
                         </li>
                         <li>
+
+                            <a  href='{!! route("admin.diadiem") !!}'>Tỉnh, T.p</a>
+                        </li>
+                        <li>
                             <a href='{!! route("admin.quanly_curriculumvitaes") !!}'>Hồ Sơ</a>
+                        </li>
+                        <li>
+                            <a href='{!! route("admin.quanly_job") !!}'>Công Việc Yêu Thích</a>
                         </li>
                     </ul>
 

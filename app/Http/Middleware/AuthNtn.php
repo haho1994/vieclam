@@ -22,7 +22,7 @@ class AuthNtn
         }
         $user = auth()->user();
         if ($user->type != 2) {
-            auth()->nhatuyendung-logout();
+            auth()->logout();
             return redirect()->route('dangnhap.nhatuyendung');
         }
         //cho vao trang admin

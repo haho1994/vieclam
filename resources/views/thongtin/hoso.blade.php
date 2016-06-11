@@ -113,7 +113,7 @@
                                 </tr>-->
                             </table>
                         </div>
-                        @if(!empty($cv->filename))
+                        @if(empty($cv->filename))
                         <a href='{!! route("nguoidung.download.cv", ["filename" => $cv->filename, "cv_id" => $cv->id]) !!}'>
                             Tải hồ sơ 
                         </a>
