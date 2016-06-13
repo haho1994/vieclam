@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Người Sử Dụng/ Sửa</small>
+                             Cập Nhập<small>Người Sử Dụng/ Sửa</small>
                         </h1>
                     </div>
 </div>

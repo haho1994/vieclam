@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Curriculumvitaes/ Thêm</small>
+                             Cập Nhập<small>Hồ Sơ/ Thêm</small>
                         </h1>
                     </div>
 </div>

@@ -186,7 +186,6 @@ class NhaTuyenDungController extends Controller {
         if ($xuly->fails()) {
             return redirect()->route('ntd_congty')->withErrors($xuly);
         }
-
         //auth()->user() lay thongg tin cua user dang dang nhap hien tai
         $dulieu['user_id'] = auth()->user()->id;
         //$dulieu['id_company'] = auth()->user()->company->id;

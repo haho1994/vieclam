@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             Job<small>Favourites</small>
+                             Job<small>Favourites/Sửa</small>
                         </h1>
                     </div>
                 </div>

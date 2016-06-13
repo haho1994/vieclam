@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Danh mục</small>
+                             Cập Nhập<small>Danh mục</small>
                         </h1>
                     </div>
 </div>
@@ -19,7 +19,7 @@
         <td>{!! $item->id !!}</td>
         <td>{!! $item->name !!}</td>
         <td>
-            <a href='#'>Xem</a>
+            <a href='{!! route("admin.quanly_danhmuc.xem", array("id" => $item->id)) !!}'>Xem</a>
             <a href='{!! route("admin.quanly_danhmuc.sua", array("id" => $item->id)) !!}'>Sua</a>
             <a href='{!! route("admin.quanly_danhmuc.xoa", array("id" => $item->id)) !!}'>Xoa</a>
         </td>

@@ -148,5 +148,7 @@ class AdminQuanlyJobs extends Controller {
                     'job' => $job,
             ]);
     }
-
+    public function thoat(){
+       return view('admin.congviec.index');
+    }
 }

@@ -31,7 +31,7 @@
                     <tr class="qlnn1-4">
                         <td><label><b>Công Ty Gần Đây Nhất:</b></label></td>
                         <td>
-                            <select name="recent_company_id" >
+                            <select class="taohoso2" name="recent_company_id" >
                                 <option value="" >Chọn công ty</option>
                                 @foreach($companies as $company)
                                 <option value="{!! $company->id !!}">{!! $company->name !!}</option>
@@ -48,7 +48,7 @@
                     <tr class="qlnn1-4">
                         <td><label><b>Nghành Nghề Gần Đây Nhất:</b></label></td>
                         <td>
-                            <select name="recent_category_id" >
+                            <select class="taohoso2" name="recent_category_id" >
                                 <option value="" >Chọn nghành nghề</option>
                                 @foreach($categories as $category)
                                 <option value="{!! $category->id !!}">{!! $category->name !!}</option>
@@ -79,7 +79,7 @@
                     <tr class="qlnn1-4">
                         <td><label><b>Địa Điểm Mong Muốn:</b></label></td>
                         <td>
-                            <select name="expected_location_id" >
+                            <select class="taohoso2" name="expected_location_id" >
                                 <option value="" >Chọn địa điểm</option>
                                 @foreach($locations as $location)
                                 <option value="{!! $location->id !!}">{!! $location->name !!}</option>

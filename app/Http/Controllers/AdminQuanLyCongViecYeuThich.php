@@ -114,5 +114,7 @@ class AdminQuanlyCongViecYeuThich extends Controller {
                     'job_favourite' => $job_favourite,
             ]);
     }
-
+    public function thoat(){
+       return view('admin.congviecyeuthich.index');
+    }
 }

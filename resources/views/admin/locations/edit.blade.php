@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Location</small>
+                             Cập Nhập<small>Địa Chỉ/ Sửa</small>
                         </h1>
                     </div>
                 </div>

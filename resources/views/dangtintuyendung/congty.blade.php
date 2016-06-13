@@ -43,7 +43,7 @@ if (Session::has('success')) {
                         <tr>
                             <td style="width: 205px;"><label>Địa Chỉ Công Ty</label></td>
                             <td class="tuyendung_form_ipput">
-                                <select name="id_location" >
+                                <select name="address" >
                                     <option value="" >Chọn địa chỉ</option>
                                     @foreach($locations as $location)
                                     <option value="{!! $location->id !!}">{!! $location->name !!}</option>

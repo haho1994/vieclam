@@ -123,5 +123,13 @@ class AdminQuanLyDanhMuc extends Controller {
         
         return redirect()->back();
     }
-
+    public function show($id){
+        $category = Category::find($id);
+        return view('admin.danhmuc.show')->with([
+                    'category' => $category,
+            ]);
+    }
+    public function thoat(){
+       return view('admin.danhmuc.index');
+    }
 }

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-            <small>Jobs/ Thêm</small>
+            <small>Việc Làm/ Thêm</small>
         </h1>
     </div>
 </div>

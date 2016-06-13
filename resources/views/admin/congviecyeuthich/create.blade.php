@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             Job<small>Favourites</small>
+                             Việc Làm<small>Yêu Thích/Thêm</small>
                         </h1>
                     </div>
                 </div>

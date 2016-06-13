@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Jobs/ Xem</small>
+                             <small>Việc Làm/ Xem</small>
                         </h1>
                     </div>
 </div>
@@ -13,7 +13,7 @@
     }
 ?>
 
-<form action="{!! route('admin.quanly_jobs.xem', ['id' => $job->id]) !!}" method="post">
+<form action="{!! route('admin.quanly_jobs.thoat', ['id' => $job->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
@@ -105,7 +105,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <a href='{!! route("admin.quanly_companies")!!}'>Thoát</a>
+                <a href='{!! route("admin.quanly_jobs")!!}'>Thoát</a>
             </td>
         </tr>
     </table>

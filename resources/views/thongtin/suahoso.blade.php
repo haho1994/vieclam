@@ -135,20 +135,19 @@
                         </td>
                     </tr>
                     <tr class="qlnn1-4">
-                        <td><label><b>Mức Độ Công Việc Dự Kiến:</b></label></td>
-                        <td>
-                            <input type="text" value="{!! $cv->expected_job_level !!}" name="expected_job_level" class="taohoso2"/>
-                            <?php
-                            if ($errors->has('expected_job_level')) {
-                                echo $errors->first('expected_job_level');
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <tr class="qlnn1-4">
                         <td><label><b>Loại Công Việc Dự Kiến:</b></label></td>
                         <td>
-                            <input type="text" value="{!! $cv->expected_job_category !!}" name="expected_job_category" class="taohoso2" />
+                        <select name="expected_job_category"  class="taohoso2">
+                                @foreach($categories as $category)
+                                <?php
+                                $selected = '';
+                                if ($category->id == $cv->expected_job_category) {
+                                    $selected = 'selected';
+                                }
+                                ?>
+                                <option value="{!! $category->id !!}" {!!$selected!!} >{!! $category->name !!}</option>
+                                @endforeach
+                            </select>
                             <?php
                             if ($errors->has('expected_job_category')) {
                                 echo $errors->first('expected_job_category');

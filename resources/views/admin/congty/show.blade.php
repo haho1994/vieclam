@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Companies/ Xem</small>
+                             <small>Công Ty/ Xem</small>
                         </h1>
                     </div>
 </div>

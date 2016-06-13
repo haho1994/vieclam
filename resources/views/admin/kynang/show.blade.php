@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Cập Nhật <small>Kỹ Năng</small>
+                             Cập Nhập<small>Kỹ Năng/Xem</small>
                         </h1>
                     </div>
                 </div>
@@ -12,7 +12,7 @@
         echo \Session::get('success');
     }
 ?>
-<form action="{!! route('admin.quanly-kynang.xem', ['id' => $skills->id]) !!}" method="post">
+<form action="{!! route('admin.quanly-kynang.thoat', ['id' => $skills->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
@@ -37,11 +37,9 @@
             <td><label>Miêu Tả</label></td>
             <td><label type="text">{!! $skills->description !!}</label></td>
         </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Trở về" href='{!! route("admin.diadiem") !!}' />
-            </td>
-        </tr>
+        <td colspan="2">
+            <a href='{!! route("admin.quanly-kynang")!!}'>Thoát</a>
+        </td>
     </table>
 </form>
 @endsection

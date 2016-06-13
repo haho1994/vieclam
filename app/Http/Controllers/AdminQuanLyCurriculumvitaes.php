@@ -151,5 +151,7 @@ class AdminQuanlyCurriculumvitaes extends Controller {
                     'curriculumvita' => $curriculumvita,
             ]);
     }
-
+    public function thoat(){
+       return view('admin.hoso.index');
+    }
 }

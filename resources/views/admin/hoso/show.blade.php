@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                             <small>Curriculumvitaes/ Xem</small>
+                             Cập Nhập<small>Hồ Sơ/ Xem</small>
                         </h1>
                     </div>
 </div>
@@ -13,7 +13,7 @@
     }
 ?>
 
-<form action="{!! route('admin.quanly_curriculumvitaes.xem', ['id' => $curriculumvita->id]) !!}" method="post">
+<form action="{!! route('admin.curriculumvitaes.thoat', ['id' => $curriculumvita->id]) !!}" method="post">
     <input type='hidden' name='_token' value="<?php echo csrf_token() ?>" />
     <table>
         <tr>
@@ -98,21 +98,10 @@
             <td><label>Thương lượng</label></td>
             <td><label type="text" >{!! $curriculumvita->is_negotiable !!}</label></td>
         </tr>
-<!--        <tr>
-            <td><label>Ngôn ngữ</label></td>
-            <td>
-                <label type="text" >
-                    @if($curriculumvita->languages)
-                    {!! $curriculumvita->languages->name !!}
-                    @endif
-                </label>
+
+        <td colspan="2">
+                <a href='{!! route("admin.quanly_companies")!!}'>Thoát</a>
             </td>
-        </tr>-->
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Trở về" />
-            </td>
-        </tr>
     </table>
 </form>
 @endsection

@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Cập Nhật <small>Ngôn Ngữ</small>
+                             Cập Nhập<small>Ngôn Ngữ / Xem</small>
                         </h1>
                     </div>
                 </div>

@@ -139,7 +139,7 @@ Route::group(['middleware' => 'auth_uv'], function() {
         'as' => 'nopdon.xuly',
         'uses' => 'JobSearchController@xuly'
     ]);
-    Route::get('/nopdon', [
+    Route::get('/nopdon/{id}', [
         'as' => 'nopdonungtuyen',
         'uses' => 'JobSearchController@nopdon'
     ]);
@@ -478,6 +478,16 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly_danhmuc.xoa',
         'uses' => 'AdminQuanlyDanhMuc@destroy'
     ]);
+    
+    Route::get('admin/quanly-danhmuc/xem/{id}', [
+        'as' => 'admin.quanly_danhmuc.xem',
+        'uses' => 'AdminQuanlyDanhMuc@show'
+    ]);
+
+    Route::get('admin/quanly-danhmuc/thoat', [
+        'as' => 'admin.quanly_danhmuc.thoat',
+        'uses' => 'AdminQuanlyDanhMuc@thoat'
+    ]);
     //company
     Route::get('admin/quanly-companies', [
         'as' => 'admin.quanly_companies',
@@ -552,7 +562,12 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly_curriculumvitaes.xem',
         'uses' => 'AdminQuanlyCurriculumvitaes@show'
     ]);
-
+    
+    Route::get('admin/quanly-curriculumvitaes/thoat', [
+        'as' => 'admin.curriculumvitaes.thoat',
+        'uses' => 'AdminQuanlyCurriculumvitaes@thoat'
+    ]);
+//điaiem
     Route::get('admin/locations', [
         'as' => 'admin.diadiem',
         'uses' => 'AdminQuanlyDiaDiem@index'
@@ -692,7 +707,11 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly_jobs.xem',
         'uses' => 'AdminQuanlyJobs@show'
     ]);
-
+    
+    Route::get('admin/quanly-jobs/thoat', [
+        'as' => 'admin.quanly_jobs.thoat',
+        'uses' => 'AdminQuanlyJobs@thoat'
+    ]);
     //news
 //    Route::get('admin/quanly-news', [
 //        'as' => 'admin.quanly_news',
@@ -794,7 +813,11 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'admin.quanly-kynang.xem',
         'uses' => 'AdminQuanLyKyNang@show'
     ]);
-
+    
+    Route::get('admin/kynang/thoat', [
+        'as' => 'admin.quanly-kynang.thoat',
+        'uses' => 'AdminQuanLyKyNang@thoat'
+    ]);
 
     //location
     Route::get('admin/locations', [
@@ -903,6 +926,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('admin/quanly-job-fa/xem/{id}', [
         'as' => 'admin.quanly_job.xem',
         'uses' => 'AdminQuanLyCongViecYeuThich@show'
+    ]);
+    
+    Route::get('admin/quanly-job-fa/thoat', [
+        'as' => 'admin.quanly_job.thoat',
+        'uses' => 'AdminQuanLyCongViecYeuThich@thoat'
     ]);
 //report
 //    Route::get('admin/report', [
